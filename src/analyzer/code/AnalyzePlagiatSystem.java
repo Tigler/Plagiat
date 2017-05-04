@@ -106,4 +106,8 @@ public class AnalyzePlagiatSystem {
    public void setFirstFiles(ArrayList<String> pathFiles){
         firstAnalyzer.setListPathFiles(pathFiles);
     }
+
+    public void firstProjCompareDB() {
+
+    }
 }

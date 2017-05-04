@@ -6,40 +6,25 @@
 package FXML.MainWindow;
 
 import analyzer.code.AnalyzePlagiatSystem;
-import analyzer.code.AnalyzerC;
 import analyzer.code.LanguagePrograming;
-import com.sun.javafx.collections.ElementObservableListDecorator;
 import com.sun.javafx.collections.ObservableListWrapper;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URL;
-import java.util.*;
-
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.value.ObservableListValue;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 import javafx.stage.DirectoryChooser;
-import languageProg.LanguageProg;
 import org.apache.commons.io.FilenameUtils;
-import parsers.Java.JavaParser;
 
-import javax.swing.DefaultComboBoxModel;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  * FXML Controller class
@@ -71,10 +56,6 @@ public class FXMLMainWindowController implements Initializable {
     TextField textFieldPath1;
     @FXML
     TextField textFieldPath2;
-    @FXML
-    Tab tabProjectBD;
-    @FXML
-    Tab tabProjectProject;
     @FXML
     ComboBox comboBoxLang1;
     @FXML
@@ -190,6 +171,28 @@ public class FXMLMainWindowController implements Initializable {
                     textFieldPath2.setText(choice.getPath());
                     treeView2.setRoot(getNodesForDirectory(choice));
                 }
+            }
+        });
+
+
+        /**
+         * Событие при нажитии кнопки открытия проекта для первой панели
+         */
+        buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                analyzePlagiatSystem.firstProjCompareDB();
+            }
+        });
+
+        /**
+         * Событие при нажитии кнопки открытия проекта для первой панели
+         */
+        buttonCalcDB2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                analyzePlagiatSystem.analyzeProjects();
+
             }
         });
 

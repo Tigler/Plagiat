@@ -5,7 +5,6 @@ package analyzer.code;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import org.jcp.xml.dsig.internal.dom.Utils;
 
 import java.sql.*;
 import java.util.logging.Logger;
@@ -15,7 +14,6 @@ import java.util.logging.Logger;
  */
 public class ConnectorDB {
     private static final Logger LOGGER = Logger.getLogger(ConnectorDB.class.getName());
-
     // JDBC URL, username and password of MySQL server
     private static final String url = "jdbc:mysql://localhost:3306/SourcesDB?characterEncoding=UTF-8";
     private static final String user = "root";
@@ -34,43 +32,11 @@ public class ConnectorDB {
     public static final String deleteProject = "delete from Project where id = ?";
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
-    
 
     public static final String selectAllRoles = "select id,name from role";
     public static final String selectAllDevelopersWithNull = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name from developer" +
             " inner JOIN role on role.id=developer.id_role" +
             " where id_team is NULL";
-    public static final String selectAllTeamsWithCount = "SELECT team.id,team.name,team.technology,COUNT(developer.id_team)" +
-            " FROM team,developer where developer.id_team=team.id || developer.id_team is null GROUP BY team.id";
-
-    // repository
-    public static final String updateNameRepository = "update repository set name = ? WHERE id = ?";
-    public static final String updateUrlRepository = "update repository set url = ? WHERE id = ?";
-    public static final String updateDateOfCreationProject = "update repository set date_of_creation = ? WHERE id = ?";
-    public static final String updateDescriptoion = "update project_repository set description = ? WHERE id_repository = ?";
-    public static final String updateResponsible = "update repository set repository.id_developer_responsible = ? WHERE id = ?";
-    public static final String selectRepositoryInProjects = "SELECT repository.id,repository.name,url,date_of_creation,repository.id_developer_responsible," +
-            "(SELECT concat(name,\" \",surname,\" \",middlename)  FROM developer WHERE  developer.id = repository.id_developer_responsible) as FIO," +
-            "project_repository.description,project_repository.id " +
-            "FROM repository,project_repository,project " +
-            "WHERE " +
-            "repository.id = project_repository.id_repository " +
-            "and project_repository.id_project = project.id AND " +
-            "project.id = ?";
-    public static final String selectAllRepository = "SELECT repository.id,repository.name,url,date_of_creation,repository.id_developer_responsible," +
-            "(SELECT concat(name,\" \",surname,\" \",middlename)  FROM developer WHERE  developer.id = repository.id_developer_responsible) as FIO " +
-            "FROM repository ";
-    public static final String insertNewProjectRepository = "insert into project_repository ( id_repository, id_project, description) " +
-            "values (?, ?, ?)";
-    public static final String insertNewRepository = "insert into repository (name, url, id_developer_responsible, date_of_creation) " +
-            "values (?, ?, ?, ?)";
-
-    public static final String delRepositoryFromProject = "delete from project_repository where id = ?";
-    public static final String delRepository = "delete from repository where id = ?";
-
-    // TODO role_in_the_project
-    public static final String insertNewDeveloperProject = "insert into developer_project (id_developer,id_project,role_in_the_project)" +
-            "values (?, ?, ?)";
 
     /**
      * Инициализирует соединение с БД
