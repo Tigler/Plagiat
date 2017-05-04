@@ -34,28 +34,7 @@ public class ConnectorDB {
     public static final String deleteProject = "delete from Project where id = ?";
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
-    public static final String selectDevelopersInTeam = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name from developer" +
-            " inner JOIN role on role.id=developer.id_role" +
-            " where id_team = ?";
-
-    public static final String selectAllDevelopers = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name from developer" +
-            " inner JOIN role on role.id=developer.id_role";
-    public static final String selectAllDevelopersWithTeamName = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name," +
-            "(SELECT team.name from team WHERE team.id=developer.id_team),gitname,gitemail from developer,role " +
-            "where  role.id=developer.id_role";
-
-    public static final String insertNewDeveloper = "insert into developer (name,surname,middlename,id_role,id_team,age,phone) " +
-            "values (?, ?, ?, ?, ?, ?, ?)";
-    public static final String deleteDeveloper = "delete from developer WHERE id = ?";
-    public static final String updateDeveloperTeam = "update developer set id_team = ? WHERE id = ?";
-    public static final String updateNameDeveloper = "update developer set name = ? WHERE id = ?";
-    public static final String updateSurnameDeveloper = "update developer set surname = ? WHERE id = ?";
-    public static final String updateMidleNameDeveloper = "update developer set middlename = ? WHERE id = ?";
-    public static final String updateAgeDeveloper = "update developer set age = ? WHERE id = ?";
-    public static final String updatePhoneDeveloper = "update developer set phone = ? WHERE id = ?";
-    public static final String updateRoleDeveloper = "update developer set id_role = ? WHERE id = ?";
-    public static final String updateGitName = "update developer set gitname = ? WHERE id = ?";
-    public static final String updateGitEmail = "update developer set gitemail = ? WHERE id = ?";
+    
 
     public static final String selectAllRoles = "select id,name from role";
     public static final String selectAllDevelopersWithNull = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name from developer" +
