@@ -108,6 +108,6 @@ public class AnalyzePlagiatSystem {
     }
 
     public void firstProjCompareDB() {
-
+        //
     }
 }
