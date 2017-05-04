@@ -207,16 +207,6 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
-        /**
-         * Событие при нажитии кнопки открытия проекта для первой панели
-         */
-        buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                analyzePlagiatSystem.analyzeProjects();
-
-            }
-        });
 
         /**
          * Событие при нажитии кнопки полной проверки

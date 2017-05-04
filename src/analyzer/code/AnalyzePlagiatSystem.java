@@ -6,7 +6,11 @@
 package analyzer.code;
 
 import analyzer.CalculatorPlagiat;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -108,6 +112,16 @@ public class AnalyzePlagiatSystem {
     }
 
     public void firstProjCompareDB() {
-        //
+        try {
+            ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка доступа к базе данных");
+            alert.setHeaderText("Ошибка при получении данных");
+            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(e.toString())));
+            alert.showAndWait();
+        }
     }
 }

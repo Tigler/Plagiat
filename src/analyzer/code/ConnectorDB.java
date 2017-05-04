@@ -27,7 +27,7 @@ public class ConnectorDB {
 
     // Подготовленные запросы
     //для таблицы проект
-    public static final String selectProjects = "select id,Author,Name,MidLenOLCom from Project";
+    public static final String selectProjects = "select id,Author,Name,MidLenOLCom fromываа Project1";
     public static final String insertNewProject = "insert into Project (Author,Name, MidLenOLCom) values (?, ?, ?)";
     public static final String deleteProject = "delete from Project where id = ?";
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
