@@ -6,7 +6,6 @@
 package events;
 
 import analyzer.code.IMetric;
-import events.Event;
 
 /**
  *
@@ -25,8 +24,8 @@ public class EventMiddleLenIdent extends ListenerParser{
     }
     
     @Override
-    public void onEvent(Event event) {   
-        if(event.getCode() == Event.ISIDENT){
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.ISIDENT) {
             middleLenIdent.calculate(event);
         }else{
             if(successor!=null){

@@ -5,15 +5,18 @@
  */
 package metrics;
 
+import analyzer.code.IMetric;
 import enums.EnumMarkLevelNest;
 import enums.EnumNamesMetric;
-import events.Event;
-import analyzer.code.IMetric;
 import events.EventIfLevelNest;
+import events.EventParser;
 import events.ListenerParser;
+
+import java.util.ArrayList;
 
 /**
  * Метрика  - Определяет максимальный уровень вложенности оператара if
+ *
  * @author tigler
  */
 public class IfLevelNest implements IMetric {
@@ -35,36 +38,45 @@ public class IfLevelNest implements IMetric {
      */
     public final static double MAXSETTING = 6.0;
 
+    private ArrayList<Integer> seqLevelsNest;
+
     /**
      * Конструктор без параметров, инициализирует переменные экзмепляра нулевыми значениями.
      */
     public IfLevelNest() {
         maxLevel = 0;
         curLevel = 0;
+        seqLevelsNest = new ArrayList<>();
     }
 
     /**
      * В зависимости от кода параметра event, изменяет максимальный, и текущий уровень вложенности.
      * Максимальный уровень вложенности - максимальное значение из текущего уровня вложенности.
+     *
      * @param event - - событие возникшее в синтаксическом анализаторе
      */
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.IF_START) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.IF_START) {
             curLevel++;
             if (maxLevel < curLevel) {
                 maxLevel = curLevel;
             }
         }
-        if (event.getCode() == Event.IF_END) {
+        if (event.getCode() == EventParser.IF_END) {
             curLevel--;
+            if (curLevel == 0) {
+                seqLevelsNest.add(maxLevel);
+                maxLevel = curLevel = 0;
+            }
         }
     }
 
     /**
      * Получить максимальный уровень вложенности
-     * @see  - Использует данные полученные в методе calculate
+     *
      * @return Максимальный уровень вложенности.
+     * @see - Использует данные полученные в методе calculate
      */
     @Override
     public double getResult() {
@@ -82,8 +94,9 @@ public class IfLevelNest implements IMetric {
 
     /**
      * Статический метод для получения названия метрики.
-     * Использует перечисление EnumNamesMetric с названиями метрик. 
-     * @return  Строку - навание метрики.
+     * Использует перечисление EnumNamesMetric с названиями метрик.
+     *
+     * @return Строку - навание метрики.
      */
     public String getName() {
         return EnumNamesMetric.levelNest.toString();
@@ -91,14 +104,18 @@ public class IfLevelNest implements IMetric {
 
     @Override
     public ListenerParser initListener(IMetric metric, ListenerParser listener) {
-        return new EventIfLevelNest(metric,listener);
+        return new EventIfLevelNest(metric, listener);
+    }
+
+    public ArrayList<Integer> getSeqLevelsNest() {
+        return seqLevelsNest;
     }
 
     /**
      * Статический метод для получения описания оценки.
-     * 
-     * @param bad - значение плохой оценки
-     * @param good - значение хорошей оценки
+     *
+     * @param bad    - значение плохой оценки
+     * @param good   - значение хорошей оценки
      * @param metric - текущая оценка
      * @return Строку оценки, в зависимости от значений параметров
      */

@@ -11,7 +11,7 @@ package events;
  *
  * @author tigler
  */
-public class Event {
+public class EventParser {
 
     /**
      * финализированная переменная. Произошеднее событие: начало if
@@ -134,13 +134,13 @@ public class Event {
      */
     private int code;
     /**
-     * код события
+     * номер строки где произошло собитие
      */
     private int str;
     /**
-     * код события
+     * путь до файла где произошлло собитие
      */
-    private String name;
+    private String path;
 
     /**
      * Конструктор с параметрами
@@ -148,11 +148,11 @@ public class Event {
      * @param ident - текст идентификатора
      * @param code  - код события
      */
-    public Event(String ident, int code, int str, String name) {
+    public EventParser(String ident, int code, int str, String path) {
         this.ident = ident;
         this.code = code;
         this.str = str;
-        this.name = name;
+        this.path = path;
     }
 
     public String getIdent() {
@@ -164,4 +164,11 @@ public class Event {
     }
 
 
+    public int getStr() {
+        return str;
+    }
+
+    public String getPath() {
+        return path;
+    }
 }

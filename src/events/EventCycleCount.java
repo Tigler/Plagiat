@@ -18,10 +18,10 @@ public class EventCycleCount extends ListenerParser {
     }
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.WHILE_START || event.getCode() == Event.WHILE_END
-                || event.getCode() == Event.DO_WHILE_START || event.getCode() == Event.DO_WHILE_END
-                || event.getCode() == Event.FOR_START || event.getCode() == Event.FOR_END) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.WHILE_START || event.getCode() == EventParser.WHILE_END
+                || event.getCode() == EventParser.DO_WHILE_START || event.getCode() == EventParser.DO_WHILE_END
+                || event.getCode() == EventParser.FOR_START || event.getCode() == EventParser.FOR_END) {
             cycleCount.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

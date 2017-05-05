@@ -6,8 +6,9 @@
 package metrics;
 
 import analyzer.code.IMetric;
-import events.Event;
+import enums.EnumNamesMetric;
 import events.EventMLCommentCount;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
@@ -26,8 +27,8 @@ public class MLCommentCountMetric implements IMetric{
     }
     
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.MULTILINE_COMMENT) {    
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.MULTILINE_COMMENT) {
             countComment++;
         }
     }
@@ -44,7 +45,7 @@ public class MLCommentCountMetric implements IMetric{
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.MLCommentCount.toString();
     }
 
     @Override

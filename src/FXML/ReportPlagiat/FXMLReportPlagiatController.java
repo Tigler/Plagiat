@@ -5,26 +5,14 @@
  */
 package FXML.ReportPlagiat;
 
-import analyzer.code.AnalyzePlagiatSystem;
-import analyzer.code.LanguagePrograming;
-import com.sun.javafx.collections.ObservableListWrapper;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.DirectoryChooser;
-import org.apache.commons.io.FilenameUtils;
+import javafx.scene.control.ListView;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 /**
  * FXML Controller class
@@ -33,13 +21,18 @@ import java.util.Scanner;
  */
 public class FXMLReportPlagiatController implements Initializable {
 
+    @FXML
+    ListView listView;
     /**
      * Initializes the controller class.
      */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        ObservableList<String> items = FXCollections.observableArrayList(
+                "Single", "Double", "Suite", "Family App");
+        //listViewMethods.set
+        listView.setItems(items);
     }
 
 }

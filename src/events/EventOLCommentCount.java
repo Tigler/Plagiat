@@ -24,8 +24,8 @@ public class EventOLCommentCount extends ListenerParser {
     }
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.ONELINE_COMMENT) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.ONELINE_COMMENT) {
             OLCommentCount.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

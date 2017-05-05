@@ -6,7 +6,6 @@
 package events;
 
 import analyzer.code.IMetric;
-import events.Event;
 
 /**
  * @author tigler
@@ -24,9 +23,9 @@ public class EventIfLevelNest extends ListenerParser {
     }
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.IF_START
-                || event.getCode() == Event.IF_END) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.IF_START
+                || event.getCode() == EventParser.IF_END) {
             ifLevelNest.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

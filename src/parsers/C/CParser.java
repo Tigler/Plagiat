@@ -1,22 +1,33 @@
 // Generated from /home/tigler/IdeaProjects/Plagiat/grammars/C.g4 by ANTLR 4.7
 package parsers.C;
-import events.Event;
-import events.ListenerParser;
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-import java.util.List;
 
+import events.EventParser;
+import events.ListenerParser;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
+import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class CParser extends Parser {
 	private ListenerParser listener;
+    private String path;
 
-	public void attach(ListenerParser listener) {
-		this.listener= listener;
-	}
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+    public void attach(ListenerParser listener) {
+        this.listener = listener;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -2147,24 +2158,26 @@ public class CParser extends Parser {
 			setState(492);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
-				case 1:
-					enterOuterAlt(_localctx, 1);
-				{
-					setState(487);
-					conditionalExpression();
-				}
+                case 1:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(487);
+                    conditionalExpression();
+
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                }
 				break;
-				case 2:
-					enterOuterAlt(_localctx, 2);
-				{
-					setState(488);
-					unaryExpression();
-					setState(489);
-					assignmentOperator();
-					listener.onEvent(new Event("ident",Event.ASSIGMENT,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(490);
-					assignmentExpression();
-				}
+                case 2:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(488);
+                    unaryExpression();
+                    setState(489);
+                    assignmentOperator();
+                    setState(490);
+                    assignmentExpression();
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                }
 				break;
 			}
 		}
@@ -2771,7 +2784,8 @@ public class CParser extends Parser {
 				{
 				setState(546);
 				declarator();
-				}
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                }
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
@@ -2781,8 +2795,8 @@ public class CParser extends Parser {
 				setState(548);
 				match(Assign);
 				setState(549);
-				initializer();
-				listener.onEvent(new Event("ident",Event.ASSIGMENT,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                    initializer();
 				}
 				break;
 			}
@@ -6595,49 +6609,47 @@ public class CParser extends Parser {
 		LabeledStatementContext _localctx = new LabeledStatementContext(_ctx, getState());
 		enterRule(_localctx, 142, RULE_labeledStatement);
 		try {
-			setState(1109);
-			_errHandler.sync(this);
+            setState(1117);
+            _errHandler.sync(this);
 			switch (_input.LA(1)) {
-				case Identifier:
-					enterOuterAlt(_localctx, 1);
-				{
-					setState(1098);
-					match(Identifier);
-					setState(1099);
-					match(Colon);
-					setState(1100);
-					statement();
-				}
+                case Identifier:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(1106);
+                    match(Identifier);
+                    setState(1107);
+                    match(Colon);
+                    setState(1108);
+                    statement();
+                }
 				break;
-				case Case:
-					enterOuterAlt(_localctx, 2);
-				{
-					listener.onEvent(new Event("Case", Event.CASE,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1101);
-					match(Case);
-					setState(1102);
-					constantExpression();
-					setState(1103);
-					match(Colon);
-					setState(1104);
-					statement();
-				}
+                case Case:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(1109);
+                    match(Case);
+                    setState(1110);
+                    constantExpression();
+                    setState(1111);
+                    match(Colon);
+                    setState(1112);
+                    statement();
+                }
 				break;
-				case Default:
-					enterOuterAlt(_localctx, 3);
-				{
-					listener.onEvent(new Event("Default", Event.DEFAULT,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1106);
-					match(Default);
-					setState(1107);
-					match(Colon);
-					setState(1108);
-					statement();
-				}
+                case Default:
+                    enterOuterAlt(_localctx, 3);
+                {
+                    setState(1114);
+                    match(Default);
+                    setState(1115);
+                    match(Colon);
+                    setState(1116);
+                    statement();
+                }
 				break;
-				default:
-					throw new NoViableAltException(this);
-			}
+                default:
+                    throw new NoViableAltException(this);
+            }
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;
@@ -6921,59 +6933,58 @@ public class CParser extends Parser {
 		SelectionStatementContext _localctx = new SelectionStatementContext(_ctx, getState());
 		enterRule(_localctx, 152, RULE_selectionStatement);
 		try {
-			setState(1151);
-			_errHandler.sync(this);
+            setState(1160);
+            _errHandler.sync(this);
 			switch (_input.LA(1)) {
-				case If:
-					enterOuterAlt(_localctx, 1);
-				{
-					listener.onEvent(new Event("If", Event.IF_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1136);
-					match(If);
-					setState(1137);
-					match(LeftParen);
-					setState(1138);
-					expression(0);
-					setState(1139);
-					match(RightParen);
-					setState(1140);
-					statement();
-					setState(1143);
-					listener.onEvent(new Event("If", Event.IF_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,122,_ctx) ) {
-						case 1:
-						{
-							listener.onEvent(new Event("Else", Event.ELSE_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-							setState(1141);
-							match(Else);
-							setState(1142);
-							statement();
-							listener.onEvent(new Event("Else", Event.ELSE_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-						}
-						break;
-					}
-				}
+                case If:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    listener.onEvent(new EventParser("if", EventParser.IF_START, _localctx.start.getLine(), path));
+                    setState(1145);
+                    match(If);
+                    setState(1146);
+                    match(LeftParen);
+                    setState(1147);
+                    expression(0);
+                    setState(1148);
+                    match(RightParen);
+                    setState(1149);
+                    statement();
+                    listener.onEvent(new EventParser("if", EventParser.IF_END, _localctx.start.getLine(), path));
+                    setState(1152);
+                    _errHandler.sync(this);
+                    switch (getInterpreter().adaptivePredict(_input, 122, _ctx)) {
+                        case 1: {
+                            listener.onEvent(new EventParser("else", EventParser.ELSE_START, _localctx.start.getLine(), path));
+                            setState(1150);
+                            match(Else);
+                            setState(1151);
+                            statement();
+                            listener.onEvent(new EventParser("else", EventParser.ELSE_END, _localctx.start.getLine(), path));
+                        }
+                        break;
+                    }
+                }
 				break;
-				case Switch:
-					enterOuterAlt(_localctx, 2);
-				{
-					listener.onEvent(new Event("Switch", Event.SWITCH,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1145);
-					match(Switch);
-					setState(1146);
-					match(LeftParen);
-					setState(1147);
-					expression(0);
-					setState(1148);
-					match(RightParen);
-					setState(1149);
-					statement();
-				}
+                case Switch:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    listener.onEvent(new EventParser("switch", EventParser.SWITCH, _localctx.start.getLine(), path));
+                    setState(1154);
+                    match(Switch);
+                    setState(1155);
+                    match(LeftParen);
+                    setState(1156);
+                    expression(0);
+                    setState(1157);
+                    match(RightParen);
+                    setState(1158);
+                    statement();
+                }
 				break;
-				default:
-					throw new NoViableAltException(this);
-			}
+                default:
+                    throw new NoViableAltException(this);
+            }
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;
@@ -7018,134 +7029,134 @@ public class CParser extends Parser {
 		enterRule(_localctx, 154, RULE_iterationStatement);
 		int _la;
 		try {
-			setState(1195);
-			_errHandler.sync(this);
+            setState(1204);
+            _errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,129,_ctx) ) {
-				case 1:
-					enterOuterAlt(_localctx, 1);
-				{
-					listener.onEvent(new Event("While", Event.WHILE_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1153);
-					match(While);
-					setState(1154);
-					match(LeftParen);
-					setState(1155);
-					expression(0);
-					setState(1156);
-					match(RightParen);
-					setState(1157);
-					statement();
-					listener.onEvent(new Event("While", Event.WHILE_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				}
+                case 1:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    listener.onEvent(new EventParser("while", EventParser.WHILE_START, _localctx.start.getLine(), path));
+                    setState(1162);
+                    match(While);
+                    setState(1163);
+                    match(LeftParen);
+                    setState(1164);
+                    expression(0);
+                    setState(1165);
+                    match(RightParen);
+                    setState(1166);
+                    statement();
+                    listener.onEvent(new EventParser("while", EventParser.WHILE_END, _localctx.start.getLine(), path));
+                }
 				break;
-				case 2:
-					enterOuterAlt(_localctx, 2);
-				{
-					listener.onEvent(new Event("DoWhile", Event.DO_WHILE_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1159);
-					match(Do);
-					setState(1160);
-					statement();
-					setState(1161);
-					match(While);
-					setState(1162);
-					match(LeftParen);
-					setState(1163);
-					expression(0);
-					setState(1164);
-					match(RightParen);
-					setState(1165);
-					match(Semi);
-					listener.onEvent(new Event("DoWhile", Event.DO_WHILE_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				}
+                case 2:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    listener.onEvent(new EventParser("dowhile", EventParser.DO_WHILE_START, _localctx.start.getLine(), path));
+                    setState(1168);
+                    match(Do);
+                    setState(1169);
+                    statement();
+                    setState(1170);
+                    match(While);
+                    setState(1171);
+                    match(LeftParen);
+                    setState(1172);
+                    expression(0);
+                    setState(1173);
+                    match(RightParen);
+                    setState(1174);
+                    match(Semi);
+                    listener.onEvent(new EventParser("dowhile", EventParser.DO_WHILE_END, _localctx.start.getLine(), path));
+                }
 				break;
-				case 3:
-					enterOuterAlt(_localctx, 3);
-				{
-					listener.onEvent(new Event("For", Event.FOR_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1167);
-					match(For);
-					setState(1168);
-					match(LeftParen);
-					setState(1170);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1169);
-							expression(0);
-						}
-					}
+                case 3:
+                    enterOuterAlt(_localctx, 3);
+                {
+                    listener.onEvent(new EventParser("for", EventParser.FOR_START, _localctx.start.getLine(), path));
+                    setState(1176);
+                    match(For);
+                    setState(1177);
+                    match(LeftParen);
+                    setState(1179);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1178);
+                            expression(0);
+                        }
+                    }
 
-					setState(1172);
-					match(Semi);
-					setState(1174);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1173);
-							expression(0);
-						}
-					}
+                    setState(1181);
+                    match(Semi);
+                    setState(1183);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1182);
+                            expression(0);
+                        }
+                    }
 
-					setState(1176);
-					match(Semi);
-					setState(1178);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1177);
-							expression(0);
-						}
-					}
+                    setState(1185);
+                    match(Semi);
+                    setState(1187);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1186);
+                            expression(0);
+                        }
+                    }
 
-					setState(1180);
-					match(RightParen);
-					setState(1181);
-					statement();
-					listener.onEvent(new Event("For", Event.FOR_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				}
+                    setState(1189);
+                    match(RightParen);
+                    setState(1190);
+                    statement();
+                    listener.onEvent(new EventParser("for", EventParser.FOR_END, _localctx.start.getLine(), path));
+                }
 				break;
-				case 4:
-					enterOuterAlt(_localctx, 4);
-				{
-					listener.onEvent(new Event("For", Event.FOR_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1182);
-					match(For);
-					setState(1183);
-					match(LeftParen);
-					setState(1184);
-					declaration();
-					setState(1186);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1185);
-							expression(0);
-						}
-					}
+                case 4:
+                    enterOuterAlt(_localctx, 4);
+                {
+                    listener.onEvent(new EventParser("for", EventParser.FOR_START, _localctx.start.getLine(), path));
+                    setState(1191);
+                    match(For);
+                    setState(1192);
+                    match(LeftParen);
+                    setState(1193);
+                    declaration();
+                    setState(1195);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1194);
+                            expression(0);
+                        }
+                    }
 
-					setState(1188);
-					match(Semi);
-					setState(1190);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1189);
-							expression(0);
-						}
-					}
+                    setState(1197);
+                    match(Semi);
+                    setState(1199);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1198);
+                            expression(0);
+                        }
+                    }
 
-					setState(1192);
-					match(RightParen);
-					setState(1193);
-					statement();
-					listener.onEvent(new Event("For", Event.FOR_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				}
+                    setState(1201);
+                    match(RightParen);
+                    setState(1202);
+                    statement();
+                    listener.onEvent(new EventParser("for", EventParser.FOR_END, _localctx.start.getLine(), path));
+                }
 				break;
 			}
 		}
@@ -7159,6 +7170,7 @@ public class CParser extends Parser {
 		}
 		return _localctx;
 	}
+
 	public static class JumpStatementContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(CParser.Identifier, 0); }
 		public ExpressionContext expression() {
@@ -7186,72 +7198,71 @@ public class CParser extends Parser {
 		enterRule(_localctx, 156, RULE_jumpStatement);
 		int _la;
 		try {
-			setState(1217);
-			_errHandler.sync(this);
+            setState(1222);
+            _errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,131,_ctx) ) {
-				case 1:
-					enterOuterAlt(_localctx, 1);
-				{
-					setState(1201);
-					match(Goto);
-					listener.onEvent(new Event("goto",Event.GOTO,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1202);
-					match(Identifier);
-					setState(1203);
-					match(Semi);
-				}
+                case 1:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(1206);
+                    match(Goto);
+                    listener.onEvent(new EventParser("goto", EventParser.GOTO, _localctx.start.getLine(), path));
+                    setState(1207);
+                    match(Identifier);
+                    setState(1208);
+                    match(Semi);
+                }
 				break;
-				case 2:
-					enterOuterAlt(_localctx, 2);
-				{
-					setState(1204);
-					listener.onEvent(new Event("continue",Event.CONTINUE,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					match(Continue);
-					setState(1205);
-					match(Semi);
-				}
+                case 2:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(1209);
+                    match(Continue);
+                    listener.onEvent(new EventParser("continue", EventParser.CONTINUE, _localctx.start.getLine(), path));
+                    setState(1210);
+                    match(Semi);
+                }
 				break;
-				case 3:
-					enterOuterAlt(_localctx, 3);
-				{
-					setState(1206);
-					listener.onEvent(new Event("break",Event.BREAK,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					match(Break);
-					setState(1207);
-					match(Semi);
-				}
+                case 3:
+                    enterOuterAlt(_localctx, 3);
+                {
+                    setState(1211);
+                    match(Break);
+                    setState(1212);
+                    match(Semi);
+                }
 				break;
-				case 4:
-					enterOuterAlt(_localctx, 4);
-				{
-					setState(1208);
-					match(Return);
-					listener.onEvent(new Event("return",Event.RETURN,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1210);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 71)) & ~0x3f) == 0 && ((1L << (_la - 71)) & ((1L << (Plus - 71)) | (1L << (PlusPlus - 71)) | (1L << (Minus - 71)) | (1L << (MinusMinus - 71)) | (1L << (Star - 71)) | (1L << (And - 71)) | (1L << (AndAnd - 71)) | (1L << (Not - 71)) | (1L << (Tilde - 71)) | (1L << (Identifier - 71)) | (1L << (Constant - 71)) | (1L << (StringLiteral - 71)))) != 0)) {
-						{
-							setState(1209);
-							expression(0);
-						}
-					}
+                case 4:
+                    enterOuterAlt(_localctx, 4);
+                {
+                    setState(1213);
+                    match(Return);
+                    listener.onEvent(new EventParser("return", EventParser.RETURN, _localctx.start.getLine(), path));
+                    setState(1215);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << Sizeof) | (1L << Alignof) | (1L << Generic) | (1L << LeftParen))) != 0) || ((((_la - 72)) & ~0x3f) == 0 && ((1L << (_la - 72)) & ((1L << (Plus - 72)) | (1L << (PlusPlus - 72)) | (1L << (Minus - 72)) | (1L << (MinusMinus - 72)) | (1L << (Star - 72)) | (1L << (And - 72)) | (1L << (AndAnd - 72)) | (1L << (Not - 72)) | (1L << (Tilde - 72)) | (1L << (Identifier - 72)) | (1L << (Constant - 72)) | (1L << (StringLiteral - 72)))) != 0)) {
+                        {
+                            setState(1214);
+                            expression(0);
+                        }
+                    }
 
-					setState(1212);
-					match(Semi);
-				}
+                    setState(1217);
+                    match(Semi);
+                }
 				break;
-				case 5:
-					enterOuterAlt(_localctx, 5);
-				{
-					setState(1213);
-					match(Goto);
-					listener.onEvent(new Event("goto",Event.GOTO,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					setState(1214);
-					unaryExpression();
-					setState(1215);
-					match(Semi);
-				}
+                case 5:
+                    enterOuterAlt(_localctx, 5);
+                {
+                    setState(1218);
+                    match(Goto);
+                    listener.onEvent(new EventParser("goto", EventParser.GOTO, _localctx.start.getLine(), path));
+                    setState(1219);
+                    unaryExpression();
+                    setState(1220);
+                    match(Semi);
+                }
 				break;
 			}
 		}
@@ -7265,7 +7276,6 @@ public class CParser extends Parser {
 		}
 		return _localctx;
 	}
-
 
 	public static class CompilationUnitContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(CParser.EOF, 0); }
@@ -7627,27 +7637,24 @@ public class CParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(1258);
-				_la = _input.LA(1);
-				if ( !(_la==BlockComment || _la==LineComment) ) {
-					_errHandler.recoverInline(this);
-				}
-				else {
-					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-					_errHandler.reportMatch(this);
-					if(_la == LineComment){
-						listener.onEvent(new Event(String.valueOf(_localctx.getParent().start.getStopIndex()
-								- _localctx.getParent().start.getStartIndex()), Event.ONELINE_COMMENT,_localctx.start.getLine()
-								,_localctx.start.getTokenSource().getSourceName()));
-					}
-					if(_la == BlockComment){
-						listener.onEvent(new Event(String.valueOf(_localctx.getParent().start.getStopIndex()
-								- _localctx.getParent().start.getStartIndex())
-								, Event.MULTILINE_COMMENT,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-					}
-					consume();
-				}
-			}
+                setState(1263);
+                _la = _input.LA(1);
+                if (!(_la == BlockComment || _la == LineComment)) {
+                    _errHandler.recoverInline(this);
+                } else {
+                    if (_input.LA(1) == Token.EOF) matchedEOF = true;
+                    _errHandler.reportMatch(this);
+                    if (_la == LineComment) {
+                        listener.onEvent(new EventParser(String.valueOf(_localctx.getParent().start.getStopIndex() -
+                                _localctx.getParent().start.getStartIndex()), EventParser.ONELINE_COMMENT, _localctx.start.getLine(), path));
+                    }
+                    if (_la == BlockComment) {
+                        listener.onEvent(new EventParser(String.valueOf(_localctx.getParent().start.getStopIndex() -
+                                _localctx.getParent().start.getStartIndex()), EventParser.MULTILINE_COMMENT, _localctx.start.getLine(), path));
+                    }
+                    consume();
+                }
+            }
 		}
 		catch (RecognitionException re) {
 			_localctx.exception = re;

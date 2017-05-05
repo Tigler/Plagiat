@@ -1,9 +1,8 @@
 package analyzer.code;
 
 import dynamic.DynamicAnalyzer;
-import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.Parser;
 
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -12,6 +11,7 @@ import java.util.ArrayList;
  */
 public abstract class Analyzer {
     protected ArrayList<IMetric> listMetrics;
+    protected ArrayList<Operator> listOperators;
     protected ArrayList<String> listPathFiles;
     protected Parser parser;
     protected DynamicAnalyzer dynAn;
@@ -26,8 +26,16 @@ public abstract class Analyzer {
         return listMetrics;
     }
 
+    public ArrayList<Operator> getListOperators() {
+        return listOperators;
+    }
+
     public void setListPathFiles(ArrayList<String> listPathFiles) {
         this.listPathFiles = listPathFiles;
+    }
+
+    public void setListOperators(ArrayList<Operator> listOperators) {
+        this.listOperators = listOperators;
     }
 
 }

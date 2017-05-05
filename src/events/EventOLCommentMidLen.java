@@ -23,8 +23,8 @@ public class EventOLCommentMidLen extends ListenerParser {
     }
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.ONELINE_COMMENT) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.ONELINE_COMMENT) {
             OLCommentMidLen.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

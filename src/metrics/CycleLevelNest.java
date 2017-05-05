@@ -6,9 +6,12 @@
 package metrics;
 
 import analyzer.code.IMetric;
-import events.Event;
+import enums.EnumNamesMetric;
 import events.EventCycleLevNest;
+import events.EventParser;
 import events.ListenerParser;
+
+import java.util.ArrayList;
 
 
 /**
@@ -33,24 +36,31 @@ public class CycleLevelNest implements IMetric {
      */
     public final static double MAXSETTING = 6.0;
 
+    private ArrayList<Integer> seqLevelsNest;
+
     public CycleLevelNest() {
         maxLevel = 0;
         curLevel = 0;
+        seqLevelsNest = new ArrayList<>();
     }
 
 
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.WHILE_START || event.getCode() == Event.DO_WHILE_START
-                || event.getCode() == Event.FOR_START) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.WHILE_START || event.getCode() == EventParser.DO_WHILE_START
+                || event.getCode() == EventParser.FOR_START) {
             curLevel++;
             if (maxLevel < curLevel) {
                 maxLevel = curLevel;
             }
         }
-        if (event.getCode() == Event.WHILE_END || event.getCode() == Event.DO_WHILE_END
-                || event.getCode() == Event.FOR_END) {
+        if (event.getCode() == EventParser.WHILE_END || event.getCode() == EventParser.DO_WHILE_END
+                || event.getCode() == EventParser.FOR_END) {
             curLevel--;
+            if (curLevel == 0) {
+                seqLevelsNest.add(maxLevel);
+                maxLevel = curLevel = 0;
+            }
         }
     }
 
@@ -67,12 +77,16 @@ public class CycleLevelNest implements IMetric {
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.cycleLevelNest.toString();
     }
 
     @Override
-    public ListenerParser initListener(IMetric metric, ListenerParser listener){
-        return new EventCycleLevNest(metric,listener);
+    public ListenerParser initListener(IMetric metric, ListenerParser listener) {
+        return new EventCycleLevNest(metric, listener);
+    }
+
+    public ArrayList<Integer> getSeqLevelsNest() {
+        return seqLevelsNest;
     }
 
 }

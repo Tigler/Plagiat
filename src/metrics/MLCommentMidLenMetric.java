@@ -6,11 +6,10 @@
 package metrics;
 
 import analyzer.code.IMetric;
-import events.Event;
+import enums.EnumNamesMetric;
 import events.EventMLCommentMidLen;
+import events.EventParser;
 import events.ListenerParser;
-
-import java.beans.Expression;
 
 /**
  *
@@ -39,8 +38,8 @@ public class MLCommentMidLenMetric implements IMetric {
     }
 
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.ONELINE_COMMENT) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.ONELINE_COMMENT) {
             //try {
                 sumLenthComment += Integer.parseInt(event.getIdent());
                 countComment++;
@@ -65,7 +64,7 @@ public class MLCommentMidLenMetric implements IMetric {
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.MLCommentMidLen.toString();
     }
 
     @Override

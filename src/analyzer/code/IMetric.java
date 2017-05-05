@@ -5,7 +5,7 @@
  */
 package analyzer.code;
 
-import events.Event;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
@@ -14,7 +14,7 @@ import events.ListenerParser;
  */
 public interface IMetric {
 
-    public void calculate(Event event);
+    public void calculate(EventParser event);
     public void reset();
     public double getResult();
     public String getName();

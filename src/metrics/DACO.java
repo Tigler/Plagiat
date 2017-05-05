@@ -5,13 +5,16 @@
  */
 package metrics;
 
+import analyzer.code.IMetric;
 import enums.EnumMarkCountOperators;
 import enums.EnumNamesMetric;
-import events.Event;
-import analyzer.code.IMetric;
 import events.EventDACO;
-import events.ListenerParser;;
+import events.EventParser;
+import events.ListenerParser;
+
 import java.util.ArrayList;
+
+;
 
 /**
  * Метрика - количество операторов
@@ -57,17 +60,17 @@ public class DACO implements IMetric {
      */
     
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.DESCRIPTION) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.DESCRIPTION) {
             Variable var = new Variable(event.getIdent());
             variables.add(var);
         }
-        if (event.getCode() == Event.OPERATOR) {
+        if (event.getCode() == EventParser.OPERATOR) {
             for (int i = 0; i < variables.size(); i++) {
                 variables.get(i).incCountOperators();
             }
         }
-        if (event.getCode() == Event.ASSIGMENT) {
+        if (event.getCode() == EventParser.ASSIGMENT) {
             for (int i = 0; i < variables.size(); i++) {
                 if (variables.get(i).ident.equals(event.getIdent())) {
                     if (variables.get(i).getCountOperators() > maxCountOperator) {

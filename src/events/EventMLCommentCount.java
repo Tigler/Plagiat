@@ -24,8 +24,8 @@ public class EventMLCommentCount extends ListenerParser {
 
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.MULTILINE_COMMENT) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.MULTILINE_COMMENT) {
             MLCommentCount.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

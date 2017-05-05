@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ public class AnalyzePlagiatSystem {
     public AnalyzePlagiatSystem() {
         firstAnalyzer = null;
         secondAnalyzer = null;
+        calculatorPlagiat = new CalculatorPlagiat();
     }
 
     /**
@@ -94,26 +97,27 @@ public class AnalyzePlagiatSystem {
         return listLanguages;
     }
 
-    public int analyzeProjects(){
-        return calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(),secondAnalyzer.getListMetrics());
+    public int analyzeProjects() {
+        return calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
     }
 
-    public int analyzeFirstProjAndDB(){
-        return calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(),secondAnalyzer.getListMetrics());
+    public int analyzeFirstProjAndDB() {
+        return 1;//calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(), secondAnalyzer.getListMetrics());
     }
 
-    public int fullAnalyze(){
+    public int fullAnalyze() {
         firstAnalyzer.dynamicAnalyze();
         return 1;////1;calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(),secondAnalyzer.getListMetrics());
     }
 
-   public void setFirstFiles(ArrayList<String> pathFiles){
+    public void setFirstFiles(ArrayList<String> pathFiles) {
         firstAnalyzer.setListPathFiles(pathFiles);
     }
 
     public void firstProjCompareDB() {
         try {
-            ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
+            PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
+            ResultSet resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
 

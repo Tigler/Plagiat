@@ -7,8 +7,8 @@ package metrics;
 
 import analyzer.code.IMetric;
 import enums.EnumNamesMetric;
-import events.Event;
 import events.EventCycleCount;
+import events.EventParser;
 import events.ListenerParser;
 
 
@@ -26,9 +26,9 @@ public class CycleCount implements IMetric {
     }
 
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.WHILE_START || event.getCode() == Event.DO_WHILE_START
-                || event.getCode() == Event.FOR_START) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.WHILE_START || event.getCode() == EventParser.DO_WHILE_START
+                || event.getCode() == EventParser.FOR_START) {
             countCycle++;
         }
     }
@@ -51,7 +51,7 @@ public class CycleCount implements IMetric {
      */
     @Override
     public String getName() {
-        return EnumNamesMetric.countOperators.toString();
+        return EnumNamesMetric.cycleCount.toString();
     }
 
     @Override

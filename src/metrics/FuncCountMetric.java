@@ -5,9 +5,10 @@
  */
 package metrics;
 
-import events.Event;
 import analyzer.code.IMetric;
+import enums.EnumNamesMetric;
 import events.EventFuncCount;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
@@ -26,8 +27,8 @@ public class FuncCountMetric implements IMetric {
     }
 
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.FUNC) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.FUNC) {
             countFunc++;
         }
     }
@@ -44,7 +45,7 @@ public class FuncCountMetric implements IMetric {
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.cycleCount.toString();
     }
 
     @Override

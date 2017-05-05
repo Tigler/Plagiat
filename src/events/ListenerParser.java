@@ -7,7 +7,6 @@ package events;
 
 import analyzer.code.IMetric;
 import analyzer.code.Operator;
-import events.Event;
 
 import java.util.ArrayList;
 
@@ -31,5 +30,10 @@ public abstract class ListenerParser {
 
     ListenerParser successor;
 
-    public abstract void onEvent(Event event);
+    public abstract void onEvent(EventParser event);
+
+    public void setListOperators(ArrayList<Operator> listOperators) {
+        this.listOperators = listOperators;
+    }
+
 }

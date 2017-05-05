@@ -5,11 +5,11 @@
  */
 package metrics;
 
+import analyzer.code.IMetric;
 import enums.EnumMarkMiddleLenIdent;
 import enums.EnumNamesMetric;
-import events.Event;
-import analyzer.code.IMetric;
 import events.EventMiddleLenIdent;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
@@ -58,8 +58,8 @@ public class MiddleLenIdent implements IMetric {
      * @param event - событие возникшее в синтаксическом анализаторе
      */
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.ISIDENT) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.ISIDENT) {
             sumLenthIdents += event.getIdent().length();
             countIdent++;
             middleLenIdent = (double) sumLenthIdents / (double) countIdent;

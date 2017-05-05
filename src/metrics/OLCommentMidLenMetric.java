@@ -5,13 +5,13 @@
  */
 package metrics;
 
-import events.Event;
 import analyzer.code.IMetric;
+import enums.EnumNamesMetric;
 import events.EventOLCommentMidLen;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
- *
  * @author tigler
  */
 public class OLCommentMidLenMetric implements IMetric {
@@ -36,8 +36,8 @@ public class OLCommentMidLenMetric implements IMetric {
     }
 
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.ONELINE_COMMENT) {
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.ONELINE_COMMENT) {
             sumLenthComment += Integer.parseInt(event.getIdent());
             countComment++;
             middleLenComment = (double) sumLenthComment / (double) countComment;
@@ -58,12 +58,12 @@ public class OLCommentMidLenMetric implements IMetric {
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.OLCommentMidLen.toString();
     }
 
     @Override
     public ListenerParser initListener(IMetric metric, ListenerParser listener) {
-        return new EventOLCommentMidLen(metric,listener);
+        return new EventOLCommentMidLen(metric, listener);
     }
 
 }

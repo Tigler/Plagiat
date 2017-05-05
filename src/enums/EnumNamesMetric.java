@@ -12,7 +12,14 @@ package enums;
 public enum EnumNamesMetric {
     countOperators ("CountOperators"),
     levelNest ("Level Nest"),
-    midLenIdent ("Middle Len Ident");
+    midLenIdent("Middle Len Ident"),
+    cycleCount("CycleCount"),
+    cycleLevelNest("Cycle Level Nest"),
+    MLCommentCount("MLCommentCount"),
+    MLCommentMidLen("MLCommentMidLen"),
+    OLCommentCount("MLCommentCount"),
+    OLCommentMidLen("MLCommentMidLen");
+
 
     private final String name;       
 

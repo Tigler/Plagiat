@@ -1,15 +1,18 @@
 // Generated from /home/tigler/IdeaProjects/Plagiat/grammars/Java.g4 by ANTLR 4.7
 package parsers.Java;
-import events.Event;
+
+import events.EventParser;
 import events.ListenerParser;
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class JavaParser extends Parser {
@@ -2791,8 +2794,9 @@ public class JavaParser extends Parser {
 				{
 				setState(572);
 				match(ASSIGN);
-				listener.onEvent(new Event("=",Event.ASSIGMENT,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				setState(573);
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
+                    setState(573);
 				variableInitializer();
 				}
 			}
@@ -5245,14 +5249,16 @@ public class JavaParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(863);
-				listener.onEvent(new Event("if",Event.IF_START,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				match(IF);
+                    listener.onEvent(new EventParser("if", EventParser.IF_START, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
+                    match(IF);
 				setState(864);
 				parExpression();
 				setState(865);
 				statement();
-					listener.onEvent(new Event("if",Event.IF_END,_localctx.start.getLine(),_localctx.start.getTokenSource().getSourceName()));
-				setState(868);
+                    listener.onEvent(new EventParser("if", EventParser.IF_END, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
+                    setState(868);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,101,_ctx) ) {
 				case 1:

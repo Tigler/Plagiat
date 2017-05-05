@@ -5,9 +5,10 @@
  */
 package metrics;
 
-import events.Event;
 import analyzer.code.IMetric;
+import enums.EnumNamesMetric;
 import events.EventOLCommentCount;
+import events.EventParser;
 import events.ListenerParser;
 
 /**
@@ -27,8 +28,8 @@ public class OLCommentCountMetric implements IMetric{
     }
     
     @Override
-    public void calculate(Event event) {
-        if (event.getCode() == Event.ONELINE_COMMENT) {    
+    public void calculate(EventParser event) {
+        if (event.getCode() == EventParser.ONELINE_COMMENT) {
             countComment++;
         }
     }
@@ -45,7 +46,7 @@ public class OLCommentCountMetric implements IMetric{
 
     @Override
     public String getName() {
-        return null;
+        return EnumNamesMetric.OLCommentCount.toString();
     }
 
     @Override

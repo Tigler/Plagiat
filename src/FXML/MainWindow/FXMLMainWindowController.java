@@ -12,10 +12,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
@@ -203,7 +207,19 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 analyzePlagiatSystem.analyzeProjects();
-
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
+                try {
+                    AnchorPane pane = (AnchorPane) loader.load();
+                    //fxmlmc = loader.getController();
+                    //fxmlmc.setAnalyzer((AnalyzerC) analyzer);
+                    Scene scene = new Scene(pane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Отчет");
+                    stage.show();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 

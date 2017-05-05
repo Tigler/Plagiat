@@ -6,7 +6,6 @@
 package events;
 
 import analyzer.code.IMetric;
-import events.Event;
 
 /**
  *
@@ -25,10 +24,10 @@ public class EventDACO extends ListenerParser {
     }
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.ASSIGMENT
-                || event.getCode() == Event.DESCRIPTION
-                || event.getCode() == Event.OPERATOR) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.ASSIGMENT
+                || event.getCode() == EventParser.DESCRIPTION
+                || event.getCode() == EventParser.OPERATOR) {
             daco.calculate(event);
         }else{
             if(successor!=null){

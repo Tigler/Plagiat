@@ -25,8 +25,8 @@ public class EventMLCommentMidLen extends ListenerParser{
     
 
     @Override
-    public void onEvent(Event event) {
-        if (event.getCode() == Event.MULTILINE_COMMENT) {
+    public void onEvent(EventParser event) {
+        if (event.getCode() == EventParser.MULTILINE_COMMENT) {
             MLCommentMidLen.calculate(event);
             if (successor != null) {
                 successor.onEvent(event);

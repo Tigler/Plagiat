@@ -27,16 +27,12 @@ public class ConnectorDB {
 
     // Подготовленные запросы
     //для таблицы проект
-    public static final String selectProjects = "select id,Author,Name,MidLenOLCom fromываа Project1";
+    public static final String selectProjects = "select id,Author,Name,MidLenOLCom from Project";
     public static final String insertNewProject = "insert into Project (Author,Name, MidLenOLCom) values (?, ?, ?)";
     public static final String deleteProject = "delete from Project where id = ?";
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
 
-    public static final String selectAllRoles = "select id,name from role";
-    public static final String selectAllDevelopersWithNull = "select developer.id,developer.name,surname,middlename,id_role,id_team,age,phone,role.name from developer" +
-            " inner JOIN role on role.id=developer.id_role" +
-            " where id_team is NULL";
 
     /**
      * Инициализирует соединение с БД
@@ -87,6 +83,7 @@ public class ConnectorDB {
         myStmt = myConn.prepareStatement(query);
         return myStmt;
     }
+
 
     /**
      * Prepare statement with ret key
