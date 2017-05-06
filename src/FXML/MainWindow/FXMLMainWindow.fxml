@@ -2,18 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.MainWindow.FXMLMainWindowController">
+<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.MainWindow.FXMLMainWindowController">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="756.0">
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Настройки">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                <MenuItem fx:id="openProjFirstMenu" mnemonicParsing="false" text="Открыть первый проект"/>
+                <MenuItem fx:id="openProjSecondMenu" mnemonicParsing="false" text="Открыть второй проект"/>
+                <MenuItem fx:id="settingMenu" mnemonicParsing="false" text="Настройки"/>
+                <MenuItem fx:id="menuExit" mnemonicParsing="false" text="Выход"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Помощь">

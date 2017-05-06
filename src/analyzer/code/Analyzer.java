@@ -13,12 +13,19 @@ public abstract class Analyzer {
     protected ArrayList<IMetric> listMetrics;
     protected ArrayList<Operator> listOperators;
     protected ArrayList<String> listPathFiles;
+    protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
     protected Parser parser;
     protected DynamicAnalyzer dynAn;
 
     public abstract void parsing(String path);
 
     public abstract void dynamicAnalyze();
+
+    public void resetMetrics() {
+        for (IMetric metr : listMetrics) {
+            metr.reset();
+        }
+    }
 
     public abstract Parser getParser();
 
@@ -28,6 +35,10 @@ public abstract class Analyzer {
 
     public ArrayList<Operator> getListOperators() {
         return listOperators;
+    }
+
+    public ArrayList<ResultAnalyzeFile> getListResultAnalyzeFiles() {
+        return resultsAnalyzeFiles;
     }
 
     public void setListPathFiles(ArrayList<String> listPathFiles) {

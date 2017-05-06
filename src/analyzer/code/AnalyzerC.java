@@ -37,16 +37,20 @@ public class AnalyzerC extends Analyzer {
 
     @Override
     public void parsing(String path) {
+        resultsAnalyzeFiles = new ArrayList<>();
         parser.setTokenStream(loadProject(path));
         CParser cParser = (CParser) parser;
         cParser.setPath(path);
         cParser.compilationUnit();
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(path, listMetrics));
+        //resetMetrics();
     }
 
     @Override
     public void dynamicAnalyze() {
         dynAn.analyze(listPathFiles);
     }
+
 
     @Override
     public Parser getParser() {

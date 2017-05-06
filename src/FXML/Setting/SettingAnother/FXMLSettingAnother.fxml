@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane id="AnchorPane" prefHeight="270.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="FXML.Setting.SettingAnother.FXMLSettingAnotherController">
+    <children>
+        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Заносить в БД анализируемые проекты"/>
+    </children>
+</AnchorPane>

@@ -41,6 +41,14 @@ public class FXMLMainWindowController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
+    MenuItem openProjFirstMenu;
+    @FXML
+    MenuItem openProjSecondMenu;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem settingMenu;
+    @FXML
     Button buttonOpen1;
     @FXML
     Button buttonOpen2;
@@ -65,11 +73,12 @@ public class FXMLMainWindowController implements Initializable {
     @FXML
     ComboBox comboBoxLang2;
 
+
     private boolean selectFirstProject;
     private boolean selectSecondProject;
 
     private AnalyzePlagiatSystem analyzePlagiatSystem;
-
+    private ArrayList<LanguagePrograming> listLanguages;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -79,7 +88,7 @@ public class FXMLMainWindowController implements Initializable {
         selectSecondProject = false;
         buttonAnalyzeProjects.setDisable(true);
         analyzePlagiatSystem = new AnalyzePlagiatSystem();
-        ArrayList<LanguagePrograming> listLanguages = analyzePlagiatSystem.initLanguages();
+        listLanguages = analyzePlagiatSystem.initLanguages();
         List listLang = new ArrayList();
         for (LanguagePrograming lang : listLanguages) {
             listLang.add(lang.getName());
@@ -98,42 +107,7 @@ public class FXMLMainWindowController implements Initializable {
         buttonOpen1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                DirectoryChooser dc = new DirectoryChooser();
-                dc.setInitialDirectory(new File(System.getProperty("user.home")));
-                File choice = dc.showDialog(null);
-                if (choice == null || !choice.isDirectory()) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setHeaderText("Could not open directory");
-                    alert.setContentText("The file is invalid.");
-                    alert.showAndWait();
-                } else {
-                    analyzePlagiatSystem.setFirstAnalyzer(listLanguages.get(comboBoxLang1.getSelectionModel()
-                            .getSelectedIndex()).getCode());
-                    File[] files = choice.listFiles();
-                    ArrayList<String> pathFiles = new ArrayList<>();
-                    for (File file : files) {
-                        if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang1.getSelectionModel()
-                                .getSelectedIndex()).getExtension())) {
-                            pathFiles.add(file.getAbsolutePath());
-                            selectFirstProject = true;
-                            if (selectFirstProject && selectSecondProject) {
-                                buttonAnalyzeProjects.setDisable(false);
-                            }
-                            try (Scanner scanner = new Scanner(file)) {
-                                analyzePlagiatSystem.parsingFirst(file.getAbsolutePath());
-                                //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
-
-                            } catch (FileNotFoundException e1) {
-                                e1.printStackTrace();
-                            }
-
-                        }
-                    }
-
-                    analyzePlagiatSystem.setFirstFiles(pathFiles);
-                    textFieldPath1.setText(choice.getPath());
-                    treeView1.setRoot(getNodesForDirectory(choice));
-                }
+                openProjectFirst();
             }
         });
 
@@ -143,38 +117,7 @@ public class FXMLMainWindowController implements Initializable {
         buttonOpen2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                DirectoryChooser dc = new DirectoryChooser();
-                dc.setInitialDirectory(new File(System.getProperty("user.home")));
-                File choice = dc.showDialog(null);
-                if (choice == null || !choice.isDirectory()) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setHeaderText("Could not open directory");
-                    alert.setContentText("The file is invalid.");
-
-                    alert.showAndWait();
-                } else {
-                    analyzePlagiatSystem.setSecondAnalyzer(listLanguages.get(comboBoxLang2.getSelectionModel()
-                            .getSelectedIndex()).getCode());
-                    File[] files = choice.listFiles();
-                    for (File file : files) {
-                        if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang2.getSelectionModel()
-                                .getSelectedIndex()).getExtension())) {
-                            selectSecondProject = true;
-                            if (selectFirstProject && selectSecondProject) {
-                                buttonAnalyzeProjects.setDisable(false);
-                            }
-                            try (Scanner scanner = new Scanner(file)) {
-                                analyzePlagiatSystem.parsingSecond(file.getAbsolutePath());
-                                //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
-                            } catch (FileNotFoundException e1) {
-                                e1.printStackTrace();
-                            }
-
-                        }
-                    }
-                    textFieldPath2.setText(choice.getPath());
-                    treeView2.setRoot(getNodesForDirectory(choice));
-                }
+                openProjSecond();
             }
         });
 
@@ -207,7 +150,46 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 analyzePlagiatSystem.analyzeProjects();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
+
+            }
+        });
+
+
+        /**
+         * Событие при нажитии кнопки полной проверки
+         */
+        buttonFullAnalyze.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                analyzePlagiatSystem.fullAnalyze();
+            }
+        });
+
+        openProjFirstMenu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                openProjectFirst();
+            }
+        });
+
+        openProjSecondMenu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                openProjSecond();
+            }
+        });
+
+        menuExit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        settingMenu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Setting/FXMLSetting.fxml"));
                 try {
                     AnchorPane pane = (AnchorPane) loader.load();
                     //fxmlmc = loader.getController();
@@ -220,18 +202,6 @@ public class FXMLMainWindowController implements Initializable {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            }
-        });
-
-
-        /**
-         * Событие при нажитии кнопки полной проверки
-         */
-        buttonFullAnalyze.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                analyzePlagiatSystem.fullAnalyze();
-
             }
         });
     }
@@ -248,5 +218,81 @@ public class FXMLMainWindowController implements Initializable {
         }
         return root;
     }
+
+    private void openProjectFirst() {
+        DirectoryChooser dc = new DirectoryChooser();
+        dc.setInitialDirectory(new File(System.getProperty("user.home")));
+        File choice = dc.showDialog(null);
+        if (choice == null || !choice.isDirectory()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Could not open directory");
+            alert.setContentText("The file is invalid.");
+            alert.showAndWait();
+        } else {
+            analyzePlagiatSystem.setFirstAnalyzer(listLanguages.get(comboBoxLang1.getSelectionModel()
+                    .getSelectedIndex()).getCode());
+            File[] files = choice.listFiles();
+            ArrayList<String> pathFiles = new ArrayList<>();
+            for (File file : files) {
+                if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang1.getSelectionModel()
+                        .getSelectedIndex()).getExtension())) {
+                    pathFiles.add(file.getAbsolutePath());
+                    selectFirstProject = true;
+                    if (selectFirstProject && selectSecondProject) {
+                        buttonAnalyzeProjects.setDisable(false);
+                    }
+                    try (Scanner scanner = new Scanner(file)) {
+                        analyzePlagiatSystem.parsingFirst(file.getAbsolutePath());
+                        //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
+
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
+
+                }
+            }
+
+            analyzePlagiatSystem.setFirstFiles(pathFiles);
+            textFieldPath1.setText(choice.getPath());
+            treeView1.setRoot(getNodesForDirectory(choice));
+        }
+    }
+
+
+    private void openProjSecond() {
+        DirectoryChooser dc = new DirectoryChooser();
+        dc.setInitialDirectory(new File(System.getProperty("user.home")));
+        File choice = dc.showDialog(null);
+        if (choice == null || !choice.isDirectory()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setHeaderText("Could not open directory");
+            alert.setContentText("The file is invalid.");
+
+            alert.showAndWait();
+        } else {
+            analyzePlagiatSystem.setSecondAnalyzer(listLanguages.get(comboBoxLang2.getSelectionModel()
+                    .getSelectedIndex()).getCode());
+            File[] files = choice.listFiles();
+            for (File file : files) {
+                if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang2.getSelectionModel()
+                        .getSelectedIndex()).getExtension())) {
+                    selectSecondProject = true;
+                    if (selectFirstProject && selectSecondProject) {
+                        buttonAnalyzeProjects.setDisable(false);
+                    }
+                    try (Scanner scanner = new Scanner(file)) {
+                        analyzePlagiatSystem.parsingSecond(file.getAbsolutePath());
+                        //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
+
+                }
+            }
+            textFieldPath2.setText(choice.getPath());
+            treeView2.setRoot(getNodesForDirectory(choice));
+        }
+    }
+
 
 }

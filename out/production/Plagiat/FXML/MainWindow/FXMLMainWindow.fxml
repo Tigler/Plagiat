@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.MainWindow.FXMLMainWindowController">
+
+<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.MainWindow.FXMLMainWindowController">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="756.0">
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Настройки">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="openProjFirstMenu" mnemonicParsing="false" text="Открыть первый проект" />
+                  <MenuItem fx:id="openProjSecondMenu" mnemonicParsing="false" text="Открыть второй проект" />
+                  <MenuItem fx:id="settingMenu" mnemonicParsing="false" text="Настройки" />
+              <MenuItem fx:id="menuExit" mnemonicParsing="false" text="Выход" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Помощь">
@@ -34,10 +35,8 @@
       <TextField fx:id="textFieldPath2" editable="false" layoutX="469.0" layoutY="71.0" prefHeight="25.0" prefWidth="279.0" />
       <TreeView fx:id="treeView1" layoutX="14.0" layoutY="113.0" prefHeight="182.0" prefWidth="262.0" />
       <TreeView fx:id="treeView2" layoutX="469.0" layoutY="106.0" prefHeight="189.0" prefWidth="279.0" />
-       <Button fx:id="buttonCalcDB2" layoutX="469.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0"
-               prefWidth="128.0" text="Сравнить с БД"/>
-       <Button fx:id="buttonCalcDB1" layoutX="14.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0"
-               prefWidth="121.0" text="Сравнить с БД"/>
+       <Button fx:id="buttonCalcDB2" layoutX="469.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Сравнить с БД" />
+       <Button fx:id="buttonCalcDB1" layoutX="14.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Сравнить с БД" />
       <ComboBox fx:id="comboBoxLang1" layoutX="103.0" layoutY="36.0" prefHeight="25.0" prefWidth="171.0" />
       <ComboBox fx:id="comboBoxLang2" layoutX="554.0" layoutY="36.0" prefHeight="25.0" prefWidth="192.0" />
    </children>

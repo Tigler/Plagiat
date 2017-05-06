@@ -7647,6 +7647,7 @@ public class CParser extends Parser {
                     if (_la == LineComment) {
                         listener.onEvent(new EventParser(String.valueOf(_localctx.getParent().start.getStopIndex() -
                                 _localctx.getParent().start.getStartIndex()), EventParser.ONELINE_COMMENT, _localctx.start.getLine(), path));
+
                     }
                     if (_la == BlockComment) {
                         listener.onEvent(new EventParser(String.valueOf(_localctx.getParent().start.getStopIndex() -

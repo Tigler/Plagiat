@@ -5,10 +5,15 @@
  */
 package analyzer.code;
 
+import FXML.ReportPlagiat.FXMLReportPlagiatController;
 import analyzer.CalculatorPlagiat;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +27,7 @@ public class AnalyzePlagiatSystem {
     private Analyzer firstAnalyzer;
     private Analyzer secondAnalyzer;
     private CalculatorPlagiat calculatorPlagiat;
+
 
     public AnalyzePlagiatSystem() {
         firstAnalyzer = null;
@@ -98,7 +104,21 @@ public class AnalyzePlagiatSystem {
     }
 
     public int analyzeProjects() {
-        return calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
+        calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
+        try {
+            AnchorPane pane = (AnchorPane) loader.load();
+            FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
+            fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond());
+            Scene scene = new Scene(pane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Отчет");
+            stage.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 
     public int analyzeFirstProjAndDB() {
