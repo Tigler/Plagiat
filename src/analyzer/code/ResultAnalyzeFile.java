@@ -13,4 +13,12 @@ public class ResultAnalyzeFile {
         this.nameFile = nameFile;
         this.listMetrics = (ArrayList<IMetric>) listMetrics.clone();
     }
+
+    public String getNameFile() {
+        return nameFile;
+    }
+
+    public ArrayList<IMetric> getListMetrics() {
+        return listMetrics;
+    }
 }

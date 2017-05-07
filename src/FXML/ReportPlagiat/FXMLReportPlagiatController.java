@@ -5,7 +5,10 @@
  */
 package FXML.ReportPlagiat;
 
-import analyzer.code.MyPair;
+import FXML.ReportPlagiat.CoinMetrics.FXMLCoinMetricsController;
+import FXML.ReportPlagiat.Frequences.FXMLFrequencesController;
+import analyzer.code.MyMap;
+import analyzer.code.ResultAnalyzeFile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -34,14 +37,26 @@ public class FXMLReportPlagiatController implements Initializable {
     @FXML
     BorderPane borderPane;
 
-    ArrayList<MyPair> freqFirst;
-    ArrayList<MyPair> freqsecond;
+    ArrayList<MyMap> freqFirst;
+    ArrayList<MyMap> freqsecond;
+    ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesFirst;
+    ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesSecond;
+    int resultFreq;
+
     /**
      * Initializes the controller class.
      */
 
-    public void setFrequences(ArrayList<MyPair> freqFirst, ArrayList<MyPair> freqsecond) {
+    public void setFrequences(ArrayList<MyMap> freqFirst, ArrayList<MyMap> freqsecond, int resultFreq) {
+        this.freqFirst = freqFirst;
+        this.freqsecond = freqsecond;
+        this.resultFreq = resultFreq;
+    }
 
+    public void setListsMetrics(ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesFirst,
+                                ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesSecond) {
+        this.resultsAnalyzeFilesFirst = resultsAnalyzeFilesFirst;
+        this.resultsAnalyzeFilesSecond = resultsAnalyzeFilesSecond;
     }
 
     @Override
@@ -54,23 +69,34 @@ public class FXMLReportPlagiatController implements Initializable {
             public void handle(MouseEvent event) {
                 //System.out.println("clicked on " + listView.getSelectionModel().getSelectedItem());
                 FXMLLoader loader = null;
-                switch (listView.getSelectionModel().getSelectedIndex()) {
-                    case 0:
-                        loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinMetrics/FXMLCoinMetrics.fxml"));
-                        break;
-                    case 1:
-                        loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
-                    case 2:
-                        loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Frequences/FXMLFrequences.fxml"));
-                        break;
-                    default:
-                        break;
-                }
-
+                AnchorPane adminTeamView = null;
                 try {
-                    AnchorPane adminTeamView = (AnchorPane) loader.load();
-                    FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
-                    fxmlReportPlagiatController.setFrequences(freqFirst, freqsecond);
+                    switch (listView.getSelectionModel().getSelectedIndex()) {
+                        case 0:
+                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinMetrics/FXMLCoinMetrics.fxml"));
+                            adminTeamView = (AnchorPane) loader.load();
+                            FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
+                            fxmlCoinMetricsController.setListsMetrics(resultsAnalyzeFilesFirst,
+                                    resultsAnalyzeFilesSecond);
+                            break;
+                        case 1:
+                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
+                            adminTeamView = (AnchorPane) loader.load();
+                            break;
+
+                        case 2:
+                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Frequences/FXMLFrequences.fxml"));
+                            adminTeamView = (AnchorPane) loader.load();
+                            FXMLFrequencesController fxmlFrequencesController = loader.getController();
+                            fxmlFrequencesController.setFrequences(freqFirst, freqsecond, resultFreq);
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    //FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
+                    //fxmlReportPlagiatController.setFrequences(freqFirst, freqsecond);
                     borderPane.setCenter(adminTeamView);
                 } catch (IOException e) {
                     e.printStackTrace();

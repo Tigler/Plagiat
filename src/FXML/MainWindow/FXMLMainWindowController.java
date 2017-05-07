@@ -150,7 +150,6 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 analyzePlagiatSystem.analyzeProjects();
-
             }
         });
 

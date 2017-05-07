@@ -9,10 +9,18 @@ package enums;
  * Перечисление наименований метрик языка С.
  * @author tigler
  */
-public enum EnumNameMetricC {
-    mode1("CountOperators"),
-    mode2("Level Nest"),
-    mode3("Middle Len Ident");
+public enum EnumNameOperators {
+    Assigment("="),
+    If("if"),
+    Switch("switch"),
+    Dowhile("dowhile"),
+    While("while"),
+    For("for"),
+    Goto("goto"),
+    Break("break"),
+    Continue("continue"),
+    Return("return");
+
 
     /**
      * Получить название метрики.
@@ -25,7 +33,7 @@ public enum EnumNameMetricC {
 
     private final String name;
 
-    private EnumNameMetricC(String name) {
+    private EnumNameOperators(String name) {
         this.name = name;
     }
 }

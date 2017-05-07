@@ -104,12 +104,15 @@ public class AnalyzePlagiatSystem {
     }
 
     public int analyzeProjects() {
-        calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
+        int resultFreq = calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
         try {
             AnchorPane pane = (AnchorPane) loader.load();
             FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
-            fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond());
+            fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
+                    calculatorPlagiat.getResultFreq());
+            fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
+                    secondAnalyzer.getListResultAnalyzeFiles());
             Scene scene = new Scene(pane);
             Stage stage = new Stage();
             stage.setScene(scene);

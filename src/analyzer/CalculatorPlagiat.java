@@ -1,21 +1,36 @@
 package analyzer;
 
 import analyzer.code.*;
+import enums.EnumNameOperators;
 import metrics.CycleLevelNest;
 import metrics.IfLevelNest;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  * Created by tigler on 01.05.17.
  */
 public class CalculatorPlagiat {
-    private ArrayList<MyMap> frequences;
-    private ArrayList<MyPair> freqFirst;
-    private ArrayList<MyPair> freqSecond;
+    private ArrayList<MyMap> freqFirst;
+    private ArrayList<MyMap> freqSecond;
+    int resultFreq;
 
     public CalculatorPlagiat() {
-        frequences = new ArrayList<>();
+
+    }
+
+    public void compareProjectDB() {
+        try {
+            ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
+            ResultSet resultSet = ConnectorDB.executeQuery();
+            while (resultSet.next()) {
+
+            }
+        } catch (SQLException e) {
+
+        }
     }
 
     private void compareMetrics(Analyzer first, Analyzer second) {
@@ -151,29 +166,29 @@ public class CalculatorPlagiat {
             }
         }
         freqFirst = new ArrayList<>();
-        freqFirst.add(new MyPair(Operator.ASSIGMENT, assigFirst));
-        freqFirst.add(new MyPair(Operator.IF, ifFirst));
-        freqFirst.add(new MyPair(Operator.SWITCH, switchFirst));
-        freqFirst.add(new MyPair(Operator.DOWHILE, dowhileFirst));
-        freqFirst.add(new MyPair(Operator.WHILE, whileFirst));
-        freqFirst.add(new MyPair(Operator.FOR, forFirst));
-        freqFirst.add(new MyPair(Operator.GOTO, gotoFirst));
-        freqFirst.add(new MyPair(Operator.BREAK, breakFirst));
-        freqFirst.add(new MyPair(Operator.CONTINUE, continueFirst));
-        freqFirst.add(new MyPair(Operator.RETURN, returnFirst));
+        freqFirst.add(new MyMap(assigFirst, EnumNameOperators.Assigment.getName()));
+        freqFirst.add(new MyMap(ifFirst, EnumNameOperators.If.getName()));
+        freqFirst.add(new MyMap(switchFirst, EnumNameOperators.Switch.getName()));
+        freqFirst.add(new MyMap(dowhileFirst, EnumNameOperators.Dowhile.getName()));
+        freqFirst.add(new MyMap(whileFirst, EnumNameOperators.While.getName()));
+        freqFirst.add(new MyMap(forFirst, EnumNameOperators.For.getName()));
+        freqFirst.add(new MyMap(gotoFirst, EnumNameOperators.Goto.getName()));
+        freqFirst.add(new MyMap(breakFirst, EnumNameOperators.Break.getName()));
+        freqFirst.add(new MyMap(continueFirst, EnumNameOperators.Continue.getName()));
+        freqFirst.add(new MyMap(returnFirst, EnumNameOperators.Return.getName()));
 
         freqSecond = new ArrayList<>();
 
-        freqSecond.add(new MyPair(Operator.ASSIGMENT, assigSecond));
-        freqSecond.add(new MyPair(Operator.IF, ifSecond));
-        freqSecond.add(new MyPair(Operator.SWITCH, switchSecond));
-        freqSecond.add(new MyPair(Operator.DOWHILE, dowhileSecond));
-        freqSecond.add(new MyPair(Operator.WHILE, whileSecond));
-        freqSecond.add(new MyPair(Operator.FOR, forSecond));
-        freqSecond.add(new MyPair(Operator.GOTO, gotoSecond));
-        freqSecond.add(new MyPair(Operator.BREAK, breakSecond));
-        freqSecond.add(new MyPair(Operator.CONTINUE, continueSecond));
-        freqSecond.add(new MyPair(Operator.RETURN, returnSecond));
+        freqSecond.add(new MyMap(assigSecond, EnumNameOperators.Assigment.getName()));
+        freqSecond.add(new MyMap(ifSecond, EnumNameOperators.If.getName()));
+        freqSecond.add(new MyMap(switchSecond, EnumNameOperators.Switch.getName()));
+        freqSecond.add(new MyMap(dowhileSecond, EnumNameOperators.Dowhile.getName()));
+        freqSecond.add(new MyMap(whileSecond, EnumNameOperators.While.getName()));
+        freqSecond.add(new MyMap(forSecond, EnumNameOperators.For.getName()));
+        freqSecond.add(new MyMap(gotoSecond, EnumNameOperators.Goto.getName()));
+        freqSecond.add(new MyMap(breakSecond, EnumNameOperators.Break.getName()));
+        freqSecond.add(new MyMap(continueSecond, EnumNameOperators.Continue.getName()));
+        freqSecond.add(new MyMap(returnSecond, EnumNameOperators.Return.getName()));
 
         int countOperatorsFirst = listOperatorsFirst.size();
         int countOperatorsSecond = listOperatorsSecond.size();
@@ -220,20 +235,24 @@ public class CalculatorPlagiat {
         percentSecond = percentOneOp(returnSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
 
-        int resultOffsets = (int) (sumAllPercents / 10);
+        resultFreq = (int) (sumAllPercents / 10);
 
 
-        compareSeq(listOperatorsFirst, listOperatorsSecond);
+        compareSeq(first, second);
 
         return result;
     }
 
-    public ArrayList<MyPair> getFreqFirst() {
+    public ArrayList<MyMap> getFreqFirst() {
         return freqFirst;
     }
 
-    public ArrayList<MyPair> getFreqSecond() {
+    public ArrayList<MyMap> getFreqSecond() {
         return freqSecond;
+    }
+
+    public int getResultFreq() {
+        return resultFreq;
     }
 
     private double percentOneOp(int countOp, int countAllOp) {
@@ -261,13 +280,15 @@ public class CalculatorPlagiat {
         }
     }
 
-    private void compareSeq(ArrayList<Operator> listOperatorsFirst, ArrayList<Operator> listOperatorsSecond) {
+    private void compareSeq(Analyzer first, Analyzer second) {
         int result = 0;
         int offsets[];
-        for (int i = 0, j = 0; i < listOperatorsFirst.size(); i++) {
-            //if (listOperatorsFirst.get(i).getKeyOperator() == listOperatorsSecond.get(i).getKeyOperator()) {
+        for (int i = 0; i < first.getListOperators().size(); i++) {
+            for (int j = 0; j < second.getListOperators().size(); j++) {
+                //if (listOperatorsFirst.get(i).getKeyOperator() == listOperatorsSecond.get(i).getKeyOperator()) {
 
-            //}
+                //}
+            }
         }
     }
 

@@ -25,6 +25,7 @@ public class AnalyzerC extends Analyzer {
 
 
     public AnalyzerC() {
+        resultsAnalyzeFiles = new ArrayList<>();
         dynAn = new DynamicAnalyzer();
         dynAn.initUtilite(LanguagePrograming.LANG_C);
         parser = new CParser(null);
@@ -37,12 +38,13 @@ public class AnalyzerC extends Analyzer {
 
     @Override
     public void parsing(String path) {
-        resultsAnalyzeFiles = new ArrayList<>();
+
         parser.setTokenStream(loadProject(path));
         CParser cParser = (CParser) parser;
         cParser.setPath(path);
         cParser.compilationUnit();
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(path, listMetrics));
+        String[] paths = path.split("/");
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], listMetrics));
         //resetMetrics();
     }
 

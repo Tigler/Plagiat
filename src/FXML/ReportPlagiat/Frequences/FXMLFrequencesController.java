@@ -5,12 +5,15 @@
  */
 package FXML.ReportPlagiat.Frequences;
 
+import analyzer.code.MyMap;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -30,30 +33,50 @@ public class FXMLFrequencesController implements Initializable {
      * Initializes the controller class.
      */
 
+    @FXML
+    Label labelResult;
+    ArrayList<MyMap> freqFirst;
+    ArrayList<MyMap> freqsecond;
+    int resultFreq;
+
+
+    public void setFrequences(ArrayList<MyMap> freqFirst, ArrayList<MyMap> freqsecond, int resultFreq) {
+        this.freqFirst = freqFirst;
+        this.freqsecond = freqsecond;
+        this.resultFreq = resultFreq;
+        viewResult();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+
+    }
+
+    private void viewResult() {
         barChartFirst.setTitle("Частоты проекта");
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("2003");
-        series1.getData().add(new XYChart.Data("austria", 25601.34));
-        series1.getData().add(new XYChart.Data("brazil", 20148.82));
-        series1.getData().add(new XYChart.Data("france", 10000));
-        series1.getData().add(new XYChart.Data("italy", 35407.15));
-        series1.getData().add(new XYChart.Data("usa", 12000));
-        barChartFirst.getData().addAll(series1);
+        if (freqFirst != null) {
+            for (MyMap map : freqFirst) {
+                series1.getData().add(new XYChart.Data(map.getValue(), map.getKey()));
+            }
+            barChartFirst.getData().addAll(series1);
+        }
 
         barChartSecond.setTitle("Частоты проекта");
 
         XYChart.Series series2 = new XYChart.Series();
-        series2.setName("2003");
-        series2.getData().add(new XYChart.Data("austria", 25601.34));
-        series2.getData().add(new XYChart.Data("brazil", 20148.82));
-        series2.getData().add(new XYChart.Data("france", 10000));
-        series2.getData().add(new XYChart.Data("italy", 35407.15));
-        series2.getData().add(new XYChart.Data("usa", 12000));
-        barChartSecond.getData().addAll(series2);
+        series2.setName("2004");
+        if (freqsecond != null) {
+            for (MyMap map : freqsecond) {
+                series2.getData().add(new XYChart.Data(map.getValue(), map.getKey()));
+            }
+            barChartSecond.getData().addAll(series2);
+        }
+
+        labelResult.setText("Схожесть по частотам операторов: " + resultFreq + "%");
     }
 
 }
