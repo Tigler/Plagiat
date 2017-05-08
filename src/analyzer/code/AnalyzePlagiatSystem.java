@@ -9,15 +9,9 @@ import FXML.ReportPlagiat.FXMLReportPlagiatController;
 import analyzer.CalculatorPlagiat;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -138,7 +132,8 @@ public class AnalyzePlagiatSystem {
     }
 
     public void firstProjCompareDB() {
-        try {
+        calculatorPlagiat.compareProjectDB(firstAnalyzer, 1);
+        /*try {
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
             ResultSet resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
@@ -149,6 +144,6 @@ public class AnalyzePlagiatSystem {
             alert.setHeaderText("Ошибка при получении данных");
             alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(e.toString())));
             alert.showAndWait();
-        }
+        }*/
     }
 }

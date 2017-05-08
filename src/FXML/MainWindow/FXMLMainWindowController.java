@@ -5,6 +5,7 @@
  */
 package FXML.MainWindow;
 
+import FXML.AuthorProject.FXMLAuthorProjectController;
 import analyzer.code.AnalyzePlagiatSystem;
 import analyzer.code.LanguagePrograming;
 import com.sun.javafx.collections.ObservableListWrapper;
@@ -80,10 +81,15 @@ public class FXMLMainWindowController implements Initializable {
     private AnalyzePlagiatSystem analyzePlagiatSystem;
     private ArrayList<LanguagePrograming> listLanguages;
 
+    public void onEventInWindowAuthor() {
+        analyzePlagiatSystem.firstProjCompareDB();
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String os = System.getProperty("os.version").toLowerCase();
-        System.out.print(os);
+        //String os = System.getProperty("os.version").toLowerCase();
+        //System.out.print(os);
         selectFirstProject = false;
         selectSecondProject = false;
         buttonAnalyzeProjects.setDisable(true);
@@ -128,6 +134,19 @@ public class FXMLMainWindowController implements Initializable {
         buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                try {
+                    AnchorPane pane = (AnchorPane) loader.load();
+                    FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                    fxmlAuthorProjectController.setAnalyzePlagiatSystem(analyzePlagiatSystem, 1);
+                    Scene scene = new Scene(pane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Информация о проекте");
+                    stage.show();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
                 analyzePlagiatSystem.firstProjCompareDB();
             }
         });
