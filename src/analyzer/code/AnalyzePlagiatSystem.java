@@ -133,17 +133,9 @@ public class AnalyzePlagiatSystem {
 
     public void firstProjCompareDB() {
         calculatorPlagiat.compareProjectDB(firstAnalyzer, 1);
-        /*try {
-            PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
-            ResultSet resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    }
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка доступа к базе данных");
-            alert.setHeaderText("Ошибка при получении данных");
-            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(e.toString())));
-            alert.showAndWait();
-        }*/
+    public void secondProjCompareDB() {
+        calculatorPlagiat.compareProjectDB(firstAnalyzer, 2);
     }
 }

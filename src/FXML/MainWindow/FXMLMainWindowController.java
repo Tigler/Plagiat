@@ -157,8 +157,19 @@ public class FXMLMainWindowController implements Initializable {
         buttonCalcDB2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                analyzePlagiatSystem.analyzeProjects();
-
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                try {
+                    AnchorPane pane = (AnchorPane) loader.load();
+                    FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                    fxmlAuthorProjectController.setAnalyzePlagiatSystem(analyzePlagiatSystem, 2);
+                    Scene scene = new Scene(pane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Информация о проекте");
+                    stage.show();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 

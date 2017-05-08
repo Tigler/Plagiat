@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,8 +40,17 @@ public class FXMLAuthorProjectController implements Initializable {
     AnalyzePlagiatSystem analyzePlagiatSystem;
     int numAnalyzer;
 
-    public void setAnalyzePlagiatSystem(AnalyzePlagiatSystem analyzePlagiatSystem) {
+    public void setAnalyzePlagiatSystem(AnalyzePlagiatSystem analyzePlagiatSystem, int numAnalyzer) {
         this.analyzePlagiatSystem = analyzePlagiatSystem;
+        this.numAnalyzer = numAnalyzer;
+        if (numAnalyzer == 1) {
+            analyzePlagiatSystem.writeDBFirstProj();
+        } else {
+            if (numAnalyzer == 2) {
+                analyzePlagiatSystem.writeDBSecondProj();
+            }
+        }
+
     }
 
     @Override
@@ -49,7 +59,16 @@ public class FXMLAuthorProjectController implements Initializable {
         buttonOk.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                analyzePlagiatSystem.
+                if (numAnalyzer == 1) {
+                    analyzePlagiatSystem.firstProjCompareDB();
+                } else {
+                    if (numAnalyzer == 2) {
+                        analyzePlagiatSystem.secondProjCompareDB();
+                    }
+                }
+
+                Stage stage = (Stage) buttonOk.getScene().getWindow();
+                stage.close();
             }
         });
     }
