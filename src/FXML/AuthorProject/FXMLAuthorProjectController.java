@@ -44,10 +44,10 @@ public class FXMLAuthorProjectController implements Initializable {
         this.analyzePlagiatSystem = analyzePlagiatSystem;
         this.numAnalyzer = numAnalyzer;
         if (numAnalyzer == 1) {
-            analyzePlagiatSystem.writeDBFirstProj();
+            analyzePlagiatSystem.writeDBFirstProj(textFieldAuthor.getText(), textAreaDescProj.getText());
         } else {
             if (numAnalyzer == 2) {
-                analyzePlagiatSystem.writeDBSecondProj();
+                analyzePlagiatSystem.writeDBSecondProj(textFieldAuthor.getText(), textAreaDescProj.getText());
             }
         }
 

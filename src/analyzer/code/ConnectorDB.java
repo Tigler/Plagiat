@@ -39,18 +39,18 @@ public class ConnectorDB {
             " from Project" +
             " inner join Source on Source.id_project=Project.id" +
             " inner join Operator on Operator.id_source=Source.id";
-    public static final String insertNewProject = "insert into Project (Author,Name, MidLenOLCom) values (?, ?, ?)";
+    public static final String insertNewProject = "insert into Project (Author,Description,Name) values (?, ?,?)";
     public static final String deleteProject = "delete from Project where id = ?";
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     //для таблицы проект
     public static final String selectSource = "select id,Name,Expension,Text,ifCount from Source where id_project=?";
-    public static final String insertNewSource = "insert into Project (Author,Name, MidLenOLCom) values (?, ?, ?)";
+    public static final String insertNewSource = "insert into Source (Name, Expension, ifCount,id_project) values (?, ?,?, ?)";
     public static final String deleteSource = "delete from Project where id = ?";
     public static final String updateSource = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_source=? order by idx ASC";
-    public static final String insertNewOperator = "insert into Project (Author,Name, MidLenOLCom) values (?, ?, ?)";
+    public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_source) values (?, ?, ?,?)";
     public static final String deleteOperator = "delete from Project where id = ?";
     public static final String updateOperator = "update Project set MidLenOLCom = ? WHERE id = ?";
 

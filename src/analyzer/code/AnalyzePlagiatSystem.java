@@ -7,11 +7,14 @@ package analyzer.code;
 
 import FXML.ReportPlagiat.FXMLReportPlagiatController;
 import analyzer.CalculatorPlagiat;
+import enums.EnumNamesMetric;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -137,5 +140,89 @@ public class AnalyzePlagiatSystem {
 
     public void secondProjCompareDB() {
         calculatorPlagiat.compareProjectDB(firstAnalyzer, 2);
+    }
+
+    public void writeDBFirstProj(String author, String desc) {
+        try {
+            PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
+            preparedStatement.setString(1, author);
+            preparedStatement.setString(2, desc);
+            preparedStatement.setString(3, firstAnalyzer.getNameProject());
+            int idProj = ConnectorDB.executeUpdate();
+
+            for (int i = 0; i < firstAnalyzer.getListResultAnalyzeFiles().size(); i++) {
+                preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
+                String[] fileNameExt = firstAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split("\\.");
+                preparedStatement.setString(1, fileNameExt[0]);
+                preparedStatement.setString(2, fileNameExt[1]);
+                if (firstAnalyzer.getListMetrics().get(i).getName().equals(EnumNamesMetric.levelNest.toString())) {
+                    preparedStatement.setString(3, String.valueOf(firstAnalyzer.getListMetrics().get(i).getResult()));
+                }
+                preparedStatement.setInt(4, idProj);
+                int idSrc = ConnectorDB.executeUpdate();
+
+
+                for (int j = 0; j < firstAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
+                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
+                    preparedStatement.setString(1, firstAnalyzer.getListResultAnalyzeFiles().get(i)
+                            .getOperators().get(j).getValueOperator());
+                    preparedStatement.setInt(2, firstAnalyzer.getListResultAnalyzeFiles().get(i)
+                            .getOperators().get(j).getKeyOperator());
+                    preparedStatement.setInt(3, j);
+                    preparedStatement.setInt(4, idSrc);
+
+                }
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeDBSecondProj(String author, String desc) {
+        try {
+            PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
+            preparedStatement.setString(1, author);
+            preparedStatement.setString(2, desc);
+            preparedStatement.setString(3, secondAnalyzer.getNameProject());
+            int idProj = ConnectorDB.executeUpdate();
+
+            for (int i = 0; i < secondAnalyzer.getListResultAnalyzeFiles().size(); i++) {
+                preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
+                String[] fileNameExt = secondAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split(".");
+                preparedStatement.setString(1, fileNameExt[0]);
+                preparedStatement.setString(2, fileNameExt[1]);
+                if (firstAnalyzer.getListMetrics().get(i).getName().equals(EnumNamesMetric.levelNest.toString())) {
+                    preparedStatement.setString(3, String.valueOf(firstAnalyzer.getListMetrics().get(i).getResult()));
+                }
+                preparedStatement.setInt(4, idProj);
+                int idSrc = ConnectorDB.executeUpdate();
+
+
+                for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
+                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
+                    preparedStatement.setString(1, secondAnalyzer.getListResultAnalyzeFiles().get(i)
+                            .getOperators().get(j).getValueOperator());
+                    preparedStatement.setInt(2, secondAnalyzer.getListResultAnalyzeFiles().get(i)
+                            .getOperators().get(j).getKeyOperator());
+                    preparedStatement.setInt(3, j);
+                    preparedStatement.setInt(4, idSrc);
+
+                }
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setNameFirstProject(String s) {
+        firstAnalyzer.setNameProject(s);
+    }
+
+    public void setNameSecondProject(String s) {
+        secondAnalyzer.setNameProject(s);
     }
 }

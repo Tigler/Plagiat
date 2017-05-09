@@ -44,7 +44,7 @@ public class AnalyzerC extends Analyzer {
         cParser.setPath(path);
         cParser.compilationUnit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], listMetrics));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], listMetrics, listOperators));
         //resetMetrics();
     }
 

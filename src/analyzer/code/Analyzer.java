@@ -13,6 +13,7 @@ public abstract class Analyzer {
     protected ArrayList<IMetric> listMetrics;
     protected ArrayList<Operator> listOperators;
     protected ArrayList<String> listPathFiles;
+    protected String nameProject;
     protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
     protected Parser parser;
     protected DynamicAnalyzer dynAn;
@@ -45,8 +46,20 @@ public abstract class Analyzer {
         this.listPathFiles = listPathFiles;
     }
 
+    public ArrayList<String> getListPathFiles() {
+        return listPathFiles;
+    }
+
     public void setListOperators(ArrayList<Operator> listOperators) {
         this.listOperators = listOperators;
+    }
+
+    public void setNameProject(String name) {
+        this.nameProject = name;
+    }
+
+    public String getNameProject() {
+        return nameProject;
     }
 
 }

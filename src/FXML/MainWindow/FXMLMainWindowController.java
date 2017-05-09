@@ -261,6 +261,8 @@ public class FXMLMainWindowController implements Initializable {
             analyzePlagiatSystem.setFirstAnalyzer(listLanguages.get(comboBoxLang1.getSelectionModel()
                     .getSelectedIndex()).getCode());
             File[] files = choice.listFiles();
+            String[] pathSplit = files[0].getAbsolutePath().split("/");
+            analyzePlagiatSystem.setNameFirstProject(pathSplit[pathSplit.length - 2]);
             ArrayList<String> pathFiles = new ArrayList<>();
             for (File file : files) {
                 if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang1.getSelectionModel()
