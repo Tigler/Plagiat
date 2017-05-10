@@ -7,24 +7,33 @@ import java.util.ArrayList;
  */
 public class ResultAnalyzeFile {
     private String nameFile;
-    private ArrayList<IMetric> listMetrics;
-    private ArrayList<Operator> listOperators;
 
-    public ResultAnalyzeFile(String nameFile, ArrayList<IMetric> listMetrics, ArrayList<Operator> listOperators) {
+    public String getPath() {
+        return path;
+    }
+
+    public ArrayList<ArrayList<Operator>> getListsOperators() {
+        return listsOperators;
+    }
+
+    private String path;
+    private ArrayList<ArrayList<Operator>> listsOperators;
+
+    public ResultAnalyzeFile(String nameFile, String path, ArrayList<ArrayList<Operator>> listsOperators) {
         this.nameFile = nameFile;
-        this.listMetrics = (ArrayList<IMetric>) listMetrics.clone();
-        this.listOperators = (ArrayList<Operator>) listOperators.clone();
+        this.path = path;
+        this.listsOperators = (ArrayList<ArrayList<Operator>>) listsOperators.clone();
     }
 
     public String getNameFile() {
         return nameFile;
     }
 
-    public ArrayList<IMetric> getListMetrics() {
-        return listMetrics;
-    }
+    //public ArrayList<IMetric> getListMetrics() {
+    //return listMetrics;
+    //}
 
-    public ArrayList<Operator> getOperators() {
-        return listOperators;
-    }
+    // public ArrayList<ArrayList<Operator>> getOperators() {
+    //  return listsOperators;
+    // }
 }

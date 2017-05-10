@@ -147,7 +147,7 @@ public class FXMLMainWindowController implements Initializable {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                analyzePlagiatSystem.firstProjCompareDB();
+                //analyzePlagiatSystem.firstProjCompareDB();
             }
         });
 
@@ -304,6 +304,8 @@ public class FXMLMainWindowController implements Initializable {
             analyzePlagiatSystem.setSecondAnalyzer(listLanguages.get(comboBoxLang2.getSelectionModel()
                     .getSelectedIndex()).getCode());
             File[] files = choice.listFiles();
+            String[] pathSplit = files[0].getAbsolutePath().split("/");
+            analyzePlagiatSystem.setNameSecondProject(pathSplit[pathSplit.length - 2]);
             for (File file : files) {
                 if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang2.getSelectionModel()
                         .getSelectedIndex()).getExtension())) {

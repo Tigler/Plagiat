@@ -16,24 +16,18 @@ import java.util.ArrayList;
  */
 public abstract class ListenerParser {
 
-    IMetric daco;
+
     IMetric ifLevelNest;
-    IMetric middleLenIdent;
-    IMetric MLCommentCount;
-    IMetric MLCommentMidLen;
-    IMetric OLCommentCount;
-    IMetric OLCommentMidLen;
-    IMetric funcCount;
-    IMetric cycleCount;
     IMetric cycleLevNest;
-    ArrayList<Operator> listOperators;
+    ArrayList<ArrayList<Operator>> listsOperators;
+    ArrayList<Operator> listOperatorsTemp;
 
     ListenerParser successor;
 
     public abstract void onEvent(EventParser event);
 
-    public void setListOperators(ArrayList<Operator> listOperators) {
-        this.listOperators = listOperators;
+    public void setListOperators(ArrayList<ArrayList<Operator>> listsOperators) {
+        this.listsOperators = listsOperators;
     }
 
 }

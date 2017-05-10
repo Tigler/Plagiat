@@ -13,6 +13,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -101,7 +106,7 @@ public class AnalyzePlagiatSystem {
     }
 
     public int analyzeProjects() {
-        int resultFreq = calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer, secondAnalyzer);
+        calculatorPlagiat.calcForTwoProj(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
         try {
             AnchorPane pane = (AnchorPane) loader.load();
@@ -139,7 +144,7 @@ public class AnalyzePlagiatSystem {
     }
 
     public void secondProjCompareDB() {
-        calculatorPlagiat.compareProjectDB(firstAnalyzer, 2);
+        calculatorPlagiat.compareProjectDB(secondAnalyzer, 2);
     }
 
     public void writeDBFirstProj(String author, String desc) {
@@ -152,17 +157,24 @@ public class AnalyzePlagiatSystem {
 
             for (int i = 0; i < firstAnalyzer.getListResultAnalyzeFiles().size(); i++) {
                 preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
+
                 String[] fileNameExt = firstAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split("\\.");
                 preparedStatement.setString(1, fileNameExt[0]);
                 preparedStatement.setString(2, fileNameExt[1]);
+
+
+                preparedStatement.setString(3, readerFile(firstAnalyzer.getListResultAnalyzeFiles().get(i).getPath()));
+
                 if (firstAnalyzer.getListMetrics().get(i).getName().equals(EnumNamesMetric.levelNest.toString())) {
-                    preparedStatement.setString(3, String.valueOf(firstAnalyzer.getListMetrics().get(i).getResult()));
+                    preparedStatement.setDouble(4, firstAnalyzer.getListMetrics().get(i).getResult());
+                } else {
+                    preparedStatement.setDouble(4, -1.0);
                 }
-                preparedStatement.setInt(4, idProj);
+                preparedStatement.setInt(5, idProj);
                 int idSrc = ConnectorDB.executeUpdate();
 
 
-                for (int j = 0; j < firstAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
+                /*for (int j = 0; j < firstAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
                     preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
                     preparedStatement.setString(1, firstAnalyzer.getListResultAnalyzeFiles().get(i)
                             .getOperators().get(j).getValueOperator());
@@ -170,10 +182,8 @@ public class AnalyzePlagiatSystem {
                             .getOperators().get(j).getKeyOperator());
                     preparedStatement.setInt(3, j);
                     preparedStatement.setInt(4, idSrc);
-
-                }
-
-
+                    int idOper = ConnectorDB.executeUpdate();
+                }*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -200,7 +210,7 @@ public class AnalyzePlagiatSystem {
                 int idSrc = ConnectorDB.executeUpdate();
 
 
-                for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
+               /* for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
                     preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
                     preparedStatement.setString(1, secondAnalyzer.getListResultAnalyzeFiles().get(i)
                             .getOperators().get(j).getValueOperator());
@@ -209,7 +219,7 @@ public class AnalyzePlagiatSystem {
                     preparedStatement.setInt(3, j);
                     preparedStatement.setInt(4, idSrc);
 
-                }
+                }*/
 
 
             }
@@ -224,5 +234,30 @@ public class AnalyzePlagiatSystem {
 
     public void setNameSecondProject(String s) {
         secondAnalyzer.setNameProject(s);
+    }
+
+    public static String readerFile(String path) {
+        BufferedReader reader = null;
+        String text = "";
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(
+                            new FileInputStream(path), Charset.forName("UTF-8")));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                text += line;
+            }
+        } catch (IOException e) {
+            // log error
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    // log warning
+                }
+            }
+        }
+        return text;
     }
 }

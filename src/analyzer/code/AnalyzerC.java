@@ -4,7 +4,6 @@ import dynamic.DynamicAnalyzer;
 import events.EventSequenceOperators;
 import events.ListenerParser;
 import jdk.internal.util.xml.impl.ReaderUTF8;
-import metrics.*;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
@@ -44,7 +43,7 @@ public class AnalyzerC extends Analyzer {
         cParser.setPath(path);
         cParser.compilationUnit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], listMetrics, listOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
         //resetMetrics();
     }
 
@@ -60,41 +59,16 @@ public class AnalyzerC extends Analyzer {
     }
 
     private void initMetrics() {
-        listOperators = new ArrayList<>();
-        listMetrics = new ArrayList<>();
-        //IMetric countOperator = new DACO();
-        //listMetrics.add(countOperator);
-
-        IMetric levelNesting = new IfLevelNest();
-        listMetrics.add(levelNesting);
-
-        IMetric cycleLevelNest = new CycleLevelNest();
-        listMetrics.add(cycleLevelNest);
-
-        IMetric middleLenIdent = new MiddleLenIdent();
-        listMetrics.add(middleLenIdent);
-
-        IMetric OLCommentCount = new OLCommentCountMetric();
-        listMetrics.add(OLCommentCount);
-
-        IMetric OLCommentMidLen = new OLCommentMidLenMetric();
-        listMetrics.add(OLCommentMidLen);
-
-        IMetric MLCommentCount = new MLCommentCountMetric();
-        listMetrics.add(MLCommentCount);
-
-        IMetric MLCommentMidLen = new MLCommentMidLenMetric();
-        listMetrics.add(MLCommentMidLen);
-
+        listsOperators = new ArrayList<>();
     }
 
     private ListenerParser createChainListeners() {
         ListenerParser listener = null;
-        for (int i = 0; i < listMetrics.size(); i++) {
-            listener = listMetrics.get(i).initListener(listMetrics.get(i), listener);
-        }
+        //for (int i = 0; i < listMetrics.size(); i++) {
+        //   listener = listMetrics.get(i).initListener(listMetrics.get(i), listener);
+        // }
         listener = new EventSequenceOperators(null, listener);
-        listener.setListOperators(this.listOperators);
+        listener.setListOperators(this.listsOperators);
         return listener;
     }
 

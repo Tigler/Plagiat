@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public abstract class Analyzer {
     protected ArrayList<IMetric> listMetrics;
-    protected ArrayList<Operator> listOperators;
+    protected ArrayList<ArrayList<Operator>> listsOperators;
     protected ArrayList<String> listPathFiles;
     protected String nameProject;
     protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
@@ -34,8 +34,8 @@ public abstract class Analyzer {
         return listMetrics;
     }
 
-    public ArrayList<Operator> getListOperators() {
-        return listOperators;
+    public ArrayList<ArrayList<Operator>> getListsOperators() {
+        return listsOperators;
     }
 
     public ArrayList<ResultAnalyzeFile> getListResultAnalyzeFiles() {
@@ -50,9 +50,9 @@ public abstract class Analyzer {
         return listPathFiles;
     }
 
-    public void setListOperators(ArrayList<Operator> listOperators) {
-        this.listOperators = listOperators;
-    }
+    //public void setListOperators(ArrayList<Operator> listOperators) {
+    //  this.listOperators = listOperators;
+    //}
 
     public void setNameProject(String name) {
         this.nameProject = name;

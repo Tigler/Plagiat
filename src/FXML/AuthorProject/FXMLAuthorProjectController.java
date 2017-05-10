@@ -43,13 +43,7 @@ public class FXMLAuthorProjectController implements Initializable {
     public void setAnalyzePlagiatSystem(AnalyzePlagiatSystem analyzePlagiatSystem, int numAnalyzer) {
         this.analyzePlagiatSystem = analyzePlagiatSystem;
         this.numAnalyzer = numAnalyzer;
-        if (numAnalyzer == 1) {
-            analyzePlagiatSystem.writeDBFirstProj(textFieldAuthor.getText(), textAreaDescProj.getText());
-        } else {
-            if (numAnalyzer == 2) {
-                analyzePlagiatSystem.writeDBSecondProj(textFieldAuthor.getText(), textAreaDescProj.getText());
-            }
-        }
+
 
     }
 
@@ -61,9 +55,11 @@ public class FXMLAuthorProjectController implements Initializable {
             public void handle(ActionEvent e) {
                 if (numAnalyzer == 1) {
                     analyzePlagiatSystem.firstProjCompareDB();
+                    analyzePlagiatSystem.writeDBFirstProj(textFieldAuthor.getText(), textAreaDescProj.getText());
                 } else {
                     if (numAnalyzer == 2) {
                         analyzePlagiatSystem.secondProjCompareDB();
+                        analyzePlagiatSystem.writeDBSecondProj(textFieldAuthor.getText(), textAreaDescProj.getText());
                     }
                 }
 

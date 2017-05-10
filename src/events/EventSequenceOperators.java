@@ -8,6 +8,8 @@ package events;
 import analyzer.code.IMetric;
 import analyzer.code.Operator;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tigler
@@ -26,37 +28,44 @@ public class EventSequenceOperators extends ListenerParser {
                 || event.getCode() == EventParser.WHILE_START || event.getCode() == EventParser.FOR_START
                 || event.getCode() == EventParser.GOTO || event.getCode() == EventParser.BREAK
                 || event.getCode() == EventParser.CONTINUE || event.getCode() == EventParser.RETURN
+                || event.getCode() == EventParser.FUNC_START || event.getCode() == EventParser.FUNC_END
                 ) {
             switch (event.getCode()){
+                case EventParser.FUNC_START:
+                    listOperatorsTemp = new ArrayList<>();
+                    break;
+                case EventParser.FUNC_END:
+                    listsOperators.add(listOperatorsTemp);
+                    break;
                 case EventParser.ASSIGMENT:
-                    listOperators.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
                     break;
                 case EventParser.IF_START:
-                    listOperators.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
                     break;
                 case EventParser.SWITCH:
-                    listOperators.add(new Operator(Operator.SWITCH, "switch", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.SWITCH, "switch", event.getStr(), event.getPath()));
                     break;
                 case EventParser.DO_WHILE_START:
-                    listOperators.add(new Operator(Operator.DOWHILE, "dowhile", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.DOWHILE, "dowhile", event.getStr(), event.getPath()));
                     break;
                 case EventParser.WHILE_START:
-                    listOperators.add(new Operator(Operator.WHILE, "while", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.WHILE, "while", event.getStr(), event.getPath()));
                     break;
                 case EventParser.FOR_START:
-                    listOperators.add(new Operator(Operator.FOR, "for", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.FOR, "for", event.getStr(), event.getPath()));
                     break;
                 case EventParser.GOTO:
-                    listOperators.add(new Operator(Operator.GOTO, "goto", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.GOTO, "goto", event.getStr(), event.getPath()));
                     break;
                 case EventParser.BREAK:
-                    listOperators.add(new Operator(Operator.BREAK, "break", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.BREAK, "break", event.getStr(), event.getPath()));
                     break;
                 case EventParser.CONTINUE:
-                    listOperators.add(new Operator(Operator.CONTINUE, "continue", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.CONTINUE, "continue", event.getStr(), event.getPath()));
                     break;
                 case EventParser.RETURN:
-                    listOperators.add(new Operator(Operator.RETURN, "return", event.getStr(), event.getPath()));
+                    listOperatorsTemp.add(new Operator(Operator.RETURN, "return", event.getStr(), event.getPath()));
                     break;
             }
             if (successor != null) {
