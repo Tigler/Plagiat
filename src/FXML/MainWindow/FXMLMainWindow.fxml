@@ -25,9 +25,10 @@
       <Separator layoutX="288.0" layoutY="29.0" orientation="VERTICAL" prefHeight="308.0" prefWidth="6.0" />
       <Button fx:id="buttonOpen1" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" text="Открыть" />
       <Button fx:id="buttonOpen2" layoutX="469.0" layoutY="36.0" mnemonicParsing="false" text="Открыть" />
-      <Button fx:id="buttonAnalyzeProjects" layoutX="302.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Анализ проектов" />
-      <Button fx:id="buttonFullAnalyze" layoutX="302.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Полный анализ" />
-      <Button layoutX="302.0" layoutY="171.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Button" />
+       <Button fx:id="buttonAnalyzeProjects" layoutX="302.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0"
+               prefWidth="145.0" text="Анализ проектов"/>
+       <Button fx:id="buttonFullAnalyze" layoutX="302.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0"
+               prefWidth="145.0" text="Полный анализ"/>
       <TextField fx:id="textFieldPath1" editable="false" layoutX="14.0" layoutY="71.0" prefHeight="25.0" prefWidth="262.0" />
       <Separator layoutX="457.0" layoutY="29.0" orientation="VERTICAL" prefHeight="308.0" prefWidth="6.0" />
       <TextField fx:id="textFieldPath2" editable="false" layoutX="469.0" layoutY="71.0" prefHeight="25.0" prefWidth="279.0" />

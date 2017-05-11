@@ -6,6 +6,7 @@
 package FXML.ReportPlagiat;
 
 import FXML.ReportPlagiat.CoinMetrics.FXMLCoinMetricsController;
+import FXML.ReportPlagiat.CoinSeq.FXMLCoinSeqController;
 import FXML.ReportPlagiat.Frequences.FXMLFrequencesController;
 import analyzer.code.MyMap;
 import analyzer.code.ResultAnalyzeFile;
@@ -42,6 +43,7 @@ public class FXMLReportPlagiatController implements Initializable {
     ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesFirst;
     ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesSecond;
     int resultFreq;
+    int resultSeqOperators;
 
     /**
      * Initializes the controller class.
@@ -82,6 +84,8 @@ public class FXMLReportPlagiatController implements Initializable {
                         case 1:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
+                            FXMLCoinSeqController fxmlCoinSeqController = loader.getController();
+                            fxmlCoinSeqController.setResultSeqOperators(resultSeqOperators);
                             break;
 
                         case 2:
@@ -107,4 +111,7 @@ public class FXMLReportPlagiatController implements Initializable {
         });
     }
 
+    public void setResultSeqOperators(int resultSeqOperators) {
+        this.resultSeqOperators = resultSeqOperators;
+    }
 }

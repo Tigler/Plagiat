@@ -42,9 +42,15 @@ public class AnalyzerJava extends Analyzer {
     }
 
     @Override
-    public void dynamicAnalyze() {
-
+    public boolean dynamicAnalyzeFirst() {
+        return false;
     }
+
+    @Override
+    public boolean dynamicAnalyzeSecond() {
+        return false;
+    }
+
 
     @Override
     public Parser getParser() {

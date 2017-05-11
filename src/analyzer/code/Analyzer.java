@@ -20,7 +20,9 @@ public abstract class Analyzer {
 
     public abstract void parsing(String path);
 
-    public abstract void dynamicAnalyze();
+    public abstract boolean dynamicAnalyzeFirst();
+
+    public abstract boolean dynamicAnalyzeSecond();
 
     public void resetMetrics() {
         for (IMetric metr : listMetrics) {

@@ -1,12 +1,8 @@
 package dynamic;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 
-import javax.swing.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -14,10 +10,29 @@ import java.util.ArrayList;
  */
 public class UtiliteForLinuxC extends Utilite {
 
-    public static final String dirCompilC = "dinamic/CompilationFilesC/";
 
     @Override
-    public boolean executeProgramm(ArrayList<String> listPathFiles) {
+    public boolean executeProgramm(ArrayList<String> listPathFiles, int numAnalyzer) {
+        String nameProgram = null;
+        String pathProgramm = null;
+        String dirCompilC = null;
+        String logFile = null;
+        switch (numAnalyzer) {
+            case 1:
+                nameProgram = "CProgramm1";
+                pathProgramm = "dinamic/CompilationFilesC1/CProgramm1";
+                dirCompilC = "dinamic/CompilationFilesC1/";
+                logFile = "dinamic/CompilationFilesC1/valgrindResult1.txt";
+                break;
+            case 2:
+                nameProgram = "CProgramm2";
+                pathProgramm = "dinamic/CompilationFilesC2/CProgramm2";
+                dirCompilC = "dinamic/CompilationFilesC2/";
+                logFile = "dinamic/CompilationFilesC2/valgrindResult2.txt";
+                break;
+            default:
+                return false;
+        }
         Runtime rt = Runtime.getRuntime();
         try {
             Process proc = rt.exec("chmod 777 -R dinamic");
@@ -28,33 +43,25 @@ public class UtiliteForLinuxC extends Utilite {
             for (int i = 0; i < listPathFiles.size(); i++) {
                 listCompil += dirCompilC + i + ".o ";
             }
-            proc = rt.exec("gcc -o " + dirCompilC + "CProgramm" + listCompil);
-            try {
-                proc = rt.exec("./dinamic/LinuxC.sh");
-            } catch (Exception e) {
-                e.printStackTrace();
-                StringWriter sw = new StringWriter();
-                e.printStackTrace(new PrintWriter(sw));
+
+            proc = rt.exec("gcc -o " + dirCompilC + nameProgram + listCompil);
+
+            if (!(new File(pathProgramm)).exists()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setResizable(false);
                 alert.setTitle("Динамический анализ");
-                alert.setHeaderText("Не удалось выполнить программу");
-                alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(sw.toString())));
+                alert.setHeaderText("Не удалось компилировать файлы проекта или выполнить сборку");
                 alert.showAndWait();
+                return false;
             }
+            proc = rt.exec("valgrind --tool=cachegrind --cachegrind-out-file=dinamic/cachegrind/out --log-file=" + logFile + " ./" + pathProgramm);
+
+
         } catch (Exception e) {
             e.printStackTrace();
-            StringWriter sw = new StringWriter();
-            e.printStackTrace(new PrintWriter(sw));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setResizable(false);
-
-            alert.setTitle("Динамический анализ");
-            alert.setHeaderText("Не удалось компилировать файлы проекта или выполнить сборку");
-            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(sw.toString())));
-            alert.showAndWait();
-
+            return false;
         }
-        return false;
+        return true;
     }
 }
 

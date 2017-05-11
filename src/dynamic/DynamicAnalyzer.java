@@ -11,6 +11,8 @@ import java.util.ArrayList;
  * @author tigler
  */
 public class DynamicAnalyzer {
+    public final static String DYNAMIC_RESULT_PATH_C1 = "dinamic/CompilationFilesC1/valgrindResult1.txt";
+    public final static String DYNAMIC_RESULT_PATH_C2 = "dinamic/CompilationFilesC2/valgrindResult2.txt";
     private Utilite utilite;
 
     public boolean initUtilite(int r) {
@@ -35,8 +37,8 @@ public class DynamicAnalyzer {
         }
     }
 
-    public void analyze(ArrayList<String> listPathFiles) {
-        utilite.executeProgramm(listPathFiles);
+    public boolean analyze(ArrayList<String> listPathFiles, int numAnalyzer) {
+        return utilite.executeProgramm(listPathFiles, numAnalyzer);
     }
 
     public Utilite getUtilite() {

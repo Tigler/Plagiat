@@ -113,6 +113,7 @@ public class AnalyzePlagiatSystem {
             FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
+            fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
                     secondAnalyzer.getListResultAnalyzeFiles());
             Scene scene = new Scene(pane);
@@ -131,12 +132,36 @@ public class AnalyzePlagiatSystem {
     }
 
     public int fullAnalyze() {
-        firstAnalyzer.dynamicAnalyze();
-        return 1;////1;calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(),secondAnalyzer.getListMetrics());
+
+        calculatorPlagiat.calcDynamic(firstAnalyzer, secondAnalyzer);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
+        try {
+            AnchorPane pane = (AnchorPane) loader.load();
+            FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
+            fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
+                    calculatorPlagiat.getResultFreq());
+            fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
+            fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
+                    secondAnalyzer.getListResultAnalyzeFiles());
+            Scene scene = new Scene(pane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Отчет");
+            stage.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+
+
     }
 
     public void setFirstFiles(ArrayList<String> pathFiles) {
         firstAnalyzer.setListPathFiles(pathFiles);
+    }
+
+    public void setSecondFiles(ArrayList<String> pathFiles) {
+        secondAnalyzer.setListPathFiles(pathFiles);
     }
 
     public void firstProjCompareDB() {

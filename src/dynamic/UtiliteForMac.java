@@ -9,7 +9,7 @@ public class UtiliteForMac extends Utilite {
 
 
     @Override
-    public boolean executeProgramm(ArrayList<String> listPathFiles) {
+    public boolean executeProgramm(ArrayList<String> listPathFiles, int numAnalyzer) {
         return false;
     }
 }

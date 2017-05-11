@@ -28,28 +28,32 @@ public class AnalyzerC extends Analyzer {
         dynAn = new DynamicAnalyzer();
         dynAn.initUtilite(LanguagePrograming.LANG_C);
         parser = new CParser(null);
-        initMetrics();
-        ListenerParser listener = createChainListeners();
 
-        CParser cParser = (CParser) parser;
-        cParser.attach(listener);
+
     }
 
     @Override
     public void parsing(String path) {
-
-        parser.setTokenStream(loadProject(path));
+        initMetrics();
+        ListenerParser listener = createChainListeners();
         CParser cParser = (CParser) parser;
+        cParser.attach(listener);
+        parser.setTokenStream(loadProject(path));
+
         cParser.setPath(path);
         cParser.compilationUnit();
         String[] paths = path.split("/");
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
-        //resetMetrics();
     }
 
     @Override
-    public void dynamicAnalyze() {
-        dynAn.analyze(listPathFiles);
+    public boolean dynamicAnalyzeFirst() {
+        return dynAn.analyze(listPathFiles, 1);
+    }
+
+    @Override
+    public boolean dynamicAnalyzeSecond() {
+        return dynAn.analyze(listPathFiles, 2);
     }
 
 

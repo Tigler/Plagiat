@@ -93,6 +93,7 @@ public class FXMLMainWindowController implements Initializable {
         selectFirstProject = false;
         selectSecondProject = false;
         buttonAnalyzeProjects.setDisable(true);
+        buttonFullAnalyze.setDisable(true);
         analyzePlagiatSystem = new AnalyzePlagiatSystem();
         listLanguages = analyzePlagiatSystem.initLanguages();
         List listLang = new ArrayList();
@@ -271,6 +272,7 @@ public class FXMLMainWindowController implements Initializable {
                     selectFirstProject = true;
                     if (selectFirstProject && selectSecondProject) {
                         buttonAnalyzeProjects.setDisable(false);
+                        buttonFullAnalyze.setDisable(false);
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingFirst(file.getAbsolutePath());
@@ -306,12 +308,15 @@ public class FXMLMainWindowController implements Initializable {
             File[] files = choice.listFiles();
             String[] pathSplit = files[0].getAbsolutePath().split("/");
             analyzePlagiatSystem.setNameSecondProject(pathSplit[pathSplit.length - 2]);
+            ArrayList<String> pathFiles = new ArrayList<>();
             for (File file : files) {
                 if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang2.getSelectionModel()
                         .getSelectedIndex()).getExtension())) {
+                    pathFiles.add(file.getAbsolutePath());
                     selectSecondProject = true;
                     if (selectFirstProject && selectSecondProject) {
                         buttonAnalyzeProjects.setDisable(false);
+                        buttonFullAnalyze.setDisable(false);
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingSecond(file.getAbsolutePath());
@@ -322,6 +327,7 @@ public class FXMLMainWindowController implements Initializable {
 
                 }
             }
+            analyzePlagiatSystem.setSecondFiles(pathFiles);
             textFieldPath2.setText(choice.getPath());
             treeView2.setRoot(getNodesForDirectory(choice));
         }
