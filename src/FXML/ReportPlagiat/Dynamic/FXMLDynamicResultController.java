@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FXML.ReportPlagiat.CoinSeq;
+package FXML.ReportPlagiat.Dynamic;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,9 +17,8 @@ import java.util.ResourceBundle;
  *
  * @author tigler
  */
-public class FXMLCoinSeqController implements Initializable {
+public class FXMLDynamicResultController implements Initializable {
 
-    int resultSeqOperators;
     @FXML
     Label labelResult;
 
@@ -33,8 +32,8 @@ public class FXMLCoinSeqController implements Initializable {
 
     }
 
-    public void setResultSeqOperators(int resultSeqOperators) {
-        this.resultSeqOperators = resultSeqOperators;
-        labelResult.setText("Совпадение по последовательностям операторов: " + resultSeqOperators + "%");
+
+    public void setResult(int resultDynamic) {
+        labelResult.setText("Динамический анализ: " + resultDynamic + "%");
     }
 }

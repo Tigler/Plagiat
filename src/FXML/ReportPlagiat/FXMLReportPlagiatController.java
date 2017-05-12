@@ -5,8 +5,8 @@
  */
 package FXML.ReportPlagiat;
 
-import FXML.ReportPlagiat.CoinMetrics.FXMLCoinMetricsController;
 import FXML.ReportPlagiat.CoinSeq.FXMLCoinSeqController;
+import FXML.ReportPlagiat.Dynamic.FXMLDynamicResultController;
 import FXML.ReportPlagiat.Frequences.FXMLFrequencesController;
 import analyzer.code.MyMap;
 import analyzer.code.ResultAnalyzeFile;
@@ -16,10 +16,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +39,8 @@ public class FXMLReportPlagiatController implements Initializable {
     ListView listView;
     @FXML
     BorderPane borderPane;
+    @FXML
+    Button buttonExit;
 
     ArrayList<MyMap> freqFirst;
     ArrayList<MyMap> freqsecond;
@@ -44,6 +48,8 @@ public class FXMLReportPlagiatController implements Initializable {
     ArrayList<ResultAnalyzeFile> resultsAnalyzeFilesSecond;
     int resultFreq;
     int resultSeqOperators;
+    int resultDynamic;
+    ObservableList<String> items;
 
     /**
      * Initializes the controller class.
@@ -63,9 +69,16 @@ public class FXMLReportPlagiatController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> items = FXCollections.observableArrayList(
-                "Совпадение по метрикам", "Совпадение по последовательностям", "Частоты");
+        items = FXCollections.observableArrayList(
+                "Совпадение по последовательностям", "Частоты");
         listView.setItems(items);
+        buttonExit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Stage stage = (Stage) buttonExit.getScene().getWindow();
+                stage.close();
+            }
+        });
         listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -74,25 +87,31 @@ public class FXMLReportPlagiatController implements Initializable {
                 AnchorPane adminTeamView = null;
                 try {
                     switch (listView.getSelectionModel().getSelectedIndex()) {
-                        case 0:
+                        /*case 0:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinMetrics/FXMLCoinMetrics.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
                             FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
                             fxmlCoinMetricsController.setListsMetrics(resultsAnalyzeFilesFirst,
                                     resultsAnalyzeFilesSecond);
-                            break;
-                        case 1:
+                            break;*/
+                        case 0:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
                             FXMLCoinSeqController fxmlCoinSeqController = loader.getController();
                             fxmlCoinSeqController.setResultSeqOperators(resultSeqOperators);
                             break;
 
-                        case 2:
+                        case 1:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Frequences/FXMLFrequences.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
                             FXMLFrequencesController fxmlFrequencesController = loader.getController();
                             fxmlFrequencesController.setFrequences(freqFirst, freqsecond, resultFreq);
+                            break;
+                        case 2:
+                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml"));
+                            adminTeamView = (AnchorPane) loader.load();
+                            FXMLDynamicResultController fxmlDynamicResultController = loader.getController();
+                            fxmlDynamicResultController.setResult(resultDynamic);
                             break;
                         default:
                             break;
@@ -113,5 +132,10 @@ public class FXMLReportPlagiatController implements Initializable {
 
     public void setResultSeqOperators(int resultSeqOperators) {
         this.resultSeqOperators = resultSeqOperators;
+    }
+
+    public void setResultDynamic(int resultDynamic) {
+        this.resultDynamic = resultDynamic;
+        items.add("Динамический анализ");
     }
 }

@@ -45,7 +45,7 @@ public class UtiliteForLinuxC extends Utilite {
             }
 
             proc = rt.exec("gcc -o " + dirCompilC + nameProgram + listCompil);
-
+            Thread.sleep(1000);
             if (!(new File(pathProgramm)).exists()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setResizable(false);

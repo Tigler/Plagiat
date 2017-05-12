@@ -3,7 +3,6 @@ package analyzer.code;
 import events.ListenerParser;
 import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.UnbufferedCharStream;
 import parsers.Java.JavaLexer;
@@ -51,11 +50,6 @@ public class AnalyzerJava extends Analyzer {
         return false;
     }
 
-
-    @Override
-    public Parser getParser() {
-        return null;
-    }
 
     private TokenStream loadProject(String path) {
         Reader reader = null;

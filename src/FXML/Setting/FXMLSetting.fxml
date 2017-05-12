@@ -13,8 +13,10 @@
             <bottom>
                 <Pane prefHeight="40.0" prefWidth="613.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button layoutX="406.0" layoutY="8.0" mnemonicParsing="false" text="Ok"/>
-                        <Button layoutX="486.0" layoutY="8.0" mnemonicParsing="false" text="Button"/>
+                        <Button fx:id="buttonOk" layoutX="397.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0"
+                                prefWidth="70.0" text="Ok"/>
+                        <Button fx:id="buttonCancel" layoutX="486.0" layoutY="8.0" mnemonicParsing="false"
+                                prefHeight="25.0" prefWidth="84.0" text="Отмена"/>
                     </children>
                 </Pane>
             </bottom>

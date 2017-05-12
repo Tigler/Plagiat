@@ -5,11 +5,12 @@
  */
 package FXML.AuthorProject;
 
-import analyzer.code.AnalyzePlagiatSystem;
+import analyzer.code.Analyzer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -37,14 +38,10 @@ public class FXMLAuthorProjectController implements Initializable {
      * Initializes the controller class.
      */
 
-    AnalyzePlagiatSystem analyzePlagiatSystem;
-    int numAnalyzer;
+    Analyzer analyzer;
 
-    public void setAnalyzePlagiatSystem(AnalyzePlagiatSystem analyzePlagiatSystem, int numAnalyzer) {
-        this.analyzePlagiatSystem = analyzePlagiatSystem;
-        this.numAnalyzer = numAnalyzer;
-
-
+    public void setProject(Analyzer analyzer) {
+        this.analyzer = analyzer;
     }
 
     @Override
@@ -53,18 +50,19 @@ public class FXMLAuthorProjectController implements Initializable {
         buttonOk.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                if (numAnalyzer == 1) {
-                    analyzePlagiatSystem.firstProjCompareDB();
-                    analyzePlagiatSystem.writeDBFirstProj(textFieldAuthor.getText(), textAreaDescProj.getText());
+                if (textFieldAuthor.getText().equals("") || textAreaDescProj.getText().equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setResizable(false);
+                    alert.setTitle("Информация о проекте");
+                    alert.setHeaderText("Заполните поля");
+                    alert.showAndWait();
                 } else {
-                    if (numAnalyzer == 2) {
-                        analyzePlagiatSystem.secondProjCompareDB();
-                        analyzePlagiatSystem.writeDBSecondProj(textFieldAuthor.getText(), textAreaDescProj.getText());
-                    }
-                }
+                    analyzer.getProjectProgramm().setAuthor(textFieldAuthor.getText());
+                    analyzer.getProjectProgramm().setDesc(textAreaDescProj.getText());
 
-                Stage stage = (Stage) buttonOk.getScene().getWindow();
-                stage.close();
+                    Stage stage = (Stage) buttonOk.getScene().getWindow();
+                    stage.close();
+                }
             }
         });
     }

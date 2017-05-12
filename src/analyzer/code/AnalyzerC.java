@@ -5,7 +5,6 @@ import events.EventSequenceOperators;
 import events.ListenerParser;
 import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.UnbufferedCharStream;
 import parsers.C.CLexer;
@@ -48,19 +47,14 @@ public class AnalyzerC extends Analyzer {
 
     @Override
     public boolean dynamicAnalyzeFirst() {
-        return dynAn.analyze(listPathFiles, 1);
+        return dynAn.analyze(projectProgramm.getPathsSrc(), 1);
     }
 
     @Override
     public boolean dynamicAnalyzeSecond() {
-        return dynAn.analyze(listPathFiles, 2);
+        return dynAn.analyze(projectProgramm.getPathsSrc(), 2);
     }
 
-
-    @Override
-    public Parser getParser() {
-        return parser;
-    }
 
     private void initMetrics() {
         listsOperators = new ArrayList<>();
@@ -68,9 +62,7 @@ public class AnalyzerC extends Analyzer {
 
     private ListenerParser createChainListeners() {
         ListenerParser listener = null;
-        //for (int i = 0; i < listMetrics.size(); i++) {
-        //   listener = listMetrics.get(i).initListener(listMetrics.get(i), listener);
-        // }
+
         listener = new EventSequenceOperators(null, listener);
         listener.setListOperators(this.listsOperators);
         return listener;

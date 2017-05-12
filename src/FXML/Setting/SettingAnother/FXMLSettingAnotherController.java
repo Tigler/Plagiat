@@ -5,18 +5,20 @@
  */
 package FXML.Setting.SettingAnother;
 
-import javafx.event.EventHandler;
+import FXML.Setting.FXMLSettingController;
+import analyzer.code.AnalyzerCode;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.CheckBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * FXML Controller class
@@ -31,27 +33,29 @@ public class FXMLSettingAnotherController implements Initializable {
      */
 
     @FXML
-    ListView listView;
-    @FXML
-    BorderPane borderPane;
+    CheckBox checkBoxWriteDB;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (listView.getSelectionModel().getSelectedIndex() == 0) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Setting/SettingMethods/FXMLSettingMethods.fxml"));
-                    try {
-                        AnchorPane adminTeamView = (AnchorPane) loader.load();
-                        borderPane.setCenter(adminTeamView);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+        Properties props = new Properties();
+        InputStream is = null;
 
-                }
+        try {
+            is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+            try {
+                props.load(is);
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
             }
-        });
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//а вот сама загрузка состояния флажка
+
+        checkBoxWriteDB.setSelected("true".equals(props.getProperty("WriteDBEnable")));
     }
 
+    public CheckBox getCheckBoxWriteDB() {
+        return checkBoxWriteDB;
+    }
 }

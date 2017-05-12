@@ -7,7 +7,6 @@ package analyzer.code;
 
 import FXML.ReportPlagiat.FXMLReportPlagiatController;
 import analyzer.CalculatorPlagiat;
-import enums.EnumNamesMetric;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -105,7 +104,7 @@ public class AnalyzePlagiatSystem {
         return listLanguages;
     }
 
-    public int analyzeProjects() {
+    public void analyzeProjects() {
         calculatorPlagiat.calcForTwoProj(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
         try {
@@ -119,20 +118,16 @@ public class AnalyzePlagiatSystem {
             Scene scene = new Scene(pane);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Отчет");
+            stage.setTitle("Отчет о совпадениях");
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return 0;
     }
 
-    public int analyzeFirstProjAndDB() {
-        return 1;//calculatorPlagiat.calcForTwoProjMetrics(firstAnalyzer.getListMetrics(), secondAnalyzer.getListMetrics());
-    }
 
     public int fullAnalyze() {
-
+        calculatorPlagiat.calcForTwoProj(firstAnalyzer, secondAnalyzer);
         calculatorPlagiat.calcDynamic(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
         try {
@@ -141,28 +136,20 @@ public class AnalyzePlagiatSystem {
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
             fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
+            fxmlReportPlagiatController.setResultDynamic(calculatorPlagiat.getResultDynamic());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
                     secondAnalyzer.getListResultAnalyzeFiles());
             Scene scene = new Scene(pane);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Отчет");
+            stage.setTitle("Отчет о совпадениях");
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return 0;
-
-
     }
 
-    public void setFirstFiles(ArrayList<String> pathFiles) {
-        firstAnalyzer.setListPathFiles(pathFiles);
-    }
-
-    public void setSecondFiles(ArrayList<String> pathFiles) {
-        secondAnalyzer.setListPathFiles(pathFiles);
-    }
 
     public void firstProjCompareDB() {
         calculatorPlagiat.compareProjectDB(firstAnalyzer, 1);
@@ -172,12 +159,12 @@ public class AnalyzePlagiatSystem {
         calculatorPlagiat.compareProjectDB(secondAnalyzer, 2);
     }
 
-    public void writeDBFirstProj(String author, String desc) {
+    public void writeDBFirstProj() {
         try {
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
-            preparedStatement.setString(1, author);
-            preparedStatement.setString(2, desc);
-            preparedStatement.setString(3, firstAnalyzer.getNameProject());
+            preparedStatement.setString(1, firstAnalyzer.getProjectProgramm().getAuthor());
+            preparedStatement.setString(2, firstAnalyzer.getProjectProgramm().getDesc());
+            preparedStatement.setString(3, firstAnalyzer.getProjectProgramm().getName());
             int idProj = ConnectorDB.executeUpdate();
 
             for (int i = 0; i < firstAnalyzer.getListResultAnalyzeFiles().size(); i++) {
@@ -190,11 +177,7 @@ public class AnalyzePlagiatSystem {
 
                 preparedStatement.setString(3, readerFile(firstAnalyzer.getListResultAnalyzeFiles().get(i).getPath()));
 
-                if (firstAnalyzer.getListMetrics().get(i).getName().equals(EnumNamesMetric.levelNest.toString())) {
-                    preparedStatement.setDouble(4, firstAnalyzer.getListMetrics().get(i).getResult());
-                } else {
-                    preparedStatement.setDouble(4, -1.0);
-                }
+
                 preparedStatement.setInt(5, idProj);
                 int idSrc = ConnectorDB.executeUpdate();
 
@@ -215,12 +198,12 @@ public class AnalyzePlagiatSystem {
         }
     }
 
-    public void writeDBSecondProj(String author, String desc) {
+    public void writeDBSecondProj() {
         try {
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
-            preparedStatement.setString(1, author);
-            preparedStatement.setString(2, desc);
-            preparedStatement.setString(3, secondAnalyzer.getNameProject());
+            preparedStatement.setString(1, firstAnalyzer.getProjectProgramm().getAuthor());
+            preparedStatement.setString(2, firstAnalyzer.getProjectProgramm().getDesc());
+            preparedStatement.setString(3, secondAnalyzer.getProjectProgramm().getName());
             int idProj = ConnectorDB.executeUpdate();
 
             for (int i = 0; i < secondAnalyzer.getListResultAnalyzeFiles().size(); i++) {
@@ -228,9 +211,7 @@ public class AnalyzePlagiatSystem {
                 String[] fileNameExt = secondAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split(".");
                 preparedStatement.setString(1, fileNameExt[0]);
                 preparedStatement.setString(2, fileNameExt[1]);
-                if (firstAnalyzer.getListMetrics().get(i).getName().equals(EnumNamesMetric.levelNest.toString())) {
-                    preparedStatement.setString(3, String.valueOf(firstAnalyzer.getListMetrics().get(i).getResult()));
-                }
+
                 preparedStatement.setInt(4, idProj);
                 int idSrc = ConnectorDB.executeUpdate();
 
@@ -253,13 +234,6 @@ public class AnalyzePlagiatSystem {
         }
     }
 
-    public void setNameFirstProject(String s) {
-        firstAnalyzer.setNameProject(s);
-    }
-
-    public void setNameSecondProject(String s) {
-        secondAnalyzer.setNameProject(s);
-    }
 
     public static String readerFile(String path) {
         BufferedReader reader = null;

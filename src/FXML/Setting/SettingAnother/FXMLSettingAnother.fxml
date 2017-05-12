@@ -6,6 +6,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="FXML.Setting.SettingAnother.FXMLSettingAnotherController">
     <children>
-        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Заносить в БД анализируемые проекты"/>
+        <CheckBox fx:id="checkBoxWriteDB" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+                  text="Заносить в БД анализируемые проекты"/>
     </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package analyzer.code;
 
+import analyzer.ProjectProgramm;
 import dynamic.DynamicAnalyzer;
 import org.antlr.v4.runtime.Parser;
 
@@ -10,13 +11,11 @@ import java.util.ArrayList;
  * Created by tigler on 28.04.17.
  */
 public abstract class Analyzer {
-    protected ArrayList<IMetric> listMetrics;
     protected ArrayList<ArrayList<Operator>> listsOperators;
-    protected ArrayList<String> listPathFiles;
-    protected String nameProject;
     protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
     protected Parser parser;
     protected DynamicAnalyzer dynAn;
+    protected ProjectProgramm projectProgramm;
 
     public abstract void parsing(String path);
 
@@ -24,17 +23,6 @@ public abstract class Analyzer {
 
     public abstract boolean dynamicAnalyzeSecond();
 
-    public void resetMetrics() {
-        for (IMetric metr : listMetrics) {
-            metr.reset();
-        }
-    }
-
-    public abstract Parser getParser();
-
-    public ArrayList<IMetric> getListMetrics() {
-        return listMetrics;
-    }
 
     public ArrayList<ArrayList<Operator>> getListsOperators() {
         return listsOperators;
@@ -44,24 +32,11 @@ public abstract class Analyzer {
         return resultsAnalyzeFiles;
     }
 
-    public void setListPathFiles(ArrayList<String> listPathFiles) {
-        this.listPathFiles = listPathFiles;
+    public ProjectProgramm getProjectProgramm() {
+        return projectProgramm;
     }
 
-    public ArrayList<String> getListPathFiles() {
-        return listPathFiles;
+    public void setProjectProgramm(ProjectProgramm projectProgramm) {
+        this.projectProgramm = projectProgramm;
     }
-
-    //public void setListOperators(ArrayList<Operator> listOperators) {
-    //  this.listOperators = listOperators;
-    //}
-
-    public void setNameProject(String name) {
-        this.nameProject = name;
-    }
-
-    public String getNameProject() {
-        return nameProject;
-    }
-
 }

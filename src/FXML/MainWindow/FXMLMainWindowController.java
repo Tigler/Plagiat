@@ -6,7 +6,10 @@
 package FXML.MainWindow;
 
 import FXML.AuthorProject.FXMLAuthorProjectController;
+import FXML.Setting.FXMLSettingController;
+import analyzer.ProjectProgramm;
 import analyzer.code.AnalyzePlagiatSystem;
+import analyzer.code.AnalyzerCode;
 import analyzer.code.LanguagePrograming;
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.ObservableList;
@@ -23,13 +26,10 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import org.apache.commons.io.FilenameUtils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
+import java.util.logging.Level;
 
 /**
  * FXML Controller class
@@ -115,6 +115,36 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 openProjectFirst();
+                Properties props = new Properties();
+                InputStream is = null;
+
+                try {
+                    is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+                    try {
+                        props.load(is);
+                    } catch (IOException ex) {
+                        java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (FileNotFoundException ex) {
+                    java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                if ("true".equals(props.getProperty("WriteDBEnable"))) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                    try {
+                        AnchorPane pane = (AnchorPane) loader.load();
+                        FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                        fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getFirstAnalyzer());
+                        Scene scene = new Scene(pane);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Информация о проекте");
+                        stage.show();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    analyzePlagiatSystem.writeDBFirstProj();
+                }
             }
         });
 
@@ -125,6 +155,36 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 openProjSecond();
+                Properties props = new Properties();
+                InputStream is = null;
+
+                try {
+                    is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+                    try {
+                        props.load(is);
+                    } catch (IOException ex) {
+                        java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (FileNotFoundException ex) {
+                    java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                if ("true".equals(props.getProperty("WriteDBEnable"))) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                    try {
+                        AnchorPane pane = (AnchorPane) loader.load();
+                        FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                        fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getSecondAnalyzer());
+                        Scene scene = new Scene(pane);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Информация о проекте");
+                        stage.show();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    analyzePlagiatSystem.writeDBSecondProj();
+                }
             }
         });
 
@@ -135,19 +195,7 @@ public class FXMLMainWindowController implements Initializable {
         buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
-                try {
-                    AnchorPane pane = (AnchorPane) loader.load();
-                    FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
-                    fxmlAuthorProjectController.setAnalyzePlagiatSystem(analyzePlagiatSystem, 1);
-                    Scene scene = new Scene(pane);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Информация о проекте");
-                    stage.show();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+
                 //analyzePlagiatSystem.firstProjCompareDB();
             }
         });
@@ -162,7 +210,7 @@ public class FXMLMainWindowController implements Initializable {
                 try {
                     AnchorPane pane = (AnchorPane) loader.load();
                     FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
-                    fxmlAuthorProjectController.setAnalyzePlagiatSystem(analyzePlagiatSystem, 2);
+                    fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getSecondAnalyzer());
                     Scene scene = new Scene(pane);
                     Stage stage = new Stage();
                     stage.setScene(scene);
@@ -250,21 +298,20 @@ public class FXMLMainWindowController implements Initializable {
     }
 
     private void openProjectFirst() {
+        ArrayList<String> pathFiles = null;
         DirectoryChooser dc = new DirectoryChooser();
         dc.setInitialDirectory(new File(System.getProperty("user.home")));
         File choice = dc.showDialog(null);
         if (choice == null || !choice.isDirectory()) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Could not open directory");
-            alert.setContentText("The file is invalid.");
+            alert.setHeaderText("Не удалось открыть каталог");
             alert.showAndWait();
         } else {
             analyzePlagiatSystem.setFirstAnalyzer(listLanguages.get(comboBoxLang1.getSelectionModel()
                     .getSelectedIndex()).getCode());
             File[] files = choice.listFiles();
-            String[] pathSplit = files[0].getAbsolutePath().split("/");
-            analyzePlagiatSystem.setNameFirstProject(pathSplit[pathSplit.length - 2]);
-            ArrayList<String> pathFiles = new ArrayList<>();
+            String[] pathSplit = choice.getAbsolutePath().split("/");
+            pathFiles = new ArrayList<>();
             for (File file : files) {
                 if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang1.getSelectionModel()
                         .getSelectedIndex()).getExtension())) {
@@ -276,8 +323,6 @@ public class FXMLMainWindowController implements Initializable {
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingFirst(file.getAbsolutePath());
-                        //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
-
                     } catch (FileNotFoundException e1) {
                         e1.printStackTrace();
                     }
@@ -285,7 +330,9 @@ public class FXMLMainWindowController implements Initializable {
                 }
             }
 
-            analyzePlagiatSystem.setFirstFiles(pathFiles);
+            ProjectProgramm projectProgramm = new ProjectProgramm(pathSplit[pathSplit.length - 1]);
+            projectProgramm.setPathsSrc(pathFiles);
+            analyzePlagiatSystem.getFirstAnalyzer().setProjectProgramm(projectProgramm);
             textFieldPath1.setText(choice.getPath());
             treeView1.setRoot(getNodesForDirectory(choice));
         }
@@ -298,16 +345,13 @@ public class FXMLMainWindowController implements Initializable {
         File choice = dc.showDialog(null);
         if (choice == null || !choice.isDirectory()) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setHeaderText("Could not open directory");
-            alert.setContentText("The file is invalid.");
-
+            alert.setHeaderText("Не удалось открыть каталог");
             alert.showAndWait();
         } else {
             analyzePlagiatSystem.setSecondAnalyzer(listLanguages.get(comboBoxLang2.getSelectionModel()
                     .getSelectedIndex()).getCode());
             File[] files = choice.listFiles();
-            String[] pathSplit = files[0].getAbsolutePath().split("/");
-            analyzePlagiatSystem.setNameSecondProject(pathSplit[pathSplit.length - 2]);
+            String[] pathSplit = choice.getAbsolutePath().split("/");
             ArrayList<String> pathFiles = new ArrayList<>();
             for (File file : files) {
                 if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(listLanguages.get(comboBoxLang2.getSelectionModel()
@@ -320,14 +364,15 @@ public class FXMLMainWindowController implements Initializable {
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingSecond(file.getAbsolutePath());
-                        //nameFile.add(FilenameUtils.getName(file.getAbsolutePath()));
                     } catch (FileNotFoundException e1) {
                         e1.printStackTrace();
                     }
 
                 }
             }
-            analyzePlagiatSystem.setSecondFiles(pathFiles);
+            ProjectProgramm projectProgramm = new ProjectProgramm(pathSplit[pathSplit.length - 1]);
+            projectProgramm.setPathsSrc(pathFiles);
+            analyzePlagiatSystem.getSecondAnalyzer().setProjectProgramm(projectProgramm);
             textFieldPath2.setText(choice.getPath());
             treeView2.setRoot(getNodesForDirectory(choice));
         }

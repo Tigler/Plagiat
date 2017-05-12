@@ -30,7 +30,7 @@ public class CalculatorPlagiat {
 
     }
 
-    private boolean calcFreq(ArrayList<ArrayList<Operator>> listsOperatorsFirst, int numAnF, ArrayList<ArrayList<Operator>> listsOperatorsSecond, int numAnS) {
+    private boolean calcFreq(ArrayList<ResultAnalyzeFile> listResFirst, int numAnF, ArrayList<ResultAnalyzeFile> listResSecond, int numAnS) {
         if (numAnF == numAnS) {
             return false;
         }
@@ -58,82 +58,86 @@ public class CalculatorPlagiat {
 
         int countOperatorsFirst = 0;
         int countOperatorsSecond = 0;
-        for (ArrayList<Operator> listOperatorsFirst : listsOperatorsFirst) {
-            for (Operator oper : listOperatorsFirst) {
-                countOperatorsFirst++;
-                switch (oper.getKeyOperator()) {
-                    case Operator.ASSIGMENT:
-                        assigFirst++;
-                        break;
-                    case Operator.IF:
-                        ifFirst++;
-                        break;
-                    case Operator.SWITCH:
-                        switchFirst++;
-                        break;
-                    case Operator.DOWHILE:
-                        dowhileFirst++;
-                        break;
-                    case Operator.WHILE:
-                        whileFirst++;
-                        break;
-                    case Operator.FOR:
-                        forFirst++;
-                        break;
-                    case Operator.GOTO:
-                        gotoFirst++;
-                        break;
-                    case Operator.BREAK:
-                        breakFirst++;
-                        break;
-                    case Operator.CONTINUE:
-                        continueFirst++;
-                        break;
-                    case Operator.RETURN:
-                        returnFirst++;
-                        break;
-                    default:
-                        break;
+        for (int i = 0; i < listResFirst.size(); i++) {
+            for (ArrayList<Operator> listOperatorsFirst : listResFirst.get(i).getListsOperators()) {
+                for (Operator oper : listOperatorsFirst) {
+                    countOperatorsFirst++;
+                    switch (oper.getKeyOperator()) {
+                        case Operator.ASSIGMENT:
+                            assigFirst++;
+                            break;
+                        case Operator.IF:
+                            ifFirst++;
+                            break;
+                        case Operator.SWITCH:
+                            switchFirst++;
+                            break;
+                        case Operator.DOWHILE:
+                            dowhileFirst++;
+                            break;
+                        case Operator.WHILE:
+                            whileFirst++;
+                            break;
+                        case Operator.FOR:
+                            forFirst++;
+                            break;
+                        case Operator.GOTO:
+                            gotoFirst++;
+                            break;
+                        case Operator.BREAK:
+                            breakFirst++;
+                            break;
+                        case Operator.CONTINUE:
+                            continueFirst++;
+                            break;
+                        case Operator.RETURN:
+                            returnFirst++;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
 
-        for (ArrayList<Operator> listOperatorsSecond : listsOperatorsSecond) {
-            for (Operator oper : listOperatorsSecond) {
-                countOperatorsSecond++;
-                switch (oper.getKeyOperator()) {
-                    case Operator.ASSIGMENT:
-                        assigSecond++;
-                        break;
-                    case Operator.IF:
-                        ifSecond++;
-                        break;
-                    case Operator.SWITCH:
-                        switchSecond++;
-                        break;
-                    case Operator.DOWHILE:
-                        dowhileSecond++;
-                        break;
-                    case Operator.WHILE:
-                        whileSecond++;
-                        break;
-                    case Operator.FOR:
-                        forSecond++;
-                        break;
-                    case Operator.GOTO:
-                        gotoSecond++;
-                        break;
-                    case Operator.BREAK:
-                        breakSecond++;
-                        break;
-                    case Operator.CONTINUE:
-                        continueSecond++;
-                        break;
-                    case Operator.RETURN:
-                        returnSecond++;
-                        break;
-                    default:
-                        break;
+        for (int i = 0; i < listResSecond.size(); i++) {
+            for (ArrayList<Operator> listOperatorsSecond : listResSecond.get(i).getListsOperators()) {
+                for (Operator oper : listOperatorsSecond) {
+                    countOperatorsSecond++;
+                    switch (oper.getKeyOperator()) {
+                        case Operator.ASSIGMENT:
+                            assigSecond++;
+                            break;
+                        case Operator.IF:
+                            ifSecond++;
+                            break;
+                        case Operator.SWITCH:
+                            switchSecond++;
+                            break;
+                        case Operator.DOWHILE:
+                            dowhileSecond++;
+                            break;
+                        case Operator.WHILE:
+                            whileSecond++;
+                            break;
+                        case Operator.FOR:
+                            forSecond++;
+                            break;
+                        case Operator.GOTO:
+                            gotoSecond++;
+                            break;
+                        case Operator.BREAK:
+                            breakSecond++;
+                            break;
+                        case Operator.CONTINUE:
+                            continueSecond++;
+                            break;
+                        case Operator.RETURN:
+                            returnSecond++;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -362,7 +366,7 @@ public class CalculatorPlagiat {
     }
 
     public void calcForTwoProj(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
-        calcFreq(firstAnalyzer.getListsOperators(), 1, secondAnalyzer.getListsOperators(), 2);
+        calcFreq(firstAnalyzer.getListResultAnalyzeFiles(), 1, secondAnalyzer.getListResultAnalyzeFiles(), 2);
         resultSeqOperators = compareSeq(firstAnalyzer, secondAnalyzer);
     }
 
@@ -552,8 +556,11 @@ public class CalculatorPlagiat {
                     break;
                 }
 
-
             }
         }
+    }
+
+    public int getResultDynamic() {
+        return resultDynamic;
     }
 }
