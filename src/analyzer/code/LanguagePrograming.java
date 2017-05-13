@@ -8,6 +8,9 @@ public class LanguagePrograming {
 
     public static final int LANG_C = 0;
     public static final int LANG_JAVA = 1;
+    public static final int LANG_CPP = 2;
+    public static final int LANG_CSHARP = 3;
+    public static final int LANG_PYTHON3 = 4;
 
     private int code;
     private String name;
@@ -22,6 +25,15 @@ public class LanguagePrograming {
                 break;
             case LANG_JAVA:
                 extension = "java";
+                break;
+            case LANG_CPP:
+                extension = "cpp";
+                break;
+            case LANG_CSHARP:
+                extension = "cs";
+                break;
+            case LANG_PYTHON3:
+                extension = "py";
                 break;
             default:
                 extension = null;

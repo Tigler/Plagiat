@@ -7,6 +7,7 @@ package events;
 
 import analyzer.code.IMetric;
 import analyzer.code.Operator;
+import graf.Node;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,9 @@ public abstract class ListenerParser {
     IMetric cycleLevNest;
     ArrayList<ArrayList<Operator>> listsOperators;
     ArrayList<Operator> listOperatorsTemp;
+
+    ArrayList<ArrayList<Node>> graf;
+    ArrayList<Node> listNodeFunc;
 
     ListenerParser successor;
 

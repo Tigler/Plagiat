@@ -33,9 +33,11 @@ public class EventSequenceOperators extends ListenerParser {
             switch (event.getCode()){
                 case EventParser.FUNC_START:
                     listOperatorsTemp = new ArrayList<>();
+                    //listNodeFunc = new ArrayList<>();
                     break;
                 case EventParser.FUNC_END:
                     listsOperators.add(listOperatorsTemp);
+                    //graf.add(listNodeFunc);
                     break;
                 case EventParser.ASSIGMENT:
                     listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));

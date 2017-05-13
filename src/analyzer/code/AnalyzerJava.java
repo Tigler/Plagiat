@@ -1,5 +1,7 @@
 package analyzer.code;
 
+import dynamic.DynamicAnalyzer;
+import events.EventSequenceOperators;
 import events.ListenerParser;
 import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -12,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.Reader;
+import java.util.ArrayList;
 
 /**
  * Created by tigler on 28.04.17.
@@ -26,18 +29,33 @@ public class AnalyzerJava extends Analyzer {
     IMetric middleLenIdent;
 
     public AnalyzerJava() {
-        //String path="/home/tigler/Desktop/input.txt";
-
+        resultsAnalyzeFiles = new ArrayList<>();
+        dynAn = new DynamicAnalyzer();
+        dynAn.initUtilite(LanguagePrograming.LANG_JAVA);
         parser = new JavaParser(null);
 
 
     }
 
+    private ListenerParser createChainListeners() {
+        ListenerParser listener = null;
+        listener = new EventSequenceOperators(null, listener);
+        listener.setListOperators(this.listsOperators);
+        return listener;
+    }
+
     @Override
     public void parsing(String path) {
-        parser.setTokenStream(loadProject(path));
+        listsOperators = new ArrayList<>();
+        ListenerParser listener = createChainListeners();
         JavaParser javaParser = (JavaParser) parser;
+        javaParser.attach(listener);
+        parser.setTokenStream(loadProject(path));
+
+        javaParser.setPath(path);
         javaParser.compilationUnit();
+        String[] paths = path.split("/");
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
     }
 
     @Override

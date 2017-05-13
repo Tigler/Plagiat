@@ -21,19 +21,16 @@ import java.util.ArrayList;
  */
 public class AnalyzerC extends Analyzer {
 
-
     public AnalyzerC() {
         resultsAnalyzeFiles = new ArrayList<>();
         dynAn = new DynamicAnalyzer();
         dynAn.initUtilite(LanguagePrograming.LANG_C);
         parser = new CParser(null);
-
-
     }
 
     @Override
     public void parsing(String path) {
-        initMetrics();
+        listsOperators = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         CParser cParser = (CParser) parser;
         cParser.attach(listener);
@@ -56,13 +53,8 @@ public class AnalyzerC extends Analyzer {
     }
 
 
-    private void initMetrics() {
-        listsOperators = new ArrayList<>();
-    }
-
     private ListenerParser createChainListeners() {
         ListenerParser listener = null;
-
         listener = new EventSequenceOperators(null, listener);
         listener.setListOperators(this.listsOperators);
         return listener;

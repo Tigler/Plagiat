@@ -86,6 +86,15 @@ public class AnalyzePlagiatSystem {
             case LanguagePrograming.LANG_JAVA:
                 analyzer = new AnalyzerJava();
                 break;
+            case LanguagePrograming.LANG_CPP:
+                analyzer = new AnalyzerCpp();
+                break;
+            case LanguagePrograming.LANG_CSHARP:
+                analyzer = new AnalyzerCSharp();
+                break;
+            case LanguagePrograming.LANG_PYTHON3:
+                analyzer = new AnalyzerPython3();
+                break;
             default:
         }
         return analyzer;
@@ -100,7 +109,10 @@ public class AnalyzePlagiatSystem {
     public ArrayList<LanguagePrograming> initLanguages() {
         ArrayList<LanguagePrograming> listLanguages = new ArrayList<>();
         listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_C, "C"));
+        listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_CPP, "C++"));
+        listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_CSHARP, "C#"));
         listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_JAVA, "Java"));
+        listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_PYTHON3, "Python3"));
         return listLanguages;
     }
 

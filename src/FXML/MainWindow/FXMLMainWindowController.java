@@ -114,36 +114,38 @@ public class FXMLMainWindowController implements Initializable {
         buttonOpen1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                openProjectFirst();
-                Properties props = new Properties();
-                InputStream is = null;
+                boolean open = openProjectFirst();
+                if (open) {
+                    Properties props = new Properties();
+                    InputStream is = null;
 
-                try {
-                    is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
                     try {
-                        props.load(is);
-                    } catch (IOException ex) {
+                        is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+                        try {
+                            props.load(is);
+                        } catch (IOException ex) {
+                            java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    } catch (FileNotFoundException ex) {
                         java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (FileNotFoundException ex) {
-                    java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
-                }
 
-                if ("true".equals(props.getProperty("WriteDBEnable"))) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
-                    try {
-                        AnchorPane pane = (AnchorPane) loader.load();
-                        FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
-                        fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getFirstAnalyzer());
-                        Scene scene = new Scene(pane);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Информация о проекте");
-                        stage.show();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
+                    if ("true".equals(props.getProperty("WriteDBEnable"))) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                        try {
+                            AnchorPane pane = (AnchorPane) loader.load();
+                            FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                            fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getFirstAnalyzer());
+                            Scene scene = new Scene(pane);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.setTitle("Информация о проекте");
+                            stage.show();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        analyzePlagiatSystem.writeDBFirstProj();
                     }
-                    analyzePlagiatSystem.writeDBFirstProj();
                 }
             }
         });
@@ -154,36 +156,38 @@ public class FXMLMainWindowController implements Initializable {
         buttonOpen2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                openProjSecond();
-                Properties props = new Properties();
-                InputStream is = null;
+                boolean open = openProjSecond();
+                if (open) {
+                    Properties props = new Properties();
+                    InputStream is = null;
 
-                try {
-                    is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
                     try {
-                        props.load(is);
-                    } catch (IOException ex) {
+                        is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+                        try {
+                            props.load(is);
+                        } catch (IOException ex) {
+                            java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    } catch (FileNotFoundException ex) {
                         java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (FileNotFoundException ex) {
-                    java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
-                }
 
-                if ("true".equals(props.getProperty("WriteDBEnable"))) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
-                    try {
-                        AnchorPane pane = (AnchorPane) loader.load();
-                        FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
-                        fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getSecondAnalyzer());
-                        Scene scene = new Scene(pane);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Информация о проекте");
-                        stage.show();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
+                    if ("true".equals(props.getProperty("WriteDBEnable"))) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
+                        try {
+                            AnchorPane pane = (AnchorPane) loader.load();
+                            FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
+                            fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getSecondAnalyzer());
+                            Scene scene = new Scene(pane);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.setTitle("Информация о проекте");
+                            stage.show();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        analyzePlagiatSystem.writeDBSecondProj();
                     }
-                    analyzePlagiatSystem.writeDBSecondProj();
                 }
             }
         });
@@ -239,6 +243,19 @@ public class FXMLMainWindowController implements Initializable {
         buttonFullAnalyze.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
+                switch (listLanguages.get(comboBoxLang1.getSelectionModel().getSelectedIndex()).getCode()) {
+                    case LanguagePrograming.LANG_JAVA:
+                    case LanguagePrograming.LANG_CPP:
+                    case LanguagePrograming.LANG_CSHARP:
+                    case LanguagePrograming.LANG_PYTHON3:
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setHeaderText("Динамический анализ не доступен в этой версии программы для языка " + listLanguages.get(comboBoxLang1.getSelectionModel()
+                                .getSelectedIndex()).getName());
+                        alert.showAndWait();
+                        return;
+                    default:
+                        break;
+                }
                 analyzePlagiatSystem.fullAnalyze();
             }
         });
@@ -282,13 +299,33 @@ public class FXMLMainWindowController implements Initializable {
                 }
             }
         });
+
+        comboBoxLang1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectFirstProject = false;
+                textFieldPath1.setText("");
+                treeView1.setRoot(null);
+                buttonFullAnalyze.setDisable(true);
+                buttonAnalyzeProjects.setDisable(true);
+            }
+        });
+        comboBoxLang2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectSecondProject = false;
+                textFieldPath2.setText("");
+                treeView2.setRoot(null);
+                buttonFullAnalyze.setDisable(true);
+                buttonAnalyzeProjects.setDisable(true);
+            }
+        });
     }
 
-    public TreeItem<String> getNodesForDirectory(File directory) { //Returns a TreeItem representation of the specified directory
+    public TreeItem<String> getNodesForDirectory(File directory) {
         TreeItem<String> root = new TreeItem<String>(directory.getName());
         for (File f : directory.listFiles()) {
-            //System.out.println("Loading " + f.getName());
-            if (f.isDirectory()) { //Then we call the function recursively
+            if (f.isDirectory()) {
                 root.getChildren().add(getNodesForDirectory(f));
             } else {
                 root.getChildren().add(new TreeItem<String>(f.getName()));
@@ -297,7 +334,7 @@ public class FXMLMainWindowController implements Initializable {
         return root;
     }
 
-    private void openProjectFirst() {
+    private boolean openProjectFirst() {
         ArrayList<String> pathFiles = null;
         DirectoryChooser dc = new DirectoryChooser();
         dc.setInitialDirectory(new File(System.getProperty("user.home")));
@@ -306,6 +343,7 @@ public class FXMLMainWindowController implements Initializable {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Не удалось открыть каталог");
             alert.showAndWait();
+            return false;
         } else {
             analyzePlagiatSystem.setFirstAnalyzer(listLanguages.get(comboBoxLang1.getSelectionModel()
                     .getSelectedIndex()).getCode());
@@ -319,7 +357,11 @@ public class FXMLMainWindowController implements Initializable {
                     selectFirstProject = true;
                     if (selectFirstProject && selectSecondProject) {
                         buttonAnalyzeProjects.setDisable(false);
-                        buttonFullAnalyze.setDisable(false);
+                        if (listLanguages.get(comboBoxLang1.getSelectionModel()
+                                .getSelectedIndex()).getCode() == listLanguages.get(comboBoxLang2.getSelectionModel()
+                                .getSelectedIndex()).getCode()) {
+                            buttonFullAnalyze.setDisable(false);
+                        }
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingFirst(file.getAbsolutePath());
@@ -330,16 +372,26 @@ public class FXMLMainWindowController implements Initializable {
                 }
             }
 
+            if (!selectFirstProject) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText("В указанном каталоге нет ни одного исходного кода языка " + listLanguages.get(comboBoxLang1.getSelectionModel()
+                        .getSelectedIndex()).getName());
+                alert.showAndWait();
+                return false;
+            }
+
+
             ProjectProgramm projectProgramm = new ProjectProgramm(pathSplit[pathSplit.length - 1]);
             projectProgramm.setPathsSrc(pathFiles);
             analyzePlagiatSystem.getFirstAnalyzer().setProjectProgramm(projectProgramm);
             textFieldPath1.setText(choice.getPath());
             treeView1.setRoot(getNodesForDirectory(choice));
         }
+        return true;
     }
 
 
-    private void openProjSecond() {
+    private boolean openProjSecond() {
         DirectoryChooser dc = new DirectoryChooser();
         dc.setInitialDirectory(new File(System.getProperty("user.home")));
         File choice = dc.showDialog(null);
@@ -347,6 +399,7 @@ public class FXMLMainWindowController implements Initializable {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Не удалось открыть каталог");
             alert.showAndWait();
+            return false;
         } else {
             analyzePlagiatSystem.setSecondAnalyzer(listLanguages.get(comboBoxLang2.getSelectionModel()
                     .getSelectedIndex()).getCode());
@@ -360,7 +413,11 @@ public class FXMLMainWindowController implements Initializable {
                     selectSecondProject = true;
                     if (selectFirstProject && selectSecondProject) {
                         buttonAnalyzeProjects.setDisable(false);
-                        buttonFullAnalyze.setDisable(false);
+                        if (listLanguages.get(comboBoxLang1.getSelectionModel()
+                                .getSelectedIndex()).getCode() == listLanguages.get(comboBoxLang2.getSelectionModel()
+                                .getSelectedIndex()).getCode()) {
+                            buttonFullAnalyze.setDisable(false);
+                        }
                     }
                     try (Scanner scanner = new Scanner(file)) {
                         analyzePlagiatSystem.parsingSecond(file.getAbsolutePath());
@@ -370,12 +427,20 @@ public class FXMLMainWindowController implements Initializable {
 
                 }
             }
+            if (!selectSecondProject) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText("В указанном каталоге нет ни одного исходного кода языка " + listLanguages.get(comboBoxLang2.getSelectionModel()
+                        .getSelectedIndex()).getName());
+                alert.showAndWait();
+                return false;
+            }
             ProjectProgramm projectProgramm = new ProjectProgramm(pathSplit[pathSplit.length - 1]);
             projectProgramm.setPathsSrc(pathFiles);
             analyzePlagiatSystem.getSecondAnalyzer().setProjectProgramm(projectProgramm);
             textFieldPath2.setText(choice.getPath());
             treeView2.setRoot(getNodesForDirectory(choice));
         }
+        return true;
     }
 
 
