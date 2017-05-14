@@ -49,8 +49,13 @@ public class ConnectorDB {
     public static final String deleteSource = "delete from Project where id = ?";
     public static final String updateSource = "update Project set MidLenOLCom = ? WHERE id = ?";
 
-    public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_source=? order by idx ASC";
-    public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_source) values (?, ?, ?,?)";
+    public static final String selectBlock = "select id from Block where id_source=?";
+    public static final String insertNewBlock = "insert into Block (id_source) values (?)";
+    public static final String deleteBlock = "delete from Project where id = ?";
+    public static final String updateBlock = "update Project set MidLenOLCom = ? WHERE id = ?";
+
+    public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_block=? order by idx ASC";
+    public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_block) values (?, ?, ?,?)";
     public static final String deleteOperator = "delete from Project where id = ?";
     public static final String updateOperator = "update Project set MidLenOLCom = ? WHERE id = ?";
 

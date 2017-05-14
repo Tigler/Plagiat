@@ -25,6 +25,7 @@ public abstract class ListenerParser {
 
     ArrayList<ArrayList<Node>> graf;
     ArrayList<Node> listNodeFunc;
+    Node curNode;
 
     ListenerParser successor;
 

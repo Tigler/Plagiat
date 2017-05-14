@@ -32,15 +32,12 @@ import java.util.*;
 import java.util.logging.Level;
 
 /**
- * FXML Controller class
+ * FXML контроллер главного окна программы
  *
  * @author tigler
  */
 public class FXMLMainWindowController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     MenuItem openProjFirstMenu;
     @FXML
@@ -75,27 +72,31 @@ public class FXMLMainWindowController implements Initializable {
     ComboBox comboBoxLang2;
 
 
-    private boolean selectFirstProject;
-    private boolean selectSecondProject;
+    private boolean selectFirstProject; //открыт ли первый проект
+    private boolean selectSecondProject; //открыт ли второй проект
 
-    private AnalyzePlagiatSystem analyzePlagiatSystem;
-    private ArrayList<LanguagePrograming> listLanguages;
+    private AnalyzePlagiatSystem analyzePlagiatSystem; // фасад - анализатор плагиата
+    private ArrayList<LanguagePrograming> listLanguages; // список языков программирования для анализа
 
     public void onEventInWindowAuthor() {
         analyzePlagiatSystem.firstProjCompareDB();
     }
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //String os = System.getProperty("os.version").toLowerCase();
-        //System.out.print(os);
+        //проекты не открыты
         selectFirstProject = false;
         selectSecondProject = false;
+        //кнопки анализа не активны пока не открыты проекты
         buttonAnalyzeProjects.setDisable(true);
         buttonFullAnalyze.setDisable(true);
+
         analyzePlagiatSystem = new AnalyzePlagiatSystem();
-        listLanguages = analyzePlagiatSystem.initLanguages();
+
+        listLanguages = analyzePlagiatSystem.initLanguages();//инициализация списка языков
+        //заполнение комбобоксов списком языков
         List listLang = new ArrayList();
         for (LanguagePrograming lang : listLanguages) {
             listLang.add(lang.getName());
@@ -118,7 +119,6 @@ public class FXMLMainWindowController implements Initializable {
                 if (open) {
                     Properties props = new Properties();
                     InputStream is = null;
-
                     try {
                         is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
                         try {
@@ -130,6 +130,7 @@ public class FXMLMainWindowController implements Initializable {
                         java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
+                    //записывать в БД проект, если в найстройках установлен флаг
                     if ("true".equals(props.getProperty("WriteDBEnable"))) {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
                         try {
@@ -172,6 +173,7 @@ public class FXMLMainWindowController implements Initializable {
                         java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
+                    //записывать в БД проект, если в найстройках установлен флаг
                     if ("true".equals(props.getProperty("WriteDBEnable"))) {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AuthorProject/FXMLAuthorProject.fxml"));
                         try {
@@ -194,7 +196,7 @@ public class FXMLMainWindowController implements Initializable {
 
 
         /**
-         * Событие при нажитии кнопки открытия проекта для первой панели
+         * Событие при нажитии кнопки сравнения первого проекта и БД
          */
         buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -205,7 +207,7 @@ public class FXMLMainWindowController implements Initializable {
         });
 
         /**
-         * Событие при нажитии кнопки открытия проекта для первой панели
+         *  Событие при нажитии кнопки сравнения второго проекта и БД
          */
         buttonCalcDB2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -260,6 +262,10 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
+
+        /**
+         * Событие при нажитии кнопки открытия первого проекта в меню
+         */
         openProjFirstMenu.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -267,6 +273,9 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
+        /**
+         * Событие при нажитии кнопки открытия второго проекта в меню
+         */
         openProjSecondMenu.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -274,6 +283,9 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
+        /**
+         * Событие при нажитии пункта меню выход
+         */
         menuExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -281,14 +293,15 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
+        /**
+         * Событие при нажитии пункта меню настройки
+         */
         settingMenu.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Setting/FXMLSetting.fxml"));
                 try {
                     AnchorPane pane = (AnchorPane) loader.load();
-                    //fxmlmc = loader.getController();
-                    //fxmlmc.setAnalyzer((AnalyzerC) analyzer);
                     Scene scene = new Scene(pane);
                     Stage stage = new Stage();
                     stage.setScene(scene);
@@ -300,6 +313,9 @@ public class FXMLMainWindowController implements Initializable {
             }
         });
 
+        /**
+         * Событие при активации комбобокса первого проекта
+         */
         comboBoxLang1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -310,6 +326,10 @@ public class FXMLMainWindowController implements Initializable {
                 buttonAnalyzeProjects.setDisable(true);
             }
         });
+
+        /**
+         * Событие при активации комбобокса второго проекта
+         */
         comboBoxLang2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -322,6 +342,12 @@ public class FXMLMainWindowController implements Initializable {
         });
     }
 
+    /**
+     * создает дерево файлов для указанного каталога
+     *
+     * @param directory ссылка на объект типа File, которая является каталогом
+     * @return дерево файлов для указанного в параметре каталога
+     */
     public TreeItem<String> getNodesForDirectory(File directory) {
         TreeItem<String> root = new TreeItem<String>(directory.getName());
         for (File f : directory.listFiles()) {
@@ -334,6 +360,11 @@ public class FXMLMainWindowController implements Initializable {
         return root;
     }
 
+    /**
+     * открывает первый проект для выбранного языка програмирования, осуществляет статический анализ,
+     * выводит дерево проекта и путь к проекту
+     * @return был ли открыт проект
+     */
     private boolean openProjectFirst() {
         ArrayList<String> pathFiles = null;
         DirectoryChooser dc = new DirectoryChooser();
@@ -391,6 +422,11 @@ public class FXMLMainWindowController implements Initializable {
     }
 
 
+    /**
+     * открывает второй проект для выбранного языка програмирования, осуществляет статический анализ,
+     * выводит дерево проекта и путь к проекту
+     * @return был ли открыт проект
+     */
     private boolean openProjSecond() {
         DirectoryChooser dc = new DirectoryChooser();
         dc.setInitialDirectory(new File(System.getProperty("user.home")));

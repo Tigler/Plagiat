@@ -25,6 +25,7 @@ import java.util.ArrayList;
  * @author tigler
  */
 public class AnalyzePlagiatSystem {
+
     private Analyzer firstAnalyzer;
     private Analyzer secondAnalyzer;
     private CalculatorPlagiat calculatorPlagiat;
@@ -116,6 +117,9 @@ public class AnalyzePlagiatSystem {
         return listLanguages;
     }
 
+    /**
+     * вычисляет схожесть проектов и открывает окно с отчетом
+     */
     public void analyzeProjects() {
         calculatorPlagiat.calcForTwoProj(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
@@ -138,7 +142,10 @@ public class AnalyzePlagiatSystem {
     }
 
 
-    public int fullAnalyze() {
+    /**
+     * производит анализ схожести исходников, выполняет динамический анализ и открывает окно с отчетом
+     */
+    public void fullAnalyze() {
         calculatorPlagiat.calcForTwoProj(firstAnalyzer, secondAnalyzer);
         calculatorPlagiat.calcDynamic(firstAnalyzer, secondAnalyzer);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/FXMLReportPlagiat.fxml"));
@@ -159,25 +166,34 @@ public class AnalyzePlagiatSystem {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return 0;
     }
 
 
+    /**
+     * сравнивает первый проект с проектами в БД
+     */
     public void firstProjCompareDB() {
         calculatorPlagiat.compareProjectDB(firstAnalyzer, 1);
     }
 
+    /**
+     * сравнивает второй проект с проектами в БД
+     */
     public void secondProjCompareDB() {
         calculatorPlagiat.compareProjectDB(secondAnalyzer, 2);
     }
 
+    /**
+     * записывает первый проект в БД
+     */
     public void writeDBFirstProj() {
         try {
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
             preparedStatement.setString(1, firstAnalyzer.getProjectProgramm().getAuthor());
             preparedStatement.setString(2, firstAnalyzer.getProjectProgramm().getDesc());
             preparedStatement.setString(3, firstAnalyzer.getProjectProgramm().getName());
-            int idProj = ConnectorDB.executeUpdate();
+            ConnectorDB.executeUpdate();
+            int idProj = ConnectorDB.getinsertId();
 
             for (int i = 0; i < firstAnalyzer.getListResultAnalyzeFiles().size(); i++) {
                 preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
@@ -191,55 +207,130 @@ public class AnalyzePlagiatSystem {
 
 
                 preparedStatement.setInt(5, idProj);
-                int idSrc = ConnectorDB.executeUpdate();
+                ConnectorDB.executeUpdate();
+                int idSrc = ConnectorDB.getinsertId();
 
 
-                /*for (int j = 0; j < firstAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
-                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
-                    preparedStatement.setString(1, firstAnalyzer.getListResultAnalyzeFiles().get(i)
-                            .getOperators().get(j).getValueOperator());
-                    preparedStatement.setInt(2, firstAnalyzer.getListResultAnalyzeFiles().get(i)
-                            .getOperators().get(j).getKeyOperator());
-                    preparedStatement.setInt(3, j);
+                for (int j = 0; j < firstAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().size(); j++) {
+                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewBlock);
                     preparedStatement.setInt(4, idSrc);
-                    int idOper = ConnectorDB.executeUpdate();
-                }*/
+                    ConnectorDB.executeUpdate();
+                    int idBlock = ConnectorDB.getinsertId();
+
+
+                    for (int k = 0; k < firstAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().get(j).size(); k++) {
+                        preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
+                        preparedStatement.setString(1, firstAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getValueOperator());
+                        preparedStatement.setInt(2, firstAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getKeyOperator());
+                        preparedStatement.setInt(3, k);
+                        preparedStatement.setInt(4, idBlock);
+                        ConnectorDB.executeUpdate();
+                    }
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * записывает второй проект в БД
+     */
     public void writeDBSecondProj() {
         try {
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewProject);
-            preparedStatement.setString(1, firstAnalyzer.getProjectProgramm().getAuthor());
-            preparedStatement.setString(2, firstAnalyzer.getProjectProgramm().getDesc());
+            preparedStatement.setString(1, secondAnalyzer.getProjectProgramm().getAuthor());
+            preparedStatement.setString(2, secondAnalyzer.getProjectProgramm().getDesc());
             preparedStatement.setString(3, secondAnalyzer.getProjectProgramm().getName());
-            int idProj = ConnectorDB.executeUpdate();
+            ConnectorDB.executeUpdate();
+            int idProj = ConnectorDB.getinsertId();
 
             for (int i = 0; i < secondAnalyzer.getListResultAnalyzeFiles().size(); i++) {
                 preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
-                String[] fileNameExt = secondAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split(".");
+
+                String[] fileNameExt = secondAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split("\\.");
                 preparedStatement.setString(1, fileNameExt[0]);
                 preparedStatement.setString(2, fileNameExt[1]);
 
-                preparedStatement.setInt(4, idProj);
-                int idSrc = ConnectorDB.executeUpdate();
+
+                preparedStatement.setString(3, readerFile(secondAnalyzer.getListResultAnalyzeFiles().get(i).getPath()));
 
 
-               /* for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getOperators().size(); j++) {
-                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
-                    preparedStatement.setString(1, secondAnalyzer.getListResultAnalyzeFiles().get(i)
-                            .getOperators().get(j).getValueOperator());
-                    preparedStatement.setInt(2, secondAnalyzer.getListResultAnalyzeFiles().get(i)
-                            .getOperators().get(j).getKeyOperator());
-                    preparedStatement.setInt(3, j);
+                preparedStatement.setInt(5, idProj);
+                ConnectorDB.executeUpdate();
+                int idSrc = ConnectorDB.getinsertId();
+
+
+                for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().size(); j++) {
+                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewBlock);
                     preparedStatement.setInt(4, idSrc);
+                    ConnectorDB.executeUpdate();
+                    int idBlock = ConnectorDB.getinsertId();
 
-                }*/
+
+                    for (int k = 0; k < secondAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().get(j).size(); k++) {
+                        preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
+                        preparedStatement.setString(1, secondAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getValueOperator());
+                        preparedStatement.setInt(2, secondAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getKeyOperator());
+                        preparedStatement.setInt(3, k);
+                        preparedStatement.setInt(4, idBlock);
+                        ConnectorDB.executeUpdate();
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readResultAnalyzeDB() {
+        //TODO чтение данных из базы
+        try {
+            PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
+            preparedStatement.setString(1, secondAnalyzer.getProjectProgramm().getAuthor());
+            preparedStatement.setString(2, secondAnalyzer.getProjectProgramm().getDesc());
+            preparedStatement.setString(3, secondAnalyzer.getProjectProgramm().getName());
+            ConnectorDB.executeUpdate();
+            int idProj = ConnectorDB.getinsertId();
+
+            for (int i = 0; i < secondAnalyzer.getListResultAnalyzeFiles().size(); i++) {
+                preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewSource);
+
+                String[] fileNameExt = secondAnalyzer.getListResultAnalyzeFiles().get(i).getNameFile().split("\\.");
+                preparedStatement.setString(1, fileNameExt[0]);
+                preparedStatement.setString(2, fileNameExt[1]);
 
 
+                preparedStatement.setString(3, readerFile(secondAnalyzer.getListResultAnalyzeFiles().get(i).getPath()));
+
+
+                preparedStatement.setInt(5, idProj);
+                ConnectorDB.executeUpdate();
+                int idSrc = ConnectorDB.getinsertId();
+
+
+                for (int j = 0; j < secondAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().size(); j++) {
+                    preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewBlock);
+                    preparedStatement.setInt(4, idSrc);
+                    ConnectorDB.executeUpdate();
+                    int idBlock = ConnectorDB.getinsertId();
+
+
+                    for (int k = 0; k < secondAnalyzer.getListResultAnalyzeFiles().get(i).getListsOperators().get(j).size(); k++) {
+                        preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.insertNewOperator);
+                        preparedStatement.setString(1, secondAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getValueOperator());
+                        preparedStatement.setInt(2, secondAnalyzer.getListResultAnalyzeFiles().get(i).
+                                getListsOperators().get(j).get(k).getKeyOperator());
+                        preparedStatement.setInt(3, k);
+                        preparedStatement.setInt(4, idBlock);
+                        ConnectorDB.executeUpdate();
+                    }
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -247,6 +338,12 @@ public class AnalyzePlagiatSystem {
     }
 
 
+    /**
+     * статический метод чтения текста из файла
+     *
+     * @param path - путь до файла
+     * @return текст файла в строковой переменной
+     */
     public static String readerFile(String path) {
         BufferedReader reader = null;
         String text = "";

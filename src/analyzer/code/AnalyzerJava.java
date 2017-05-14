@@ -18,15 +18,9 @@ import java.util.ArrayList;
 
 /**
  * Created by tigler on 28.04.17.
+ * Анализатор проекта на языке Java
  */
 public class AnalyzerJava extends Analyzer {
-    ListenerParser listener;
-    ListenerParser listener1;
-    ListenerParser listener2;
-
-    IMetric countOperator;
-    IMetric levelNesting;
-    IMetric middleLenIdent;
 
     public AnalyzerJava() {
         resultsAnalyzeFiles = new ArrayList<>();
@@ -39,11 +33,14 @@ public class AnalyzerJava extends Analyzer {
 
     private ListenerParser createChainListeners() {
         ListenerParser listener = null;
-        listener = new EventSequenceOperators(null, listener);
+        listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
         return listener;
     }
 
+    /**
+     * осуществляет статический анализ файла и результат добавляется в список resultsAnalyzeFiles
+     */
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
@@ -58,11 +55,20 @@ public class AnalyzerJava extends Analyzer {
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
     }
 
+    /**
+     * выполняет динамический анализ первого проекта
+     *
+     * @return выполнен/невыполнен динамический анализ
+     */
     @Override
     public boolean dynamicAnalyzeFirst() {
         return false;
     }
 
+    /**
+     * выполняет динамический анализ второго проекта
+     * @return выполнен/невыполнен динамический анализ
+     */
     @Override
     public boolean dynamicAnalyzeSecond() {
         return false;

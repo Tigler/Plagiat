@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 /**
  * Created by tigler on 13.05.17.
+ * Анализатор проекта на языке С#
  */
 public class AnalyzerCSharp extends Analyzer {
     public AnalyzerCSharp() {
@@ -27,6 +28,9 @@ public class AnalyzerCSharp extends Analyzer {
         parser = new CSharpParser(null);
     }
 
+    /**
+     * осуществляет статический анализ файла и результат добавляется в список resultsAnalyzeFiles
+     */
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
@@ -41,6 +45,11 @@ public class AnalyzerCSharp extends Analyzer {
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
     }
 
+    /**
+     * выполняет динамический анализ первого проекта
+     *
+     * @return выполнен/невыполнен динамический анализ
+     */
     @Override
     public boolean dynamicAnalyzeFirst() {
         return dynAn.analyze(projectProgramm.getPathsSrc(), 1);
@@ -54,7 +63,7 @@ public class AnalyzerCSharp extends Analyzer {
 
     private ListenerParser createChainListeners() {
         ListenerParser listener = null;
-        listener = new EventSequenceOperators(null, listener);
+        listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
         return listener;
     }

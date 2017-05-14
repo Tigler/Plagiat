@@ -5,8 +5,8 @@
  */
 package events;
 
-import analyzer.code.IMetric;
 import analyzer.code.Operator;
+import graf.Node;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class EventSequenceOperators extends ListenerParser {
 
 
-    public EventSequenceOperators(IMetric ce, ListenerParser successor) {
+    public EventSequenceOperators(ListenerParser successor) {
         this.successor = successor;
     }
 
@@ -33,17 +33,20 @@ public class EventSequenceOperators extends ListenerParser {
             switch (event.getCode()){
                 case EventParser.FUNC_START:
                     listOperatorsTemp = new ArrayList<>();
-                    //listNodeFunc = new ArrayList<>();
+                    curNode = new Node();
+                    listNodeFunc = new ArrayList<>();
+                    listNodeFunc.add(curNode);
                     break;
                 case EventParser.FUNC_END:
                     listsOperators.add(listOperatorsTemp);
-                    //graf.add(listNodeFunc);
+                    graf.add(listNodeFunc);
                     break;
                 case EventParser.ASSIGMENT:
                     listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
                     break;
                 case EventParser.IF_START:
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
+                    curNode = new Node();
                     break;
                 case EventParser.SWITCH:
                     listOperatorsTemp.add(new Operator(Operator.SWITCH, "switch", event.getStr(), event.getPath()));

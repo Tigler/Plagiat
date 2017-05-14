@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 /**
  * Created by tigler on 28.04.17.
+ * абстрактный класс анализатора проекта с программой
  */
 public abstract class Analyzer {
+
     protected ArrayList<ArrayList<Operator>> listsOperators;
     protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
     protected Parser parser;
@@ -22,7 +24,6 @@ public abstract class Analyzer {
     public abstract boolean dynamicAnalyzeFirst();
 
     public abstract boolean dynamicAnalyzeSecond();
-
 
     public ArrayList<ArrayList<Operator>> getListsOperators() {
         return listsOperators;

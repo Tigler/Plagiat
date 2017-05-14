@@ -84,6 +84,5 @@ public class DynamicAnalyzer {
         String os = System.getProperty("os.name").toLowerCase();
         //linux or unix
         return (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0);
-
     }
 }
