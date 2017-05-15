@@ -5,6 +5,7 @@
  */
 package FXML.AuthorProject;
 
+import analyzer.code.AnalyzePlagiatSystem;
 import analyzer.code.Analyzer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,6 +40,7 @@ public class FXMLAuthorProjectController implements Initializable {
      */
 
     Analyzer analyzer;
+    AnalyzePlagiatSystem analyzePlagiatSystem;
 
     public void setProject(Analyzer analyzer) {
         this.analyzer = analyzer;
@@ -59,7 +61,7 @@ public class FXMLAuthorProjectController implements Initializable {
                 } else {
                     analyzer.getProjectProgramm().setAuthor(textFieldAuthor.getText());
                     analyzer.getProjectProgramm().setDesc(textAreaDescProj.getText());
-
+                    analyzePlagiatSystem.writeDBProj(analyzer);
                     Stage stage = (Stage) buttonOk.getScene().getWindow();
                     stage.close();
                 }
@@ -68,4 +70,7 @@ public class FXMLAuthorProjectController implements Initializable {
     }
 
 
+    public void setPlagiatSystem(AnalyzePlagiatSystem analyzePlagiatSystem) {
+        this.analyzePlagiatSystem = analyzePlagiatSystem;
+    }
 }

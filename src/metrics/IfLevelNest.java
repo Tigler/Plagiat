@@ -8,9 +8,7 @@ package metrics;
 import analyzer.code.IMetric;
 import enums.EnumMarkLevelNest;
 import enums.EnumNamesMetric;
-import events.EventIfLevelNest;
 import events.EventParser;
-import events.ListenerParser;
 
 import java.util.ArrayList;
 
@@ -102,10 +100,6 @@ public class IfLevelNest implements IMetric {
         return EnumNamesMetric.levelNest.toString();
     }
 
-    @Override
-    public ListenerParser initListener(IMetric metric, ListenerParser listener) {
-        return new EventIfLevelNest(metric, listener);
-    }
 
     public ArrayList<Integer> getSeqLevelsNest() {
         return seqLevelsNest;

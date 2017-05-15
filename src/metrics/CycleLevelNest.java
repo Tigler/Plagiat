@@ -6,10 +6,7 @@
 package metrics;
 
 import analyzer.code.IMetric;
-import enums.EnumNamesMetric;
-import events.EventCycleLevNest;
 import events.EventParser;
-import events.ListenerParser;
 
 import java.util.ArrayList;
 
@@ -75,15 +72,7 @@ public class CycleLevelNest implements IMetric {
         return maxLevel;
     }
 
-    @Override
-    public String getName() {
-        return EnumNamesMetric.cycleLevelNest.toString();
-    }
 
-    @Override
-    public ListenerParser initListener(IMetric metric, ListenerParser listener) {
-        return new EventCycleLevNest(metric, listener);
-    }
 
     public ArrayList<Integer> getSeqLevelsNest() {
         return seqLevelsNest;

@@ -11,6 +11,7 @@ import analyzer.ProjectProgramm;
 import analyzer.code.AnalyzePlagiatSystem;
 import analyzer.code.AnalyzerCode;
 import analyzer.code.LanguagePrograming;
+import analyzer.code.ProjectDB;
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -83,7 +84,6 @@ public class FXMLMainWindowController implements Initializable {
     }
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //проекты не открыты
@@ -137,6 +137,7 @@ public class FXMLMainWindowController implements Initializable {
                             AnchorPane pane = (AnchorPane) loader.load();
                             FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
                             fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getFirstAnalyzer());
+                            fxmlAuthorProjectController.setPlagiatSystem(analyzePlagiatSystem);
                             Scene scene = new Scene(pane);
                             Stage stage = new Stage();
                             stage.setScene(scene);
@@ -145,7 +146,7 @@ public class FXMLMainWindowController implements Initializable {
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                        analyzePlagiatSystem.writeDBFirstProj();
+
                     }
                 }
             }
@@ -180,6 +181,7 @@ public class FXMLMainWindowController implements Initializable {
                             AnchorPane pane = (AnchorPane) loader.load();
                             FXMLAuthorProjectController fxmlAuthorProjectController = loader.getController();
                             fxmlAuthorProjectController.setProject(analyzePlagiatSystem.getSecondAnalyzer());
+                            fxmlAuthorProjectController.setPlagiatSystem(analyzePlagiatSystem);
                             Scene scene = new Scene(pane);
                             Stage stage = new Stage();
                             stage.setScene(scene);
@@ -188,7 +190,7 @@ public class FXMLMainWindowController implements Initializable {
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                        analyzePlagiatSystem.writeDBSecondProj();
+
                     }
                 }
             }
@@ -201,8 +203,9 @@ public class FXMLMainWindowController implements Initializable {
         buttonCalcDB1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
+                ArrayList<ProjectDB> projectsDB = analyzePlagiatSystem.readResultAnalyzeDB();
+                analyzePlagiatSystem.compareWithDB(analyzePlagiatSystem.getFirstAnalyzer(), projectsDB);
 
-                //analyzePlagiatSystem.firstProjCompareDB();
             }
         });
 
@@ -363,6 +366,7 @@ public class FXMLMainWindowController implements Initializable {
     /**
      * открывает первый проект для выбранного языка програмирования, осуществляет статический анализ,
      * выводит дерево проекта и путь к проекту
+     *
      * @return был ли открыт проект
      */
     private boolean openProjectFirst() {
@@ -425,6 +429,7 @@ public class FXMLMainWindowController implements Initializable {
     /**
      * открывает второй проект для выбранного языка програмирования, осуществляет статический анализ,
      * выводит дерево проекта и путь к проекту
+     *
      * @return был ли открыт проект
      */
     private boolean openProjSecond() {

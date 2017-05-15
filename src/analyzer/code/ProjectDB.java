@@ -1,5 +1,7 @@
 package analyzer.code;
 
+import java.util.ArrayList;
+
 /**
  * Created by tigler on 08.05.17.
  */
@@ -7,13 +9,15 @@ public class ProjectDB {
     private int id;
     private String author;
     private String name;
-    private String ifCount;
+    private String desc;
+    private ArrayList<ResultAnalyzeFile> listResultAnalyzeFile;
 
-    public ProjectDB(int id, String author, String name, String ifCount) {
+    public ProjectDB(int id, String author, String name, String desc, ArrayList<ResultAnalyzeFile> listResultAnalyzeFile) {
         this.id = id;
         this.author = author;
         this.name = name;
-        this.ifCount = ifCount;
+        this.desc = desc;
+        this.listResultAnalyzeFile = listResultAnalyzeFile;
     }
 
     public int getId() {
@@ -28,7 +32,12 @@ public class ProjectDB {
         return name;
     }
 
-    public String getIfCount() {
-        return ifCount;
+    public String getDesc() {
+        return desc;
+    }
+
+
+    public ArrayList<ResultAnalyzeFile> getListResultAnalyzeFile() {
+        return listResultAnalyzeFile;
     }
 }

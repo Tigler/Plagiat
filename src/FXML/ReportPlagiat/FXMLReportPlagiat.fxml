@@ -5,18 +5,19 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ReportPlagiat.FXMLReportPlagiatController">
-   <children>
-       <BorderPane fx:id="borderPane" layoutX="4.0" layoutY="-1.0" prefHeight="431.0" prefWidth="673.0">
-         <left>
-             <ListView fx:id="listView" prefHeight="384.0" prefWidth="257.0" BorderPane.alignment="CENTER"/>
-         </left>
-         <bottom>
-             <Pane prefHeight="40.0" prefWidth="674.0" BorderPane.alignment="CENTER">
-               <children>
-                   <Button fx:id="buttonExit" layoutX="568.0" layoutY="8.0" mnemonicParsing="false" text="Закрыть"/>
-               </children>
-            </Pane>
-         </bottom>
-      </BorderPane>
-   </children>
+    <children>
+        <BorderPane fx:id="borderPane" layoutX="4.0" layoutY="-1.0" prefHeight="431.0" prefWidth="673.0">
+            <left>
+                <ListView fx:id="listView" prefHeight="384.0" prefWidth="257.0" BorderPane.alignment="CENTER"/>
+            </left>
+            <bottom>
+                <Pane prefHeight="40.0" prefWidth="674.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="buttonExit" layoutX="568.0" layoutY="8.0" mnemonicParsing="false"
+                                text="Закрыть"/>
+                    </children>
+                </Pane>
+            </bottom>
+        </BorderPane>
+    </children>
 </AnchorPane>

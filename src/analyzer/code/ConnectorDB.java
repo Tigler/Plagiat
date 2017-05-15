@@ -44,8 +44,8 @@ public class ConnectorDB {
     public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     //для таблицы проект
-    public static final String selectSource = "select id,Name,Expension,Text,ifCount from Source where id_project=?";
-    public static final String insertNewSource = "insert into Source (Name, Expension,Text, ifCount,id_project) values (?, ?,?, ?,?)";
+    public static final String selectSource = "select id,Name,Expension,Text from Source where id_project=?";
+    public static final String insertNewSource = "insert into Source (Name, Expension,Text, id_project) values (?, ?,?,?)";
     public static final String deleteSource = "delete from Project where id = ?";
     public static final String updateSource = "update Project set MidLenOLCom = ? WHERE id = ?";
 

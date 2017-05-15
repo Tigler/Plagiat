@@ -9,9 +9,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -231,49 +228,8 @@ public class CalculatorPlagiat {
         return true;
     }
 
-    public void compareProjectDB(Analyzer progAnalyzer, int numAnalyzer) {
-        try {
-            ConnectorDB.prepeareStmt(ConnectorDB.selectProjects);
-            ResultSet resultSetProj = ConnectorDB.executeQuery();
-            ArrayList<ProjectDB> projectsDB = new ArrayList<>();
+    public void compareProjectDB(Analyzer analyzer, ArrayList<ProjectDB> projectsDB) {
 
-            while (resultSetProj.next()) {
-                int idProj = resultSetProj.getInt(1);
-                String author = resultSetProj.getString(2);
-                String name = resultSetProj.getString(3);
-
-                ConnectorDB.getConnection();
-                PreparedStatement preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectSource);
-                preparedStatement.setInt(1, idProj);
-                ResultSet resultSetSrc = ConnectorDB.executeQuery();
-                while (resultSetSrc.next()) {
-                    int idSrc = resultSetSrc.getInt(1);
-                    resultSetSrc.getString(2);
-                    resultSetSrc.getString(3);
-
-                    ConnectorDB.getConnection();
-                    PreparedStatement preparedStatement1 = ConnectorDB.prepeareStmt(ConnectorDB.selectOperator);
-                    preparedStatement1.setInt(1, idSrc);
-                    ResultSet resultSetOper = ConnectorDB.executeQuery();
-
-                    ArrayList<Operator> listOperators = new ArrayList<>();
-                    while (resultSetOper.next()) {
-                        int idOper = resultSetOper.getInt(1);
-                        String operator = resultSetOper.getString(2);
-                        int keyOper = resultSetOper.getInt(3);
-                        listOperators.add(new Operator(keyOper, operator, -1, null));
-                    }
-
-                    ArrayList<ArrayList<Operator>> listOperatorsAnalyzer = progAnalyzer.getListsOperators();
-                    //calcFreq(listOperatorsAnalyzer, numAnalyzer, listOperators, 3);
-                }
-
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 
