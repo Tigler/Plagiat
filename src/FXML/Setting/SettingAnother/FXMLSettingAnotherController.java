@@ -10,6 +10,8 @@ import analyzer.code.AnalyzerCode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,6 +36,8 @@ public class FXMLSettingAnotherController implements Initializable {
 
     @FXML
     CheckBox checkBoxWriteDB;
+    @FXML
+    Spinner spinnerValDB;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,9 +57,24 @@ public class FXMLSettingAnotherController implements Initializable {
 //а вот сама загрузка состояния флажка
 
         checkBoxWriteDB.setSelected("true".equals(props.getProperty("WriteDBEnable")));
+        int initialValue = 0;
+        try {
+            initialValue = Integer.parseInt(props.getProperty("SpinnerValDB"));
+        } catch (Exception e) {
+            initialValue = 80;
+        }
+
+        // Value factory.
+        SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(50, 100, initialValue);
+        spinnerValDB.setValueFactory(valueFactory);
     }
 
     public CheckBox getCheckBoxWriteDB() {
         return checkBoxWriteDB;
+    }
+
+    public Spinner getSpinnerValDB() {
+        return spinnerValDB;
     }
 }

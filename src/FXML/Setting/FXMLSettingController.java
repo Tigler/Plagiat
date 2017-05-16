@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Spinner;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -45,6 +46,7 @@ public class FXMLSettingController implements Initializable {
     Button buttonCancel;
 
     CheckBox checkBoxWriteDB;
+    Spinner spinnerValDB;
 
     public static final String PATH_CONFIG_FILE = "configSystem.cfg";
 
@@ -79,6 +81,7 @@ public class FXMLSettingController implements Initializable {
                 }
 
                 pro.setProperty("WriteDBEnable", String.valueOf(checkBoxWriteDB.isSelected()));
+                pro.setProperty("SpinnerValDB", String.valueOf(spinnerValDB.getValue()));
                 try {
                     pro.store(propOut, "комментарий");
                 } catch (IOException ex) {
@@ -108,6 +111,7 @@ public class FXMLSettingController implements Initializable {
                         adminTeamView = (AnchorPane) loader.load();
                         FXMLSettingAnotherController fxmlSettingAnotherController = loader.getController();
                         checkBoxWriteDB = fxmlSettingAnotherController.getCheckBoxWriteDB();
+                        spinnerValDB = fxmlSettingAnotherController.getSpinnerValDB();
                         break;
                     default:
                         break;

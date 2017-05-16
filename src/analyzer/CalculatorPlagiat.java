@@ -228,8 +228,17 @@ public class CalculatorPlagiat {
         return true;
     }
 
-    public void compareProjectDB(Analyzer analyzer, ArrayList<ProjectDB> projectsDB) {
-
+    public ArrayList<ResultCompareWithDB> compareProjectDB(Analyzer analyzer, int numAn, ArrayList<ProjectDB> projectsDB, int levelPlagiat) {
+        ArrayList<ResultCompareWithDB> resultsCompareWithDB = new ArrayList<>();
+        for (ProjectDB proj : projectsDB) {
+            calcFreq(analyzer.getListResultAnalyzeFiles(), 1, proj.getListResultAnalyzeFile(), 3);
+            compareSeq(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
+            if ((resultFreq + resultSeqOperators) / 2 >= levelPlagiat) {
+                resultsCompareWithDB.add(new ResultCompareWithDB(proj.getAuthor(), proj.getName(), proj.getDesc(),
+                        String.valueOf(resultSeqOperators), String.valueOf(resultFreq), String.valueOf((resultFreq + resultSeqOperators) / 2)));
+            }
+        }
+        return resultsCompareWithDB;
     }
 
 
@@ -270,26 +279,26 @@ public class CalculatorPlagiat {
         }
     }
 
-    private int compareSeq(Analyzer first, Analyzer second) {
+    private int compareSeq(ArrayList<ResultAnalyzeFile> listResFirst, ArrayList<ResultAnalyzeFile> listResSecond) {
         int result = 0;
         int offsets[];
         ;
         ArrayList<int[]> firAr = new ArrayList<>();
         ArrayList<int[]> secAr = new ArrayList<>();
-        for (int k = 0; k < first.getListResultAnalyzeFiles().size(); k++) {
-            for (int i = 0; i < first.getListResultAnalyzeFiles().get(k).getListsOperators().size(); i++) {
-                int firstSeq[] = new int[first.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).size()];
-                for (int j = 0; j < first.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).size(); j++) {
-                    firstSeq[j] = first.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).get(j).getKeyOperator();
+        for (int k = 0; k < listResFirst.size(); k++) {
+            for (int i = 0; i < listResFirst.get(k).getListsOperators().size(); i++) {
+                int firstSeq[] = new int[listResFirst.get(k).getListsOperators().get(i).size()];
+                for (int j = 0; j < listResFirst.get(k).getListsOperators().get(i).size(); j++) {
+                    firstSeq[j] = listResFirst.get(k).getListsOperators().get(i).get(j).getKeyOperator();
                 }
                 firAr.add(firstSeq);
             }
         }
-        for (int k = 0; k < second.getListResultAnalyzeFiles().size(); k++) {
-            for (int i = 0; i < second.getListResultAnalyzeFiles().get(k).getListsOperators().size(); i++) {
-                int secondSeq[] = new int[second.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).size()];
-                for (int j = 0; j < second.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).size(); j++) {
-                    secondSeq[j] = second.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).get(j).getKeyOperator();
+        for (int k = 0; k < listResSecond.size(); k++) {
+            for (int i = 0; i < listResSecond.get(k).getListsOperators().size(); i++) {
+                int secondSeq[] = new int[listResSecond.get(k).getListsOperators().get(i).size()];
+                for (int j = 0; j < listResSecond.get(k).getListsOperators().get(i).size(); j++) {
+                    secondSeq[j] = listResSecond.get(k).getListsOperators().get(i).get(j).getKeyOperator();
                 }
                 secAr.add(secondSeq);
             }
@@ -310,9 +319,9 @@ public class CalculatorPlagiat {
 
         int percentSeqOper = 0;
         int countIter = 0;
-        for (int k = 0; k < first.getListResultAnalyzeFiles().size(); k++) {
-            for (int i = 0; i < first.getListResultAnalyzeFiles().get(k).getListsOperators().size(); i++) {
-                percentSeqOper += (lenSeqs.get(i + k).intValue() * 100 / first.getListResultAnalyzeFiles().get(k).getListsOperators().get(i).size());
+        for (int k = 0; k < listResFirst.size(); k++) {
+            for (int i = 0; i < listResFirst.get(k).getListsOperators().size(); i++) {
+                percentSeqOper += (lenSeqs.get(i + k).intValue() * 100 / listResFirst.get(k).getListsOperators().get(i).size());
                 countIter++;
             }
         }
@@ -323,7 +332,7 @@ public class CalculatorPlagiat {
 
     public void calcForTwoProj(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         calcFreq(firstAnalyzer.getListResultAnalyzeFiles(), 1, secondAnalyzer.getListResultAnalyzeFiles(), 2);
-        resultSeqOperators = compareSeq(firstAnalyzer, secondAnalyzer);
+        resultSeqOperators = compareSeq(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
     }
 
     public static int[] getLCS(int[] x, int[] y) {

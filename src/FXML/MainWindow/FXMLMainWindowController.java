@@ -6,12 +6,10 @@
 package FXML.MainWindow;
 
 import FXML.AuthorProject.FXMLAuthorProjectController;
+import FXML.ReportPlagiat.ReportDB.FXMLReportDBController;
 import FXML.Setting.FXMLSettingController;
 import analyzer.ProjectProgramm;
-import analyzer.code.AnalyzePlagiatSystem;
-import analyzer.code.AnalyzerCode;
-import analyzer.code.LanguagePrograming;
-import analyzer.code.ProjectDB;
+import analyzer.code.*;
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,7 +78,7 @@ public class FXMLMainWindowController implements Initializable {
     private ArrayList<LanguagePrograming> listLanguages; // список языков программирования для анализа
 
     public void onEventInWindowAuthor() {
-        analyzePlagiatSystem.firstProjCompareDB();
+        //analyzePlagiatSystem.firstProjCompareDB();
     }
 
 
@@ -204,8 +202,20 @@ public class FXMLMainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent e) {
                 ArrayList<ProjectDB> projectsDB = analyzePlagiatSystem.readResultAnalyzeDB();
-                analyzePlagiatSystem.compareWithDB(analyzePlagiatSystem.getFirstAnalyzer(), projectsDB);
-
+                ArrayList<ResultCompareWithDB> resultsCompareWithDB = analyzePlagiatSystem.compareWithDB(analyzePlagiatSystem.getFirstAnalyzer(), 1, projectsDB);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml"));
+                try {
+                    AnchorPane pane = (AnchorPane) loader.load();
+                    FXMLReportDBController fxmlReportDBController = loader.getController();
+                    fxmlReportDBController.setResult(resultsCompareWithDB);
+                    Scene scene = new Scene(pane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Информация о проекте");
+                    stage.show();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 

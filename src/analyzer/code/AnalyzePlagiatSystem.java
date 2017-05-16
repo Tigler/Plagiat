@@ -6,21 +6,21 @@
 package analyzer.code;
 
 import FXML.ReportPlagiat.FXMLReportPlagiatController;
+import FXML.Setting.FXMLSettingController;
 import analyzer.CalculatorPlagiat;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.util.logging.Level;
 
 /**
  * @author tigler
@@ -170,8 +170,6 @@ public class AnalyzePlagiatSystem {
     }
 
 
-
-
     /**
      * записывает первый проект в БД
      */
@@ -314,8 +312,28 @@ public class AnalyzePlagiatSystem {
         }
     }
 
-    public void compareWithDB(Analyzer analyzer, ArrayList<ProjectDB> projectsDB) {
-        calculatorPlagiat.compareProjectDB(analyzer, projectsDB);
+    public ArrayList<ResultCompareWithDB> compareWithDB(Analyzer analyzer, int numAn, ArrayList<ProjectDB> projectsDB) {
+        Properties props = new Properties();
+        InputStream is = null;
+
+        try {
+            is = new FileInputStream(FXMLSettingController.PATH_CONFIG_FILE);
+            try {
+                props.load(is);
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AnalyzerCode.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        int initialValue = 0;
+        try {
+            initialValue = Integer.parseInt(props.getProperty("SpinnerValDB"));
+        } catch (Exception e) {
+            initialValue = 80;
+        }
+        return calculatorPlagiat.compareProjectDB(analyzer, numAn, projectsDB, initialValue);
     }
 
 
