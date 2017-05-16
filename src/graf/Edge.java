@@ -7,6 +7,14 @@ public class Edge {
     Node start;
     Node end;
 
+    public Edge() {
+    }
+
+    public Edge(Node start, Node end) {
+        this.start = start;
+        this.end = end;
+    }
+
     public Node getStart() {
         return start;
     }
