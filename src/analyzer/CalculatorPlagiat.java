@@ -232,7 +232,7 @@ public class CalculatorPlagiat {
         ArrayList<ResultCompareWithDB> resultsCompareWithDB = new ArrayList<>();
         for (ProjectDB proj : projectsDB) {
             calcFreq(analyzer.getListResultAnalyzeFiles(), 1, proj.getListResultAnalyzeFile(), 3);
-            compareSeq(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
+            resultSeqOperators = compareSeq(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
             if ((resultFreq + resultSeqOperators) / 2 >= levelPlagiat) {
                 resultsCompareWithDB.add(new ResultCompareWithDB(proj.getAuthor(), proj.getName(), proj.getDesc(),
                         String.valueOf(resultSeqOperators), String.valueOf(resultFreq), String.valueOf((resultFreq + resultSeqOperators) / 2)));

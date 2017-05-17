@@ -27,6 +27,7 @@ public class EventSequenceOperators extends ListenerParser {
     public void onEvent(EventParser event) {
         if (event.getCode() == EventParser.ASSIGMENT ||
                 event.getCode() == EventParser.IF_START || event.getCode() == EventParser.IF_END
+                || event.getCode() == EventParser.ELSE_START || event.getCode() == EventParser.ELSE_END
                 || event.getCode() == EventParser.SWITCH || event.getCode() == EventParser.DO_WHILE_START
                 || event.getCode() == EventParser.WHILE_START || event.getCode() == EventParser.WHILE_END
                 || event.getCode() == EventParser.FOR_START
@@ -54,19 +55,39 @@ public class EventSequenceOperators extends ListenerParser {
                     break;
                 case EventParser.IF_START: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    Node n = new Node(event.getCode());
-                    Node s = stack.firstElement();
-                    s.addNode(n);
+                    //Node n = new Node(event.getCode());
+                    //Node s = stack.firstElement();
+                    //s.addNode(n);
                     break;
                 }
                 case EventParser.IF_END: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    Node n = new Node(event.getCode());
-                    Node s = stack.pop();
-                    if (s.getCode() != EventParser.IF_START) {
-                        s = stack.pop();
-                    }
-                    s.addNode(n);
+                    //Node n = new Node(event.getCode());
+                    //Node s = stack.pop();
+                    // if (s.getCode() != EventParser.IF_START) {
+                    //    s = stack.pop();
+                    //}
+                    //s.addNode(n);
+                    break;
+                }
+                case EventParser.ELSE_START: {
+                    listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
+                    //Node n = new Node(event.getCode());
+                    //Node s = stack.pop();
+                    // if (s.getCode() != EventParser.IF_START) {
+                    //    s = stack.pop();
+                    //}
+                    //s.addNode(n);
+                    break;
+                }
+                case EventParser.ELSE_END: {
+                    listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
+                    //Node n = new Node(event.getCode());
+                    //Node s = stack.pop();
+                    // if (s.getCode() != EventParser.IF_START) {
+                    //    s = stack.pop();
+                    //}
+                    //s.addNode(n);
                     break;
                 }
                 case EventParser.SWITCH:
@@ -103,6 +124,14 @@ public class EventSequenceOperators extends ListenerParser {
         } else {
             if (successor != null) {
                 successor.onEvent(event);
+                int a = 0, b = 0, c = 0, d = 0, e = 0;
+
+                if (a >= b) {
+                    c = d + b;
+                    e = 1; //новое выражение
+                    d = d + 1;
+                } else
+                    c = d - a;
             }
         }
     }
