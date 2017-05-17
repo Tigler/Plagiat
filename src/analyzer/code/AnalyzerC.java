@@ -1,8 +1,11 @@
 package analyzer.code;
 
 import dynamic.DynamicAnalyzer;
+import events.EventParser;
 import events.EventSequenceOperators;
 import events.ListenerParser;
+import graf.Edge;
+import graf.Node;
 import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
@@ -35,6 +38,7 @@ public class AnalyzerC extends Analyzer {
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
+        graf = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         CParser cParser = (CParser) parser;
         cParser.attach(listener);
@@ -44,7 +48,64 @@ public class AnalyzerC extends Analyzer {
         cParser.compilationUnit();
         String[] paths = path.split("/");
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        printGraf();
     }
+
+    private void printGraf() {
+        for (ArrayList<Node> list : graf) {
+            for (Node n : list) {
+                String res = null;
+                switch (n.getCode()) {
+                    case EventParser.IF_START:
+                        res = "if_start ";
+                        break;
+                    case EventParser.IF_END:
+                        res = "if_end ";
+                        break;
+                    case EventParser.ELSE_START:
+                        res = "else_start ";
+                        break;
+                    case EventParser.ELSE_END:
+                        res = "else_end ";
+                        break;
+                    case EventParser.WHILE_START:
+                        res = "while_start ";
+                        break;
+                    case EventParser.WHILE_END:
+                        res = "while_end ";
+                        break;
+                }
+                System.out.print(res);
+                //System.out.println(n.getCode());
+                for (Edge e : n.getEdges()) {
+                    String res1 = null;
+                    switch (e.getEnd().getCode()) {
+                        case EventParser.IF_START:
+                            res1 = "if_start ";
+                            break;
+                        case EventParser.IF_END:
+                            res1 = "if_end ";
+                            break;
+                        case EventParser.ELSE_START:
+                            res1 = "else_start ";
+                            break;
+                        case EventParser.ELSE_END:
+                            res1 = "else_end ";
+                            break;
+                        case EventParser.WHILE_START:
+                            res1 = "while_start ";
+                            break;
+                        case EventParser.WHILE_END:
+                            res1 = "while_end ";
+                            break;
+                    }
+                    System.out.print(res1);
+                }
+                System.out.println();
+            }
+        }
+    }
+
 
 
     /**
@@ -72,6 +133,7 @@ public class AnalyzerC extends Analyzer {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
+        listener.setGraf(graf);
         return listener;
     }
 

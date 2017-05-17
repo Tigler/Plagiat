@@ -2,6 +2,7 @@ package analyzer.code;
 
 import analyzer.ProjectProgramm;
 import dynamic.DynamicAnalyzer;
+import graf.Node;
 import org.antlr.v4.runtime.Parser;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public abstract class Analyzer {
 
     protected ArrayList<ArrayList<Operator>> listsOperators;
+    protected ArrayList<ArrayList<Node>> graf;
     protected ArrayList<ResultAnalyzeFile> resultsAnalyzeFiles;
     protected Parser parser;
     protected DynamicAnalyzer dynAn;

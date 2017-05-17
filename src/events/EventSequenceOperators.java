@@ -36,58 +36,75 @@ public class EventSequenceOperators extends ListenerParser {
                 || event.getCode() == EventParser.FUNC_START || event.getCode() == EventParser.FUNC_END
                 ) {
             switch (event.getCode()) {
-                case EventParser.FUNC_START:
-                    stack.clear();
+                case EventParser.FUNC_START: {
+                    stack = new Stack<>();
                     listOperatorsTemp = new ArrayList<>();
-                    curNode = new Node(event.getCode());
-                    stack.add(curNode);
+                    Node n = new Node(event.getCode());
+                    stack.add(n);
                     listNodeFunc = new ArrayList<>();
-                    listNodeFunc.add(curNode);
+                    listNodeFunc.add(n);
                     break;
-                case EventParser.FUNC_END:
+                }
+                case EventParser.FUNC_END: {
                     listsOperators.add(listOperatorsTemp);
 
 //                            curNode = null;
-                    //graf.add(listNodeFunc);
+                    graf.add(listNodeFunc);
                     break;
+                }
                 case EventParser.ASSIGMENT:
                     listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
                     break;
                 case EventParser.IF_START: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    //Node n = new Node(event.getCode());
-                    //Node s = stack.firstElement();
-                    //s.addNode(n);
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.peek();
+                    s.addNode(n);
+                    stack.add(n);
                     break;
                 }
                 case EventParser.IF_END: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    //Node n = new Node(event.getCode());
-                    //Node s = stack.pop();
-                    // if (s.getCode() != EventParser.IF_START) {
-                    //    s = stack.pop();
-                    //}
-                    //s.addNode(n);
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.pop();
+                    s.addNode(n);
+                    if (s.getCode() == EventParser.IF_START) {
+                        stack.add(n);
+                        break;
+                    }
+                    while (stack.peek().getCode() != EventParser.IF_START) {
+                        stack.pop();
+                    }
+                    s = stack.pop();
+                    s.addNode(n);
+                    stack.add(n);
                     break;
                 }
                 case EventParser.ELSE_START: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    //Node n = new Node(event.getCode());
-                    //Node s = stack.pop();
-                    // if (s.getCode() != EventParser.IF_START) {
-                    //    s = stack.pop();
-                    //}
-                    //s.addNode(n);
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.peek();
+                    s.addNode(n);
+                    stack.add(n);
                     break;
                 }
                 case EventParser.ELSE_END: {
                     listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
-                    //Node n = new Node(event.getCode());
-                    //Node s = stack.pop();
-                    // if (s.getCode() != EventParser.IF_START) {
-                    //    s = stack.pop();
-                    //}
-                    //s.addNode(n);
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.pop();
+                    s.addNode(n);
+                    if (s.getCode() == EventParser.ELSE_START) {
+                        stack.add(n);
+                        break;
+                    }
+                    while (stack.peek().getCode() != EventParser.ELSE_START) {
+                        stack.pop();
+                    }
+                    stack.add(n);
                     break;
                 }
                 case EventParser.SWITCH:
@@ -96,9 +113,31 @@ public class EventSequenceOperators extends ListenerParser {
                 case EventParser.DO_WHILE_START:
                     listOperatorsTemp.add(new Operator(Operator.DOWHILE, "dowhile", event.getStr(), event.getPath()));
                     break;
-                case EventParser.WHILE_START:
+                case EventParser.WHILE_START: {
                     listOperatorsTemp.add(new Operator(Operator.WHILE, "while", event.getStr(), event.getPath()));
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.peek();
+                    s.addNode(n);
+                    stack.add(n);
                     break;
+                }
+                case EventParser.WHILE_END: {
+                    listOperatorsTemp.add(new Operator(Operator.WHILE, "while", event.getStr(), event.getPath()));
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = stack.pop();
+                    s.addNode(n);
+                    if (s.getCode() == EventParser.WHILE_START) {
+                        stack.add(n);
+                        break;
+                    }
+                    while (stack.peek().getCode() != EventParser.WHILE_START) {
+                        stack.pop();
+                    }
+                    stack.add(n);
+                    break;
+                }
                 case EventParser.FOR_START:
                     listOperatorsTemp.add(new Operator(Operator.FOR, "for", event.getStr(), event.getPath()));
                     break;

@@ -7,19 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/CalculatorPlagiat.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/CalculatorPlagiat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/EventSequenceOperators.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/events/EventSequenceOperators.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/graf/Edge.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/graf/Edge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/graf/Node.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/graf/Node.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ConnectorDB.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ConnectorDB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configSystem.cfg" afterPath="$PROJECT_DIR$/configSystem.cfg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java" afterPath="$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" afterPath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" afterPath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" afterPath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/ListenerParser.java" afterPath="$PROJECT_DIR$/src/events/ListenerParser.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,11 +74,31 @@
       <file leaf-file-name="AnalyzePlagiatSystem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
+            <state relative-caret-position="304">
               <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalyzerC.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,34 +113,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FXMLReportDBController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java">
+      <file leaf-file-name="ListenerParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/events/ListenerParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parsers/C/CParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="7456" column="29" lean-forward="false" selection-start-line="7456" selection-start-column="20" selection-end-line="7456" selection-end-column="29" />
+            <state relative-caret-position="239">
+              <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
               <folding>
-                <element signature="e#18573#18574#0" expanded="true" />
-                <element signature="e#18652#18653#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#926#927#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventSequenceOperators.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EventSequenceOperators.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/events/EventSequenceOperators.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="129" column="20" lean-forward="true" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
+            <state relative-caret-position="124">
+              <caret line="99" column="61" lean-forward="false" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -202,15 +205,12 @@
         <option value="$PROJECT_DIR$/src/parsers/Python3/Python3Parser.java" />
         <option value="$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java" />
         <option value="$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java" />
-        <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerCSharp.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerJava.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerPython3.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerCpp.java" />
-        <option value="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
         <option value="$PROJECT_DIR$/src/dynamic/DynamicAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/ProjectDB.java" />
-        <option value="$PROJECT_DIR$/src/events/ListenerParser.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/IMetric.java" />
         <option value="$PROJECT_DIR$/src/metrics/IfLevelNest.java" />
         <option value="$PROJECT_DIR$/src/metrics/CycleLevelNest.java" />
@@ -227,7 +227,10 @@
         <option value="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
         <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" />
         <option value="$PROJECT_DIR$/src/parsers/C/CParser.java" />
+        <option value="$PROJECT_DIR$/src/events/ListenerParser.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
         <option value="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
       </list>
     </option>
   </component>
@@ -832,7 +835,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494946310804</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="работаю с базой">
+      <created>1495033166973</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1495033166973</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -865,13 +875,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3984252" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3984252" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24816984" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -960,33 +970,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/events/EventSequenceOperators.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/events/EventSequenceOperators.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/events/EventSequenceOperators.java</url>
-          <line>83</line>
-          <properties />
-          <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/events/EventSequenceOperators.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="185" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="186" />
+      <option name="time" value="187" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1000,21 +984,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grammars/C.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/LanguagePrograming.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14Listener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1190,26 +1159,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="45" column="94" lean-forward="true" selection-start-line="45" selection-start-column="94" selection-end-line="45" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/code/Operator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1315,17 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/events/ListenerParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#839#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/ReportPlagiat/Frequences/FXMLFrequencesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1357,16 +1300,6 @@
         <state relative-caret-position="124">
           <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,10 +1338,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/java/jdk1.8.0_112/src.zip!/java/util/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/events/ListenerParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding>
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#926#927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graf/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/events/EventSequenceOperators.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="129" column="20" lean-forward="true" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
+        <state relative-caret-position="124">
+          <caret line="99" column="61" lean-forward="false" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
           <folding />
         </state>
       </provider>

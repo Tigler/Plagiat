@@ -35,4 +35,8 @@ public abstract class ListenerParser {
         this.listsOperators = listsOperators;
     }
 
+    public void setGraf(ArrayList<ArrayList<Node>> graf) {
+        this.graf = graf;
+    }
+
 }
