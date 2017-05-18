@@ -74,6 +74,24 @@ public class AnalyzerC extends Analyzer {
                     case EventParser.WHILE_END:
                         res = "while_end ";
                         break;
+                    case EventParser.SWITCH_END:
+                        res = "while_end ";
+                        break;
+                    case EventParser.SWITCH_START:
+                        res = "switch_Start ";
+                        break;
+                    case EventParser.CASE_START:
+                        res = "case_start ";
+                        break;
+                    case EventParser.DEFAULT_START:
+                        res = "default_start ";
+                        break;
+                    case EventParser.CASE_END:
+                        res = "case_end ";
+                        break;
+                    case EventParser.DEFAULT_END:
+                        res = "default_end ";
+                        break;
                 }
                 System.out.print(res);
                 //System.out.println(n.getCode());
@@ -97,6 +115,24 @@ public class AnalyzerC extends Analyzer {
                             break;
                         case EventParser.WHILE_END:
                             res1 = "while_end ";
+                            break;
+                        case EventParser.SWITCH_END:
+                            res1 = "while_end ";
+                            break;
+                        case EventParser.SWITCH_START:
+                            res1 = "switch_Start ";
+                            break;
+                        case EventParser.CASE_START:
+                            res1 = "case_start ";
+                            break;
+                        case EventParser.DEFAULT_START:
+                            res1 = "default_start ";
+                            break;
+                        case EventParser.CASE_END:
+                            res1 = "case_end ";
+                            break;
+                        case EventParser.DEFAULT_END:
+                            res1 = "default_end ";
                             break;
                     }
                     System.out.print(res1);

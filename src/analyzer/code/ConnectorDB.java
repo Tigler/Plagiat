@@ -31,26 +31,16 @@ public class ConnectorDB {
             " from Project";
 
     public static final String insertNewProject = "insert into Project (Author,Description,Name) values (?, ?,?)";
-    public static final String deleteProject = "delete from Project where id = ?";
-    public static final String updateProject = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     //для таблицы проект
     public static final String selectSource = "select id,Name,Expension,Text from Source where id_project=?";
     public static final String insertNewSource = "insert into Source (Name, Expension,Text, id_project) values (?, ?,?,?)";
-    public static final String deleteSource = "delete from Project where id = ?";
-    public static final String updateSource = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     public static final String selectBlock = "select id from Block where id_source=?";
     public static final String insertNewBlock = "insert into Block (id_source) values (?)";
-    public static final String deleteBlock = "delete from Project where id = ?";
-    public static final String updateBlock = "update Project set MidLenOLCom = ? WHERE id = ?";
 
     public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_block=? order by idx ASC";
     public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_block) values (?, ?, ?,?)";
-    public static final String deleteOperator = "delete from Project where id = ?";
-    public static final String updateOperator = "update Project set MidLenOLCom = ? WHERE id = ?";
-
-
 
     /**
      * Инициализирует соединение с БД
@@ -149,28 +139,6 @@ public class ConnectorDB {
             } else {
                 throw new SQLException("Creating user failed, no ID obtained.");
             }
-        }
-    }
-
-    /**
-     * Execute SQL
-     *
-     * @return Флаг выполнения
-     * @throws SQLException - ошибка запроса
-     */
-    public static boolean execute() throws SQLException {
-        boolean rez = myStmt.execute();
-        return rez;
-    }
-
-
-    public static void closeStmt() {
-        try {
-            if (myStmt != null) {
-                myStmt.close();
-            }
-        } catch (SQLException e) {
-            LOGGER.info(e.getMessage());
         }
     }
 }

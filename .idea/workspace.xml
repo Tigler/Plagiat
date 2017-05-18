@@ -7,12 +7,221 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/IMetric.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/MyPair.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/EventCycleLevNest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/EventIfLevelNest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/metrics/CycleLevelNest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/metrics/IfLevelNest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/analyzer/code/IMetric.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/analyzer/code/MyPair.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/events/EventCycleLevNest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/events/EventIfLevelNest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/metrics/CycleLevelNest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/metrics/IfLevelNest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/ProjectProgramm.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/ProjectProgramm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/AnalyzePlagiatSystem.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/AnalyzePlagiatSystem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/Analyzer.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/Analyzer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/AnalyzerC.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/AnalyzerC.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ConnectorDB.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ConnectorDB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ResultAnalyzeFile.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/ResultAnalyzeFile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/EventParser.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/events/EventParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/EventSequenceOperators.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/events/EventSequenceOperators.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/events/ListenerParser.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/events/ListenerParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/graf/Edge.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/graf/Edge.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/graf/Node.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/graf/Node.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$BlockItemContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$BlockItemContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$BlockItemListContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$BlockItemListContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CommentContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CommentContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CompilationUnitContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CompilationUnitContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CompoundStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$CompoundStatementContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$DeclarationListContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$DeclarationListContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$ExpressionStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$ExpressionStatementContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$ExternalDeclarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$ExternalDeclarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$FunctionDefinitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$FunctionDefinitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$IterationStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$IterationStatementContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$JumpStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$JumpStatementContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$SelectionStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$SelectionStatementContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$TranslationUnitContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser$TranslationUnitContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/C/CParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_declarationsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_declarationsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_modifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Accessor_modifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Add_accessor_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Add_accessor_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$All_member_modifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$All_member_modifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$All_member_modifiersContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$All_member_modifiersContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Arg_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Arg_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Array_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Array_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Array_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Array_typeContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$AttributeContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$AttributeContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_argumentContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_argumentContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_sectionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_sectionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_targetContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Attribute_targetContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$AttributesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$AttributesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$BlockContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$BlockContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$BodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$BodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Boolean_literalContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Boolean_literalContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Catch_clausesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Catch_clausesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_baseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_baseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_member_declarationsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Class_member_declarationsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Common_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Common_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declaratorsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constant_declaratorsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_constraintContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_constraintContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Constructor_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Conversion_operator_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Conversion_operator_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Delegate_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Delegate_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Destructor_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Destructor_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_baseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_baseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Enum_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Event_accessor_declarationsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Event_accessor_declarationsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Event_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Event_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Exception_filterContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Exception_filterContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Extern_alias_directiveContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Extern_alias_directiveContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Extern_alias_directivesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Extern_alias_directivesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Field_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Field_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Finally_clauseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Finally_clauseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_parameterContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_parameterContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_parametersContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_parametersContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_declaratorsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_declaratorsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_pointer_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_size_buffer_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Fixed_size_buffer_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$For_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$For_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$For_iteratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$For_iteratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Formal_parameter_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Formal_parameter_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$General_catch_clauseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$General_catch_clauseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Get_accessor_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Get_accessor_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Global_attribute_sectionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Global_attribute_sectionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Global_attribute_targetContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Global_attribute_targetContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$IdentifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$IdentifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$If_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$If_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Indexer_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Indexer_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_accessorsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_accessorsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_baseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_baseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_type_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interface_type_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_regular_stringContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_regular_stringContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_regular_string_partContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_regular_string_partContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_string_expressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_string_expressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_verbatium_stringContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_verbatium_stringContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_verbatium_string_partContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Interpolated_verbatium_string_partContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$KeywordContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$KeywordContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$LiteralContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$LiteralContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_constant_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_constant_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_initializer_unsafeContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Local_variable_initializer_unsafeContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Member_nameContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Member_nameContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_invocationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_invocationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_member_nameContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Method_member_nameContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_member_declarationsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Namespace_member_declarationsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Object_creation_expressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Object_creation_expressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Operator_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Operator_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Overloadable_operatorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Overloadable_operatorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Parameter_arrayContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Parameter_arrayContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Parameter_modifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Parameter_modifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Pointer_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Pointer_typeContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Primary_constraintContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Primary_constraintContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Property_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Property_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Qualified_alias_memberContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Qualified_alias_memberContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Qualified_identifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Qualified_identifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Rank_specifierContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Rank_specifierContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Remove_accessor_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Remove_accessor_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Resource_acquisitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Resource_acquisitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Return_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Return_typeContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_arrowContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_arrowContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_shiftContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_shiftContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_shift_assignmentContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Right_shift_assignmentContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Secondary_constraintsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Secondary_constraintsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Set_accessor_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Set_accessor_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Specific_catch_clauseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Specific_catch_clauseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Statement_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Statement_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$String_literalContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$String_literalContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_bodyContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_bodyContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_definitionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_definitionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_interfacesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_interfacesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Struct_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Switch_labelContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Switch_labelContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Switch_sectionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Switch_sectionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameterContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameterContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraintsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraintsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraints_clauseContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraints_clauseContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraints_clausesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_constraints_clausesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Type_parameter_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Typed_member_declarationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Typed_member_declarationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingAliasDirectiveContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingAliasDirectiveContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingNamespaceDirectiveContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingNamespaceDirectiveContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingStaticDirectiveContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$UsingStaticDirectiveContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Using_directiveContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Using_directiveContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Using_directivesContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Using_directivesContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_declaratorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_declaratorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_declaratorsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_declaratorsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_initializerContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variable_initializerContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variance_annotationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variance_annotationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variant_type_parameterContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variant_type_parameterContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variant_type_parameter_listContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser$Variant_type_parameter_listContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/CSharp/CSharpParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArgumentsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArgumentsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArrayCreatorRestContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArrayCreatorRestContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassCreatorRestContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassCreatorRestContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CommentContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CommentContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstantExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstantExpressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatedNameContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatedNameContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnhancedForControlContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnhancedForControlContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationSuffixContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationSuffixContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionListContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionListContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForControlContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForControlContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForInitContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForInitContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForUpdateContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForUpdateContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InnerCreatorContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InnerCreatorContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsOrDiamondContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsOrDiamondContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ParExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ParExpressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$PrimaryContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$PrimaryContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$StatementExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$StatementExpressionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$SuperSuffixContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$SuperSuffixContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeArgumentsOrDiamondContext.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeArgumentsOrDiamondContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" afterPath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configSystem.cfg" afterPath="$PROJECT_DIR$/configSystem.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/ProjectProgramm.java" afterPath="$PROJECT_DIR$/src/analyzer/ProjectProgramm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" afterPath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java" afterPath="$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/EventParser.java" afterPath="$PROJECT_DIR$/src/events/EventParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" afterPath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/ListenerParser.java" afterPath="$PROJECT_DIR$/src/events/ListenerParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graf/Edge.java" afterPath="$PROJECT_DIR$/src/graf/Edge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graf/Node.java" afterPath="$PROJECT_DIR$/src/graf/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/C/CParser.java" afterPath="$PROJECT_DIR$/src/parsers/C/CParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java" afterPath="$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java" afterPath="$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaParser.java" afterPath="$PROJECT_DIR$/src/parsers/Java/JavaParser.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,43 +280,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AnalyzePlagiatSystem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnalyzerC.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnalyzerC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalculatorPlagiat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3274">
-              <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="329">
+              <caret line="134" column="32" lean-forward="false" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -116,22 +293,95 @@
       <file leaf-file-name="ListenerParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/events/ListenerParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="-17">
+              <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding>
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#926#927#0" expanded="true" />
+                <element signature="e#793#794#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventSequenceOperators.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/analyzer/code/MyMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/analyzer/code/ProjectDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventSequenceOperators.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/events/EventSequenceOperators.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="99" column="61" lean-forward="false" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+            <state relative-caret-position="394">
+              <caret line="181" column="26" lean-forward="false" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parsers/C/CParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="7128" column="89" lean-forward="false" selection-start-line="7128" selection-start-column="89" selection-end-line="7128" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSharpParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="6883" column="85" lean-forward="false" selection-start-line="6883" selection-start-column="85" selection-end-line="6883" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parsers/Java/JavaParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="6680" column="39" lean-forward="true" selection-start-line="6680" selection-start-column="39" selection-end-line="6680" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/events/EventParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="143" column="38" lean-forward="false" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResultCompareWithDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/analyzer/code/ResultCompareWithDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="e#520#521#0" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,6 +410,11 @@
       <find>simple_E</find>
       <find>assignment</find>
       <find>assignmentC</find>
+      <find>Defau</find>
+      <find>default</find>
+      <find>Case</find>
+      <find>Switch</find>
+      <find>labeledSta</find>
       <find>listener.</find>
     </findStrings>
   </component>
@@ -180,14 +435,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLDynamicResult.fxml" />
-        <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
         <option value="$PROJECT_DIR$/src/analyzer/code/ResultDynamic.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/Source.java" />
-        <option value="$PROJECT_DIR$/src/analyzer/ProjectProgramm.java" />
-        <option value="$PROJECT_DIR$/src/parsers/Java/JavaParser.java" />
-        <option value="$PROJECT_DIR$/src/graf/Edge.java" />
-        <option value="$PROJECT_DIR$/src/graf/Node.java" />
         <option value="$PROJECT_DIR$/grammars/CSharpParser.g4" />
         <option value="$PROJECT_DIR$/grammars/CSharpLexer.g4" />
         <option value="$PROJECT_DIR$/grammars/CPP14.g4" />
@@ -203,8 +452,6 @@
         <option value="$PROJECT_DIR$/src/parsers/Python3/Python3Lexer.java" />
         <option value="$PROJECT_DIR$/src/parsers/Python3/Python3BaseListener.java" />
         <option value="$PROJECT_DIR$/src/parsers/Python3/Python3Parser.java" />
-        <option value="$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java" />
-        <option value="$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerCSharp.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerJava.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerPython3.java" />
@@ -213,7 +460,6 @@
         <option value="$PROJECT_DIR$/src/analyzer/code/ProjectDB.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/IMetric.java" />
         <option value="$PROJECT_DIR$/src/metrics/IfLevelNest.java" />
-        <option value="$PROJECT_DIR$/src/metrics/CycleLevelNest.java" />
         <option value="$PROJECT_DIR$/src/FXML/AuthorProject/FXMLAuthorProjectController.java" />
         <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiat.fxml" />
         <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiatController.java" />
@@ -222,15 +468,24 @@
         <option value="$PROJECT_DIR$/src/FXML/Setting/FXMLSettingController.java" />
         <option value="$PROJECT_DIR$/src/FXML/Setting/SettingAnother/FXMLSettingAnotherController.java" />
         <option value="$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" />
         <option value="$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java" />
-        <option value="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
         <option value="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java" />
-        <option value="$PROJECT_DIR$/src/parsers/C/CParser.java" />
-        <option value="$PROJECT_DIR$/src/events/ListenerParser.java" />
+        <option value="$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
-        <option value="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java" />
+        <option value="$PROJECT_DIR$/src/graf/Node.java" />
+        <option value="$PROJECT_DIR$/src/graf/Edge.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/ProjectProgramm.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" />
+        <option value="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
+        <option value="$PROJECT_DIR$/src/events/ListenerParser.java" />
+        <option value="$PROJECT_DIR$/src/events/EventParser.java" />
+        <option value="$PROJECT_DIR$/src/metrics/CycleLevelNest.java" />
+        <option value="$PROJECT_DIR$/src/parsers/C/CParser.java" />
         <option value="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
+        <option value="$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java" />
+        <option value="$PROJECT_DIR$/src/parsers/Java/JavaParser.java" />
+        <option value="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
       </list>
     </option>
   </component>
@@ -274,7 +529,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +552,86 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parsers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parsers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CSharp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parsers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="C" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Plagiat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="metrics" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,8 +695,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -842,7 +1177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495033166973</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="работаю с базой и графом">
+      <created>1495043084460</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1495043084460</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -859,7 +1201,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="736" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -884,7 +1226,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24816984" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24816984" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -964,13 +1306,52 @@
     <MESSAGE value="добавил языки программирования но без логики" />
     <MESSAGE value="раставил события листенеров у парсеров и немного откомментил" />
     <MESSAGE value="работаю с базой" />
-    <option name="LAST_COMMIT_MESSAGE" value="работаю с базой" />
+    <MESSAGE value="работаю с базой и графом" />
+    <option name="LAST_COMMIT_MESSAGE" value="работаю с базой и графом" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="187" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parsers/C/CParser.java</url>
+          <line>7490</line>
+          <properties />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parsers/C/CParser.java</url>
+          <line>7501</line>
+          <properties />
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parsers/C/CParser.java</url>
+          <line>7122</line>
+          <properties />
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parsers/C/CParser.java</url>
+          <line>7135</line>
+          <properties />
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="197" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -984,69 +1365,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14BaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpParserListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpParserBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Python3/Python3Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Python3/Python3Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Python3/Python3BaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grammars/Python3.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1089,13 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="3934" column="107" lean-forward="false" selection-start-line="3934" selection-start-column="107" selection-end-line="3934" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grammars/CPP14.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1107,13 +1418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="1372" column="75" lean-forward="false" selection-start-line="1372" selection-start-column="75" selection-end-line="1372" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -1159,24 +1463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/Operator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ProjectDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="39" column="68" lean-forward="false" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
-          <folding>
-            <element signature="e#918#919#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/events/EventIfLevelNest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
@@ -1191,13 +1477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metrics/IfLevelNest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/AuthorProject/FXMLAuthorProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1206,13 +1485,6 @@
             <element signature="e#1058#1059#0" expanded="false" />
             <element signature="e#1098#1099#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/metrics/CycleLevelNest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1240,7 +1512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="75" column="44" lean-forward="true" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1258,14 +1529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="64" column="9" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="64" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#2313#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#2196#2197#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2274#2275#0" expanded="false" />
-            <element signature="e#2309#2310#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1285,59 +1548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ResultCompareWithDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="e#549#550#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3274">
-          <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/C/CParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7456" column="29" lean-forward="false" selection-start-line="7456" selection-start-column="20" selection-end-line="7456" selection-end-column="29" />
-          <folding>
-            <element signature="e#18573#18574#0" expanded="true" />
-            <element signature="e#18652#18653#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/java/jdk1.8.0_112/src.zip!/java/util/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -1346,55 +1556,244 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
+    <entry file="jar:///usr/java/jdk1.8.0_112/javafx-src.zip!/javafx/beans/value/WeakChangeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+        <state relative-caret-position="117">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="81" column="47" lean-forward="false" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2506#2934#0" expanded="true" />
+            <element signature="e#2933#2934#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammars/C.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="504" column="6" lean-forward="false" selection-start-line="504" selection-start-column="6" selection-end-line="504" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#19212#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parsers/Cpp/CPP14Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4755" column="87" lean-forward="false" selection-start-line="4755" selection-start-column="87" selection-end-line="4755" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="238">
+          <caret line="29" column="61" lean-forward="true" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+          <folding>
+            <element signature="e#805#806#0" expanded="false" />
+            <element signature="e#842#843#0" expanded="false" />
+            <element signature="e#913#914#0" expanded="false" />
+            <element signature="e#955#956#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/Operator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graf/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="25" column="7" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graf/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="429" column="22" lean-forward="true" selection-start-line="429" selection-start-column="22" selection-end-line="429" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/ProjectProgramm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="45" column="54" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1742">
+          <caret line="192" column="37" lean-forward="false" selection-start-line="192" selection-start-column="37" selection-end-line="192" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="142" column="5" lean-forward="false" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/events/ListenerParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="-17">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding>
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
+            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graf/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/MyPair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/events/EventSequenceOperators.java">
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/MyMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="99" column="61" lean-forward="false" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+        <state relative-caret-position="75">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ProjectDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/analyzer/code/ResultCompareWithDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/events/EventParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="143" column="38" lean-forward="false" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metrics/CycleLevelNest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metrics/IfLevelNest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parsers/C/CParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="7128" column="89" lean-forward="false" selection-start-line="7128" selection-start-column="89" selection-end-line="7128" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+        <state relative-caret-position="329">
+          <caret line="134" column="32" lean-forward="false" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parsers/CSharp/CSharpParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="6883" column="85" lean-forward="false" selection-start-line="6883" selection-start-column="85" selection-end-line="6883" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parsers/Java/JavaParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="6680" column="39" lean-forward="true" selection-start-line="6680" selection-start-column="39" selection-end-line="6680" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/events/EventSequenceOperators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="181" column="26" lean-forward="false" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="26" />
           <folding />
         </state>
       </provider>

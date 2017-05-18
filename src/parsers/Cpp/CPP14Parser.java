@@ -4753,8 +4753,8 @@ public class CPP14Parser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-					listener.onEvent(new EventParser("switch", EventParser.SWITCH, _localctx.start.getLine(), path));
-				setState(1071);
+                    listener.onEvent(new EventParser("switch", EventParser.SWITCH_START, _localctx.start.getLine(), path));
+                    setState(1071);
 				match(Switch);
 				setState(1072);
 				match(LeftParen);

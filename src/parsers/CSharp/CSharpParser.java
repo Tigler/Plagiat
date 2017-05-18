@@ -6662,7 +6662,7 @@ public class CSharpParser extends Parser {
 				_localctx = new SwitchStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-					listener.onEvent(new EventParser("switch", EventParser.SWITCH, _localctx.start.getLine(), path));
+					listener.onEvent(new EventParser("switch", EventParser.SWITCH_START, _localctx.start.getLine(), path));
 				setState(1102);
 				match(SWITCH);
 				setState(1103);
@@ -6871,18 +6871,20 @@ public class CSharpParser extends Parser {
 					break;
 				case CASE:
 					{
-						listener.onEvent(new EventParser("case", EventParser.CASE, _localctx.start.getLine(), path));
+						listener.onEvent(new EventParser("case", EventParser.CASE_START, _localctx.start.getLine(), path));
 					setState(1159);
 					match(CASE);
 					setState(1160);
 					expression();
+						listener.onEvent(new EventParser("case", EventParser.CASE_END, _localctx.start.getLine(), path));
 					}
 					break;
 				case DEFAULT:
 					{
-						listener.onEvent(new EventParser("default", EventParser.DEFAULT, _localctx.start.getLine(), path));
+						listener.onEvent(new EventParser("default", EventParser.DEFAULT_START, _localctx.start.getLine(), path));
 					setState(1161);
 					match(DEFAULT);
+						listener.onEvent(new EventParser("default", EventParser.DEFAULT_END, _localctx.start.getLine(), path));
 					}
 					break;
 				default:

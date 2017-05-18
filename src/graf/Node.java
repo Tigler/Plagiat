@@ -21,23 +21,21 @@ public class Node {
 
     public int getCode() { return code; }
 
-    public void setCode(int code) { this.code = code; }
-
-    public ArrayList<Operator> getListOperators() {
+    /*public ArrayList<Operator> getListOperators() {
         return listOperators;
-    }
+    }*/
 
-    public void setOperator(Operator operator) {
+    /*public void setOperator(Operator operator) {
         this.listOperators.add(operator);
-    }
+    }*/
 
     public ArrayList<Edge> getEdges() {
         return edges;
     }
 
-    public void setEdge(Edge edge) {
+   /* public void setEdge(Edge edge) {
         this.edges.add(edge);
-    }
+    }*/
 
     public void addNode(Node node) { edges.add(new Edge(this, node)); }
 }

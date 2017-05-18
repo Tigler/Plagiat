@@ -7111,6 +7111,7 @@ public class CParser extends Parser {
                 case Case:
                     enterOuterAlt(_localctx, 2);
                 {
+                    listener.onEvent(new EventParser("case", EventParser.CASE_START, _localctx.start.getLine(), path));
                     setState(1109);
                     match(Case);
                     setState(1110);
@@ -7119,17 +7120,20 @@ public class CParser extends Parser {
                     match(Colon);
                     setState(1112);
                     statement();
+                    listener.onEvent(new EventParser("case", EventParser.CASE_END, _localctx.start.getLine(), path));
                 }
                 break;
                 case Default:
                     enterOuterAlt(_localctx, 3);
                 {
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_START, _localctx.start.getLine(), path));
                     setState(1114);
                     match(Default);
                     setState(1115);
                     match(Colon);
                     setState(1116);
                     statement();
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_END, _localctx.start.getLine(), path));
                 }
                 break;
                 default:
@@ -7484,7 +7488,7 @@ public class CParser extends Parser {
                 case Switch:
                     enterOuterAlt(_localctx, 2);
                 {
-                    listener.onEvent(new EventParser("switch", EventParser.SWITCH, _localctx.start.getLine(), path));
+                    listener.onEvent(new EventParser("switch", EventParser.SWITCH_START, _localctx.start.getLine(), path));
                     setState(1154);
                     match(Switch);
                     setState(1155);
@@ -7495,6 +7499,7 @@ public class CParser extends Parser {
                     match(RightParen);
                     setState(1158);
                     statement();
+                    listener.onEvent(new EventParser("switch", EventParser.SWITCH_END, _localctx.start.getLine(), path));
                 }
                 break;
                 default:

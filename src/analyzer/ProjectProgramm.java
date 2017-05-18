@@ -35,9 +35,9 @@ public class ProjectProgramm {
         return name;
     }
 
-    public void setName(String name) {
+   /* public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public ArrayList<String> getPathsSrc() {
         return pathsSrc;

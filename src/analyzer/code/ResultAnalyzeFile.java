@@ -1,5 +1,7 @@
 package analyzer.code;
 
+import graf.Node;
+
 import java.util.ArrayList;
 
 /**
@@ -7,17 +9,9 @@ import java.util.ArrayList;
  */
 public class ResultAnalyzeFile {
     private String nameFile;
-
-    public String getPath() {
-        return path;
-    }
-
-    public ArrayList<ArrayList<Operator>> getListsOperators() {
-        return listsOperators;
-    }
-
     private String path;
     private ArrayList<ArrayList<Operator>> listsOperators;
+    ArrayList<ArrayList<Node>> graf;
 
     public ResultAnalyzeFile(String nameFile, String path, ArrayList<ArrayList<Operator>> listsOperators) {
         this.nameFile = nameFile;
@@ -29,11 +23,15 @@ public class ResultAnalyzeFile {
         return nameFile;
     }
 
-    //public ArrayList<IMetric> getListMetrics() {
-    //return listMetrics;
-    //}
+    public String getPath() {
+        return path;
+    }
 
-    // public ArrayList<ArrayList<Operator>> getOperators() {
-    //  return listsOperators;
-    // }
+    public ArrayList<ArrayList<Operator>> getListsOperators() {
+        return listsOperators;
+    }
+
+    public ArrayList<ArrayList<Node>> getGraf() {
+        return graf;
+    }
 }

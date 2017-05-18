@@ -6,8 +6,6 @@
 package FXML.ReportPlagiat.ReportDB;
 
 import analyzer.code.ResultCompareWithDB;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +18,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import javax.swing.*;
 import java.net.URL;
@@ -60,6 +57,8 @@ public class FXMLReportDBController implements Initializable {
 
     }
 
+    int i;
+
     public void setResult(ArrayList<ResultCompareWithDB> resultsCompareWithDB) {
         this.resultsCompareWithDB = resultsCompareWithDB;
         initData();
@@ -71,25 +70,29 @@ public class FXMLReportDBController implements Initializable {
         TableColumn freq = new TableColumn("Частоты");
         TableColumn allRes = new TableColumn("Общий результат");
         tableViewResult.getColumns().addAll(author, name, desc, seq, freq, allRes);
-        desc.setCellValueFactory(
-                new Callback<TableColumn.CellDataFeatures<String, Boolean>,
-                        ObservableValue<Boolean>>() {
-
-                    @Override
-                    public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<String, Boolean> p) {
-                        return new SimpleBooleanProperty(p.getValue() != null);
+        desc.setCellFactory(col -> {
+            Button editButton = new Button("Edit");
+            TableCell<ResultCompareWithDB, ResultCompareWithDB> cell = new TableCell<ResultCompareWithDB, ResultCompareWithDB>() {
+                @Override
+                public void updateItem(ResultCompareWithDB person, boolean empty) {
+                    super.updateItem(person, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(editButton);
                     }
-                });
+                }
+            };
 
-        desc.setCellFactory(
-                new Callback<TableColumn<String, Boolean>, TableCell<String, Boolean>>() {
+            editButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    JOptionPane.showMessageDialog(null, tableViewResult.getItems().get(cell.getTableRow().getIndex()).getDesc());
+                }
+            });
 
-                    @Override
-                    public TableCell<String, Boolean> call(TableColumn<String, Boolean> p) {
-                        return new ButtonCell("df");
-                    }
-
-                });
+            return cell;
+        });
         author.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("author"));
         name.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("name"));
         // desc.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("desc"));
@@ -103,6 +106,7 @@ public class FXMLReportDBController implements Initializable {
     //Define the button cell
     private class ButtonCell extends TableCell<String, Boolean> {
         final Button cellButton = new Button("Action");
+        int i;
 
         ButtonCell() {
 
@@ -115,13 +119,16 @@ public class FXMLReportDBController implements Initializable {
             });
         }
 
-        ButtonCell(String str) {
-
+        ButtonCell(int i) {
+            this.i = i;
             cellButton.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override
                 public void handle(ActionEvent t) {
-                    JOptionPane.showMessageDialog(null, tableViewResult.getSelectionModel().getSelectedItem().getDesc());
+                    if (i < 2) {
+                        tableViewResult.getSelectionModel().select(i);
+                        JOptionPane.showMessageDialog(null, tableViewResult.getSelectionModel().getSelectedItem().getDesc());
+                    }
                 }
             });
         }

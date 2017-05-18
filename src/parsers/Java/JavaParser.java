@@ -5966,7 +5966,7 @@ public class JavaParser extends Parser {
                 case 9:
                     enterOuterAlt(_localctx, 9);
                 {
-                    listener.onEvent(new EventParser("SWITCH", EventParser.SWITCH, _localctx.start.getLine(),
+                    listener.onEvent(new EventParser("SWITCH", EventParser.SWITCH_START, _localctx.start.getLine(),
                             _localctx.start.getTokenSource().getSourceName()));
                     setState(911);
                     match(SWITCH);
@@ -6658,7 +6658,7 @@ public class JavaParser extends Parser {
                 case 1:
                     enterOuterAlt(_localctx, 1);
                 {
-                    listener.onEvent(new EventParser("case", EventParser.CASE, _localctx.start.getLine(),
+                    listener.onEvent(new EventParser("case", EventParser.CASE_START, _localctx.start.getLine(),
                             _localctx.start.getTokenSource().getSourceName()));
                     setState(1020);
                     match(CASE);
@@ -6666,12 +6666,14 @@ public class JavaParser extends Parser {
                     constantExpression();
                     setState(1022);
                     match(COLON);
+                    listener.onEvent(new EventParser("case", EventParser.CASE_END, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
                 }
                 break;
                 case 2:
                     enterOuterAlt(_localctx, 2);
                 {
-                    listener.onEvent(new EventParser("case", EventParser.CASE, _localctx.start.getLine(),
+                    listener.onEvent(new EventParser("case", EventParser.CASE_START, _localctx.start.getLine(),
                             _localctx.start.getTokenSource().getSourceName()));
                     setState(1024);
                     match(CASE);
@@ -6679,17 +6681,21 @@ public class JavaParser extends Parser {
                     enumConstantName();
                     setState(1026);
                     match(COLON);
+                    listener.onEvent(new EventParser("case", EventParser.CASE_END, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
                 }
                 break;
                 case 3:
                     enterOuterAlt(_localctx, 3);
                 {
-                    listener.onEvent(new EventParser("default", EventParser.DEFAULT, _localctx.start.getLine(),
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_START, _localctx.start.getLine(),
                             _localctx.start.getTokenSource().getSourceName()));
                     setState(1028);
                     match(DEFAULT);
                     setState(1029);
                     match(COLON);
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_END, _localctx.start.getLine(),
+                            _localctx.start.getTokenSource().getSourceName()));
                 }
                 break;
             }

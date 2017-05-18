@@ -76,17 +76,17 @@ public class EventParser {
     /**
      * финализированная переменная. Произошеднее событие: switch
      */
-    public final static int SWITCH = 14;
+    public final static int SWITCH_START = 14;
 
     /**
      * финализированная переменная. Произошеднее событие: case
      */
-    public final static int CASE = 15;
+    public final static int CASE_START = 15;
 
     /**
      * финализированная переменная. Произошеднее событие: default
      */
-    public final static int DEFAULT = 16;
+    public final static int DEFAULT_START = 16;
 
     /**
      * финализированная переменная. Произошеднее событие: for
@@ -128,6 +128,20 @@ public class EventParser {
      * финализированная переменная. Произошеднее событие: функция
      */
     public final static int FUNC_END = 25;
+
+    /**
+     * финализированная переменная. Произошеднее событие: switch
+     */
+    public final static int SWITCH_END = 26;
+    /**
+     * финализированная переменная. Произошеднее событие: case
+     */
+    public final static int CASE_END = 27;
+
+    /**
+     * финализированная переменная. Произошеднее событие: default
+     */
+    public final static int DEFAULT_END = 28;
 
     /**
      * строковая переменная - идентификатор. Представляет собой непосредственно текст идентификатора.
