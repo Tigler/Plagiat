@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FXML.ReportPlagiat.CoinSeq;
+package FXML.ReportPlagiat.CoinGraf;
 
 import enums.ResultTextReportEnum;
 import javafx.fxml.FXML;
@@ -18,24 +18,20 @@ import java.util.ResourceBundle;
  *
  * @author tigler
  */
-public class FXMLCoinSeqController implements Initializable {
+public class FXMLCoinMetricsController implements Initializable {
 
-    int resultSeqOperators;
     @FXML
     Label labelResult;
-
-
-    /**
-     * Initializes the controller class.
-     */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
-    public void setResultSeqOperators(int resultSeqOperators) {
-        this.resultSeqOperators = resultSeqOperators;
-        labelResult.setText(ResultTextReportEnum.seqOperators.toString() + resultSeqOperators + "%");
+
+    public void setMetricsResult(int resultMacCabe) {
+        labelResult.setText(ResultTextReportEnum.macCabe.toString() + resultMacCabe + "%");
     }
+
+
 }

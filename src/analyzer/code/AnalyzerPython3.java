@@ -42,7 +42,7 @@ public class AnalyzerPython3 extends Analyzer {
         python3Parser.setPath(path);
         python3Parser.single_input();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
     }
 
     /**

@@ -42,7 +42,7 @@ public class AnalyzerCSharp extends Analyzer {
         cSharpParser.setPath(path);
         cSharpParser.compilation_unit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
     }
 
     /**

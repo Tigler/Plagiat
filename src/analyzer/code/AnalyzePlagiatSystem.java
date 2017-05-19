@@ -139,6 +139,7 @@ public class AnalyzePlagiatSystem {
             FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
+            fxmlReportPlagiatController.setMacCabeMetric(calculatorPlagiat.getResultMacCabe());
             fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
                     secondAnalyzer.getListResultAnalyzeFiles());
@@ -165,6 +166,7 @@ public class AnalyzePlagiatSystem {
             FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
+            fxmlReportPlagiatController.setMacCabeMetric(calculatorPlagiat.getResultMacCabe());
             fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
             fxmlReportPlagiatController.setResultDynamic(calculatorPlagiat.getResultDynamic());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
@@ -261,7 +263,7 @@ public class AnalyzePlagiatSystem {
                         listsOperators.add(listOperator);
                     }
                     String nameFile = resultSet1.getString(2);
-                    resultsAnalyzeFile.add(new ResultAnalyzeFile(nameFile, null, listsOperators));
+                    resultsAnalyzeFile.add(new ResultAnalyzeFile(nameFile, null, listsOperators, null));
                 }
                 int idProj = resultSet.getInt(1);
                 String author = resultSet.getString(2);

@@ -36,6 +36,8 @@ public class UtiliteForLinuxC extends Utilite {
         Runtime rt = Runtime.getRuntime();
         try {
             Process proc = rt.exec("chmod 777 -R dinamic");
+            proc = rt.exec("rm -rf dinamic/CompilationFilesC1/" + "*");
+            proc = rt.exec("rm -rf dinamic/CompilationFilesC2/" + "*");
             for (int i = 0; i < listPathFiles.size(); i++) {
                 proc = rt.exec("gcc -c " + listPathFiles.get(i) + " -o " + dirCompilC + i + ".o");
             }

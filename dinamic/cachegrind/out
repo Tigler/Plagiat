@@ -1,45 +1,31 @@
 desc: I1 cache:         32768 B, 64 B, 8-way associative
 desc: D1 cache:         32768 B, 64 B, 8-way associative
 desc: LL cache:         3145728 B, 64 B, 12-way associative
-cmd: ./dinamic/CompilationFilesC2/CProgramm2
+cmd: ./dinamic/CompilationFilesC1/CProgramm1
 events: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw 
 fl=???
 fn=(below main)
-0 60 5 5 17 2 0 17 0 0
+0 58 5 5 17 2 0 16 0 0
 fn=???
-0 165 14 11 84 2 1 14 1 1
-fn=_Exit
-0 8 2 2 1 0 0 0 0 0
-fn=_IO_cleanup
-0 54 4 4 17 0 0 10 0 0
-fn=_IO_flush_all_lockp
-0 95 10 10 26 8 4 13 0 0
-fn=__call_tls_dtors
-0 11 2 2 5 1 0 2 0 0
+0 121 12 9 70 1 0 5 1 1
 fn=__ctype_init
 0 16 2 2 10 3 0 3 0 0
 fn=__cxa_atexit
 0 22 2 2 5 0 0 8 0 0
-fn=__cxa_finalize
-0 46 4 4 12 1 0 6 1 0
 fn=__init_misc
 0 24 2 2 7 1 0 5 2 0
 fn=__libc_csu_init
-0 34 3 3 8 1 0 8 0 0
+0 34 2 2 8 1 0 8 0 0
 fn=__libc_memalign
 0 512 4 4 82 0 0 81 1 1
 fn=__libc_scratch_buffer_set_array_size
 0 36 2 2 10 0 0 6 0 0
 fn=__new_exitfn
 0 38 6 6 11 5 3 5 0 0
-fn=__run_exit_handlers
-0 60 5 5 9 1 0 10 0 0
 fn=__sigjmp_save
 0 8 0 0 2 0 0 2 0 0
 fn=__sigsetjmp
 0 79 4 4 19 0 0 32 0 0
-fn=__unregister_atfork
-0 4 2 2 2 0 0 0 0 0
 fn=_dl_add_to_namespace_list
 0 103 2 2 29 0 0 23 0 0
 fn=_dl_add_to_slotinfo
@@ -66,8 +52,6 @@ fn=_dl_determine_tlsoffset
 0 66 6 6 14 0 0 9 0 0
 fn=_dl_discover_osversion
 0 97 5 5 16 1 1 8 1 1
-fn=_dl_fini
-0 410 17 17 131 5 0 43 1 0
 fn=_dl_important_hwcaps
 0 264 18 18 42 0 0 42 4 4
 fn=_dl_init
@@ -142,8 +126,6 @@ fn=do_lookup_x
 0 23041 17 17 8164 165 136 3506 4 3
 fn=do_preload
 0 28 2 2 7 0 0 8 0 0
-fn=exit
-0 5 1 1 0 0 0 1 0 0
 fn=fillin_rpath
 0 261 16 16 46 0 0 58 3 3
 fn=free
@@ -163,7 +145,7 @@ fn=init_tls
 fn=intel_check_word
 0 1367 11 11 129 6 6 24 0 0
 fn=main
-0 319 0 0 193 0 0 12 0 0
+0 824320655166 0 0 1 0 0 2 0 0
 fn=malloc
 0 69 0 0 0 0 0 0 0 0
 fn=map_doit
@@ -177,7 +159,7 @@ fn=memmove
 fn=mempcpy
 0 81 0 0 0 0 0 0 0 0
 fn=memset
-0 438 4 4 11 0 0 182 39 39
+0 393 4 4 8 0 0 176 39 39
 fn=mmap
 0 262 3 3 58 0 0 48 1 1
 fn=mprotect
@@ -197,9 +179,9 @@ fn=read
 fn=rindex
 0 54 5 5 5 2 1 0 0 0
 fn=rtld_lock_default_lock_recursive
-0 8 1 1 8 1 1 0 0 0
+0 6 1 1 6 1 1 0 0 0
 fn=rtld_lock_default_unlock_recursive
-0 8 1 1 8 0 0 0 0 0
+0 6 1 1 6 0 0 0 0 0
 fn=sbrk
 0 17 2 2 5 1 1 2 0 0
 fn=strcasecmp
@@ -226,4 +208,4 @@ fn=uname
 0 5 1 1 1 0 0 0 0 0
 fn=version_check_doit
 0 10 1 1 4 0 0 2 0 0
-summary: 100956 753 745 26296 1228 1060 11266 500 477
+summary: 824320755015 703 695 25880 1211 1055 11155 498 477

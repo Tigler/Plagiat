@@ -42,7 +42,7 @@ public class AnalyzerCpp extends Analyzer {
         cpp14Parser.setPath(path);
         cpp14Parser.translationunit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
     }
 
     /**

@@ -47,7 +47,7 @@ public class AnalyzerC extends Analyzer {
         cParser.setPath(path);
         cParser.compilationUnit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
         printGraf();
     }
 
@@ -75,7 +75,7 @@ public class AnalyzerC extends Analyzer {
                         res = "while_end ";
                         break;
                     case EventParser.SWITCH_END:
-                        res = "while_end ";
+                        res = "switch_end ";
                         break;
                     case EventParser.SWITCH_START:
                         res = "switch_Start ";
@@ -117,7 +117,7 @@ public class AnalyzerC extends Analyzer {
                             res1 = "while_end ";
                             break;
                         case EventParser.SWITCH_END:
-                            res1 = "while_end ";
+                            res1 = "switch_end ";
                             break;
                         case EventParser.SWITCH_START:
                             res1 = "switch_Start ";

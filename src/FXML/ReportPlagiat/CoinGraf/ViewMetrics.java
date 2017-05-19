@@ -1,4 +1,4 @@
-package FXML.ReportPlagiat.CoinMetrics;
+package FXML.ReportPlagiat.CoinGraf;
 
 /**
  * Created by tigler on 07.05.17.

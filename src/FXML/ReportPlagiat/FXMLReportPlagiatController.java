@@ -5,6 +5,7 @@
  */
 package FXML.ReportPlagiat;
 
+import FXML.ReportPlagiat.CoinGraf.FXMLCoinMetricsController;
 import FXML.ReportPlagiat.CoinSeq.FXMLCoinSeqController;
 import FXML.ReportPlagiat.Dynamic.FXMLDynamicResultController;
 import FXML.ReportPlagiat.Frequences.FXMLFrequencesController;
@@ -49,6 +50,7 @@ public class FXMLReportPlagiatController implements Initializable {
     int resultFreq;
     int resultSeqOperators;
     int resultDynamic;
+    int resultMacCabe;
     ObservableList<String> items;
 
     /**
@@ -70,7 +72,7 @@ public class FXMLReportPlagiatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         items = FXCollections.observableArrayList(
-                "Совпадение по последовательностям", "Частоты");
+                "Последовательности операторов", "Частоты", "Метрики графа");
         listView.setItems(items);
         buttonExit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -108,6 +110,12 @@ public class FXMLReportPlagiatController implements Initializable {
                             fxmlFrequencesController.setFrequences(freqFirst, freqsecond, resultFreq);
                             break;
                         case 2:
+                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinGraf/FXMLCoinMetrics.fxml"));
+                            adminTeamView = (AnchorPane) loader.load();
+                            FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
+                            fxmlCoinMetricsController.setMetricsResult(resultMacCabe);
+                            break;
+                        case 3:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
                             FXMLDynamicResultController fxmlDynamicResultController = loader.getController();
@@ -137,5 +145,10 @@ public class FXMLReportPlagiatController implements Initializable {
     public void setResultDynamic(int resultDynamic) {
         this.resultDynamic = resultDynamic;
         items.add("Динамический анализ");
+    }
+
+    public void setMacCabeMetric(int resultMacCabe) {
+        this.resultMacCabe = resultMacCabe;
+
     }
 }

@@ -13,10 +13,11 @@ public class ResultAnalyzeFile {
     private ArrayList<ArrayList<Operator>> listsOperators;
     ArrayList<ArrayList<Node>> graf;
 
-    public ResultAnalyzeFile(String nameFile, String path, ArrayList<ArrayList<Operator>> listsOperators) {
+    public ResultAnalyzeFile(String nameFile, String path, ArrayList<ArrayList<Operator>> listsOperators, ArrayList<ArrayList<Node>> graf) {
         this.nameFile = nameFile;
         this.path = path;
         this.listsOperators = (ArrayList<ArrayList<Operator>>) listsOperators.clone();
+        this.graf = graf;
     }
 
     public String getNameFile() {

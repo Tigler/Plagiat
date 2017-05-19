@@ -3,6 +3,7 @@ package analyzer;
 import analyzer.code.*;
 import dynamic.DynamicAnalyzer;
 import enums.EnumNameOperators;
+import graf.Node;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -21,6 +22,7 @@ public class CalculatorPlagiat {
     int resultFreq;
     int resultSeqOperators;
     int resultDynamic;
+    int resultMacCabe;
 
 
     public CalculatorPlagiat() {
@@ -280,9 +282,6 @@ public class CalculatorPlagiat {
     }
 
     private int compareSeq(ArrayList<ResultAnalyzeFile> listResFirst, ArrayList<ResultAnalyzeFile> listResSecond) {
-        int result = 0;
-        int offsets[];
-        ;
         ArrayList<int[]> firAr = new ArrayList<>();
         ArrayList<int[]> secAr = new ArrayList<>();
         for (int k = 0; k < listResFirst.size(); k++) {
@@ -333,6 +332,44 @@ public class CalculatorPlagiat {
     public void calcForTwoProj(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         calcFreq(firstAnalyzer.getListResultAnalyzeFiles(), 1, secondAnalyzer.getListResultAnalyzeFiles(), 2);
         resultSeqOperators = compareSeq(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
+        resultMacCabe = calcMacCabeMetric(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
+    }
+
+    private int calcMacCabeMetric(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles, ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
+        int countEdgesFirst = 0;
+        int countNodesFirst = 0;
+        for (ResultAnalyzeFile res : listFirstResultAnalyzeFiles) {
+            for (ArrayList<Node> listNodes : res.getGraf()) {
+                for (Node node : listNodes) {
+                    countEdgesFirst += node.getEdges().size();
+                }
+                countNodesFirst += listNodes.size();
+            }
+        }
+
+        int macCabeFirst = countEdgesFirst - countNodesFirst;
+
+        int countEdgesSecond = 0;
+        int countNodesSecond = 0;
+        for (ResultAnalyzeFile res : listFirstResultAnalyzeFiles) {
+            for (ArrayList<Node> listNodes : res.getGraf()) {
+                for (Node node : listNodes) {
+                    countEdgesSecond += node.getEdges().size();
+                }
+                countNodesSecond += listNodes.size();
+            }
+        }
+
+        int result = 0;
+        int macCabeSecond = countEdgesSecond - countNodesSecond;
+        if (macCabeFirst > macCabeSecond) {
+            result = macCabeSecond * 100 / macCabeFirst;
+        } else if (macCabeFirst < macCabeSecond) {
+            result = macCabeFirst * 100 / macCabeSecond;
+        } else {
+            result = 100;
+        }
+        return result;
     }
 
     public static int[] getLCS(int[] x, int[] y) {
@@ -527,5 +564,9 @@ public class CalculatorPlagiat {
 
     public int getResultDynamic() {
         return resultDynamic;
+    }
+
+    public int getResultMacCabe() {
+        return resultMacCabe;
     }
 }

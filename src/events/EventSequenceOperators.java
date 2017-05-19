@@ -36,6 +36,8 @@ public class EventSequenceOperators extends ListenerParser {
                 || event.getCode() == EventParser.FUNC_START || event.getCode() == EventParser.FUNC_END
                 || event.getCode() == EventParser.CASE_START || event.getCode() == EventParser.DEFAULT_START
                 || event.getCode() == EventParser.CASE_END || event.getCode() == EventParser.DEFAULT_END
+                || event.getCode() == EventParser.SWITCH_END
+
                 ) {
             switch (event.getCode()) {
                 case EventParser.FUNC_START: {
@@ -164,8 +166,15 @@ public class EventSequenceOperators extends ListenerParser {
                         stack.add(n);
                         break;
                     }
+                    Stack<Node> tmpStack = new Stack<>();
                     while (stack.peek().getCode() != EventParser.CASE_START) {
-                        stack.pop();
+                        Node tmpNode = stack.pop();
+                        if (tmpNode.getCode() == EventParser.BREAK) {
+                            //tmpStack.add(tmpNode);
+                        }
+                    }
+                    while (!tmpStack.empty()) {
+                        //stack.add(tmpStack.pop());
                     }
                     s = stack.pop();
                     s.addNode(n);
@@ -182,7 +191,7 @@ public class EventSequenceOperators extends ListenerParser {
                     break;
                 }
                 case EventParser.DEFAULT_END: {
-                    listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
+                    //listOperatorsTemp.add(new Operator(Operator.IF, "if", event.getStr(), event.getPath()));
                     Node n = new Node(event.getCode());
                     listNodeFunc.add(n);
                     Node s = stack.pop();
@@ -191,8 +200,15 @@ public class EventSequenceOperators extends ListenerParser {
                         stack.add(n);
                         break;
                     }
+                    Stack<Node> tmpStack = new Stack<>();
                     while (stack.peek().getCode() != EventParser.DEFAULT_START) {
-                        stack.pop();
+                        Node tmpNode = stack.pop();
+                        if (tmpNode.getCode() == EventParser.BREAK) {
+                            // tmpStack.add(tmpNode);
+                        }
+                    }
+                    while (!tmpStack.empty()) {
+                        //stack.add(tmpStack.pop());
                     }
                     s = stack.pop();
                     s.addNode(n);

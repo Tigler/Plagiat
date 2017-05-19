@@ -52,7 +52,7 @@ public class AnalyzerJava extends Analyzer {
         javaParser.setPath(path);
         javaParser.compilationUnit();
         String[] paths = path.split("/");
-        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators));
+        resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
     }
 
     /**

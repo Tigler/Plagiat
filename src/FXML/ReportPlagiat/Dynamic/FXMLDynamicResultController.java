@@ -5,6 +5,7 @@
  */
 package FXML.ReportPlagiat.Dynamic;
 
+import enums.ResultTextReportEnum;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,6 +35,6 @@ public class FXMLDynamicResultController implements Initializable {
 
 
     public void setResult(int resultDynamic) {
-        labelResult.setText("Динамический анализ: " + resultDynamic + "%");
+        labelResult.setText(ResultTextReportEnum.dynamic.toString() + resultDynamic + "%");
     }
 }
