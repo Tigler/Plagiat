@@ -131,8 +131,8 @@ tokens { INDENT, DEDENT }
 
 /// single_input: NEWLINE | simple_stmt | compound_stmt NEWLINE
 single_input
- : NEWLINE
- | simple_stmt
+ :
+  simple_stmt
  | compound_stmt NEWLINE
  ;
 
@@ -350,7 +350,7 @@ dotted_as_names
 
 /// dotted_name: NAME ('.' NAME)*
 dotted_name
- : NAME ( '.' NAME )*
+ : ( '.' NAME )*
  ;
 
 /// global_stmt: 'global' NAME (',' NAME)*

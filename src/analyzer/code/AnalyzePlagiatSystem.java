@@ -10,8 +10,12 @@ import FXML.Setting.FXMLSettingController;
 import analyzer.CalculatorPlagiat;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.antlr.v4.runtime.RecognitionException;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -338,5 +342,13 @@ public class AnalyzePlagiatSystem {
             }
         }
         return text;
+    }
+
+    public static void syntaxError(RecognitionException re) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Синтакическая ошибка");
+        alert.setHeaderText("Синтакическая ошибка");
+        alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(re.toString())));
+        alert.showAndWait();
     }
 }

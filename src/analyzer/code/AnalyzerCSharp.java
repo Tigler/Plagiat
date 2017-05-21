@@ -34,6 +34,7 @@ public class AnalyzerCSharp extends Analyzer {
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
+        graf = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         CSharpParser cSharpParser = (CSharpParser) parser;
         cSharpParser.attach(listener);
@@ -65,6 +66,7 @@ public class AnalyzerCSharp extends Analyzer {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
+        listener.setGraf(graf);
         return listener;
     }
 

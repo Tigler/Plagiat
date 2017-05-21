@@ -34,6 +34,7 @@ public class AnalyzerPython3 extends Analyzer {
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
+        graf = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         Python3Parser python3Parser = (Python3Parser) parser;
         python3Parser.attach(listener);
@@ -69,6 +70,7 @@ public class AnalyzerPython3 extends Analyzer {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
+        listener.setGraf(graf);
         return listener;
     }
 

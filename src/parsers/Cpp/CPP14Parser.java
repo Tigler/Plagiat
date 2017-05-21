@@ -1,5 +1,7 @@
 // Generated from /home/tigler/IdeaProjects/Plagiat/grammars/CPP14.g4 by ANTLR 4.7
 package parsers.Cpp;
+
+import analyzer.code.AnalyzePlagiatSystem;
 import events.EventParser;
 import events.ListenerParser;
 import org.antlr.v4.runtime.*;
@@ -310,9 +312,9 @@ public class CPP14Parser extends Parser {
 			setState(401);
 			match(EOF);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -413,9 +415,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -468,9 +470,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -575,9 +577,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -631,9 +633,9 @@ public class CPP14Parser extends Parser {
 			setState(432);
 			unqualifiedid();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -779,9 +781,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -837,9 +839,9 @@ public class CPP14Parser extends Parser {
 			setState(466);
 			compoundstatement();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -889,9 +891,9 @@ public class CPP14Parser extends Parser {
 			setState(472);
 			match(RightBracket);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -955,9 +957,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1000,9 +1002,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1098,9 +1100,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1153,9 +1155,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1215,9 +1217,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1276,9 +1278,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1370,9 +1372,9 @@ public class CPP14Parser extends Parser {
 			}
 
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1769,9 +1771,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,29,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1808,9 +1810,9 @@ public class CPP14Parser extends Parser {
 			setState(641);
 			initializerlist(0);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1928,9 +1930,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2095,9 +2097,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2140,9 +2142,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2271,9 +2273,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2314,9 +2316,9 @@ public class CPP14Parser extends Parser {
 			setState(727);
 			match(RightParen);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2366,9 +2368,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2441,9 +2443,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2551,9 +2553,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,46,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2621,9 +2623,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2703,9 +2705,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2749,9 +2751,9 @@ public class CPP14Parser extends Parser {
 			setState(784);
 			match(RightParen);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2813,9 +2815,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2909,9 +2911,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,54,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3017,9 +3019,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,56,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3113,9 +3115,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,58,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3212,9 +3214,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,60,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3332,9 +3334,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,62,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3428,9 +3430,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,64,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3506,9 +3508,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,65,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3584,9 +3586,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,66,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3662,9 +3664,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,67,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3740,9 +3742,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,68,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3818,9 +3820,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,69,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3884,9 +3886,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3932,7 +3934,7 @@ public class CPP14Parser extends Parser {
 		try {
 			setState(958);
 			_errHandler.sync(this);
-			listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+
 			switch ( getInterpreter().adaptivePredict(_input,71,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3949,7 +3951,8 @@ public class CPP14Parser extends Parser {
 				setState(954);
 				assignmentoperator();
 				setState(955);
-				initializerclause();
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                    initializerclause();
 				}
 				break;
 			case 3:
@@ -3960,9 +3963,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4077,9 +4080,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4155,9 +4158,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,73,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4194,9 +4197,9 @@ public class CPP14Parser extends Parser {
 			setState(984);
 			conditionalexpression();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4373,9 +4376,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4454,7 +4457,8 @@ public class CPP14Parser extends Parser {
 					}
 				}
 
-				setState(1023);
+                    listener.onEvent(new EventParser("case", EventParser.CASE_START, _localctx.start.getLine(), path));
+                    setState(1023);
 				match(Case);
 				setState(1024);
 				constantexpression();
@@ -4462,7 +4466,8 @@ public class CPP14Parser extends Parser {
 				match(Colon);
 				setState(1026);
 				statement();
-				}
+                    listener.onEvent(new EventParser("case", EventParser.CASE_END, _localctx.start.getLine(), path));
+                }
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
@@ -4476,19 +4481,20 @@ public class CPP14Parser extends Parser {
 					attributespecifierseq(0);
 					}
 				}
-
-				setState(1031);
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_START, _localctx.start.getLine(), path));
+                    setState(1031);
 				match(Default);
 				setState(1032);
 				match(Colon);
 				setState(1033);
 				statement();
-				}
+                    listener.onEvent(new EventParser("default", EventParser.DEFAULT_END, _localctx.start.getLine(), path));
+                }
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4536,9 +4542,9 @@ public class CPP14Parser extends Parser {
 			setState(1039);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4588,9 +4594,9 @@ public class CPP14Parser extends Parser {
 			setState(1045);
 			match(RightBrace);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4664,9 +4670,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,87,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4764,12 +4770,13 @@ public class CPP14Parser extends Parser {
 				match(RightParen);
 				setState(1075);
 				statement();
-				}
+                    listener.onEvent(new EventParser("switch", EventParser.SWITCH_END, _localctx.start.getLine(), path));
+                }
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4872,9 +4879,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5025,9 +5032,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5080,9 +5087,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5138,9 +5145,9 @@ public class CPP14Parser extends Parser {
 			setState(1142);
 			declarator();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5247,9 +5254,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5358,9 +5365,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5397,9 +5404,9 @@ public class CPP14Parser extends Parser {
 			setState(1166);
 			blockdeclaration();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5473,9 +5480,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,100,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5598,9 +5605,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5713,9 +5720,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5776,9 +5783,9 @@ public class CPP14Parser extends Parser {
 			setState(1206);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5882,7 +5889,6 @@ public class CPP14Parser extends Parser {
 				if (_la==Decltype || _la==Operator || ((((_la - 78)) & ~0x3f) == 0 && ((1L << (_la - 78)) & ((1L << (LeftParen - 78)) | (1L << (Star - 78)) | (1L << (And - 78)) | (1L << (Tilde - 78)) | (1L << (AndAnd - 78)) | (1L << (Doublecolon - 78)) | (1L << (Ellipsis - 78)) | (1L << (Identifier - 78)))) != 0)) {
 					{
 					setState(1211);
-						listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
 					initdeclaratorlist(0);
 					}
 				}
@@ -5916,9 +5922,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5969,9 +5975,9 @@ public class CPP14Parser extends Parser {
 			setState(1230);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6005,9 +6011,9 @@ public class CPP14Parser extends Parser {
 			setState(1232);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6046,9 +6052,9 @@ public class CPP14Parser extends Parser {
 			setState(1235);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6166,9 +6172,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6236,9 +6242,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6286,9 +6292,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6334,9 +6340,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6371,9 +6377,9 @@ public class CPP14Parser extends Parser {
 			setState(1258);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6436,9 +6442,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6533,9 +6539,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6603,9 +6609,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6673,9 +6679,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6868,9 +6874,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6943,9 +6949,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7009,9 +7015,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7138,9 +7144,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7175,9 +7181,9 @@ public class CPP14Parser extends Parser {
 			setState(1357);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7253,9 +7259,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7370,9 +7376,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7441,9 +7447,9 @@ public class CPP14Parser extends Parser {
 			setState(1403);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7504,9 +7510,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7545,9 +7551,9 @@ public class CPP14Parser extends Parser {
 			setState(1413);
 			typespecifierseq();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7623,9 +7629,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,137,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7682,9 +7688,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7719,9 +7725,9 @@ public class CPP14Parser extends Parser {
 			setState(1433);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7774,9 +7780,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7811,9 +7817,9 @@ public class CPP14Parser extends Parser {
 			setState(1439);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7866,9 +7872,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7921,9 +7927,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -7982,9 +7988,9 @@ public class CPP14Parser extends Parser {
 			setState(1456);
 			match(RightBrace);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8045,9 +8051,9 @@ public class CPP14Parser extends Parser {
 			setState(1465);
 			match(RightBrace);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8103,9 +8109,9 @@ public class CPP14Parser extends Parser {
 			setState(1473);
 			match(RightBrace);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8151,9 +8157,9 @@ public class CPP14Parser extends Parser {
 			}
 
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8188,9 +8194,9 @@ public class CPP14Parser extends Parser {
 			setState(1478);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8237,9 +8243,9 @@ public class CPP14Parser extends Parser {
 			setState(1484);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8289,9 +8295,9 @@ public class CPP14Parser extends Parser {
 			setState(1489);
 			namespacename();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8369,9 +8375,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8443,9 +8449,9 @@ public class CPP14Parser extends Parser {
 			setState(1515);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8489,9 +8495,9 @@ public class CPP14Parser extends Parser {
 			setState(1521);
 			match(Semi);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8567,9 +8573,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8643,9 +8649,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,153,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8708,9 +8714,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8797,9 +8803,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8925,9 +8931,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,162,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -8977,9 +8983,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9030,9 +9036,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9074,9 +9080,9 @@ public class CPP14Parser extends Parser {
 			setState(1606);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9111,9 +9117,9 @@ public class CPP14Parser extends Parser {
 			setState(1608);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9154,9 +9160,9 @@ public class CPP14Parser extends Parser {
 			setState(1612);
 			match(RightParen);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9238,9 +9244,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,166,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9311,9 +9317,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9389,9 +9395,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,168,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9441,9 +9447,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9506,9 +9512,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9566,9 +9572,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9726,9 +9732,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,177,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9821,9 +9827,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -9875,9 +9881,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10013,9 +10019,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10065,9 +10071,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10112,9 +10118,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10157,9 +10163,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10207,9 +10213,9 @@ public class CPP14Parser extends Parser {
 			setState(1750);
 			idexpression();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10259,9 +10265,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10342,9 +10348,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10418,9 +10424,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10586,9 +10592,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,203,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10653,9 +10659,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10774,9 +10780,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,208,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10849,9 +10855,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -10927,9 +10933,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,212,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11078,9 +11084,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11164,9 +11170,9 @@ public class CPP14Parser extends Parser {
 			functionbody();
 				listener.onEvent(new EventParser("func", EventParser.FUNC_END, _localctx.start.getLine(), path));
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11257,9 +11263,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11302,7 +11308,8 @@ public class CPP14Parser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(1911);
-				braceorequalinitializer();
+                    listener.onEvent(new EventParser("=", EventParser.ASSIGMENT, _localctx.start.getLine(), path));
+                    braceorequalinitializer();
 				}
 				break;
 			case LeftParen:
@@ -11319,9 +11326,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11378,9 +11385,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11487,9 +11494,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11585,9 +11592,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,230,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11654,9 +11661,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11707,9 +11714,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11764,9 +11771,9 @@ public class CPP14Parser extends Parser {
 			setState(1963);
 			match(RightBrace);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11881,9 +11888,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11933,9 +11940,9 @@ public class CPP14Parser extends Parser {
 			setState(1988);
 			classname();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -11970,9 +11977,9 @@ public class CPP14Parser extends Parser {
 			setState(1990);
 			match(Final);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12018,9 +12025,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12151,9 +12158,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12293,9 +12300,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12371,9 +12378,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,249,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12499,9 +12506,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12575,9 +12582,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,256,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12622,9 +12629,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12664,9 +12671,9 @@ public class CPP14Parser extends Parser {
 			((PurespecifierContext)_localctx).val = match(Octalliteral);
 			if((((PurespecifierContext)_localctx).val!=null?((PurespecifierContext)_localctx).val.getText():null).compareTo("0")!=0) throw new InputMismatchException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12705,9 +12712,9 @@ public class CPP14Parser extends Parser {
 			setState(2072);
 			basespecifierlist(0);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12803,9 +12810,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,259,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12924,9 +12931,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -12992,9 +12999,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13031,9 +13038,9 @@ public class CPP14Parser extends Parser {
 			setState(2120);
 			classordecltype();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13079,9 +13086,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13121,9 +13128,9 @@ public class CPP14Parser extends Parser {
 			setState(2125);
 			conversiontypeid();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13173,9 +13180,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13225,9 +13232,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13266,9 +13273,9 @@ public class CPP14Parser extends Parser {
 			setState(2136);
 			meminitializerlist();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13346,9 +13353,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13421,9 +13428,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13474,9 +13481,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13516,9 +13523,9 @@ public class CPP14Parser extends Parser {
 			setState(2168);
 			operator();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13575,9 +13582,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13626,9 +13633,9 @@ public class CPP14Parser extends Parser {
 			setState(2181);
 			declaration();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13704,9 +13711,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,277,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13759,9 +13766,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -13968,9 +13975,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14025,9 +14032,9 @@ public class CPP14Parser extends Parser {
 			setState(2253);
 			match(Greater);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14122,9 +14129,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14159,9 +14166,9 @@ public class CPP14Parser extends Parser {
 			setState(2272);
 			match(Identifier);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14257,9 +14264,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,295,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14322,9 +14329,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14399,9 +14406,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14453,9 +14460,9 @@ public class CPP14Parser extends Parser {
 			setState(2312);
 			declaration();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14499,9 +14506,9 @@ public class CPP14Parser extends Parser {
 			setState(2317);
 			declaration();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14546,9 +14553,9 @@ public class CPP14Parser extends Parser {
 			setState(2321);
 			handlerseq();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14607,9 +14614,9 @@ public class CPP14Parser extends Parser {
 			setState(2328);
 			handlerseq();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14659,9 +14666,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14710,9 +14717,9 @@ public class CPP14Parser extends Parser {
 			setState(2338);
 			compoundstatement();
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14811,9 +14818,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14861,9 +14868,9 @@ public class CPP14Parser extends Parser {
 				break;
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14918,9 +14925,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -14973,9 +14980,9 @@ public class CPP14Parser extends Parser {
 			setState(2369);
 			match(RightParen);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15071,9 +15078,9 @@ public class CPP14Parser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,311,_ctx);
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15130,9 +15137,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15172,9 +15179,9 @@ public class CPP14Parser extends Parser {
 			setState(2396);
 			match(Greater);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15217,9 +15224,9 @@ public class CPP14Parser extends Parser {
 			setState(2400);
 			match(Assign);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15566,9 +15573,9 @@ public class CPP14Parser extends Parser {
 				}
 				break;
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15669,9 +15676,9 @@ public class CPP14Parser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15716,9 +15723,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15753,9 +15760,9 @@ public class CPP14Parser extends Parser {
 			setState(2463);
 			match(Nullptr);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -15802,9 +15809,9 @@ public class CPP14Parser extends Parser {
 				consume();
 			}
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
+		} catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}

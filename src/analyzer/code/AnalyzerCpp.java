@@ -34,6 +34,7 @@ public class AnalyzerCpp extends Analyzer {
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
+        graf = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         CPP14Parser cpp14Parser = (CPP14Parser) parser;
         cpp14Parser.attach(listener);
@@ -69,6 +70,7 @@ public class AnalyzerCpp extends Analyzer {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
+        listener.setGraf(graf);
         return listener;
     }
 

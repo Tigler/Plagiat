@@ -51,8 +51,14 @@ public class EventSequenceOperators extends ListenerParser {
                 }
                 case EventParser.FUNC_END: {
                     listsOperators.add(listOperatorsTemp);
-
-//                            curNode = null;
+                    Node n = new Node(event.getCode());
+                    listNodeFunc.add(n);
+                    Node s = null;
+                    while (stack.peek().getCode() != EventParser.FUNC_START) {
+                        s = stack.pop();
+                    }
+                    s = stack.pop();
+                    s.addNode(n);
                     graf.add(listNodeFunc);
                     break;
                 }
@@ -307,9 +313,9 @@ public class EventSequenceOperators extends ListenerParser {
                     listOperatorsTemp.add(new Operator(Operator.CONTINUE, "continue", event.getStr(), event.getPath()));
                     break;
                 case EventParser.RETURN: {
-                    Node n = stack.lastElement();
-                    stack.clear();
-                    stack.add(n);
+                    //Node n = stack.lastElement();
+                    //stack.clear();
+                    //stack.add(n);
                     listOperatorsTemp.add(new Operator(Operator.RETURN, "return", event.getStr(), event.getPath()));
                     break;
                 }

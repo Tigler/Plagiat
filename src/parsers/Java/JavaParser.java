@@ -1,6 +1,7 @@
 // Generated from /home/tigler/IdeaProjects/Plagiat/grammars/Java.g4 by ANTLR 4.7
 package parsers.Java;
 
+import analyzer.code.AnalyzePlagiatSystem;
 import events.EventParser;
 import events.ListenerParser;
 import org.antlr.v4.runtime.*;
@@ -326,6 +327,7 @@ public class JavaParser extends Parser {
                 match(EOF);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -436,6 +438,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -546,6 +549,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -704,6 +708,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -781,6 +786,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -854,6 +860,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -913,6 +920,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1012,6 +1020,7 @@ public class JavaParser extends Parser {
                 classBody();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1081,6 +1090,7 @@ public class JavaParser extends Parser {
                 match(GT);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1142,6 +1152,7 @@ public class JavaParser extends Parser {
 
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1207,6 +1218,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1316,6 +1328,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1383,6 +1396,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1478,6 +1492,7 @@ public class JavaParser extends Parser {
 
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1541,6 +1556,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1624,6 +1640,7 @@ public class JavaParser extends Parser {
                 interfaceBody();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1689,6 +1706,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1754,6 +1772,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1819,6 +1838,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -1934,6 +1954,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2072,6 +2093,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2207,6 +2229,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2257,6 +2280,7 @@ public class JavaParser extends Parser {
                 methodDeclaration();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2330,6 +2354,7 @@ public class JavaParser extends Parser {
                 constructorBody();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2380,6 +2405,7 @@ public class JavaParser extends Parser {
                 constructorDeclaration();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2432,6 +2458,7 @@ public class JavaParser extends Parser {
                 match(SEMI);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2541,6 +2568,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2657,6 +2685,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2730,6 +2759,7 @@ public class JavaParser extends Parser {
                 match(SEMI);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2799,6 +2829,7 @@ public class JavaParser extends Parser {
                 variableInitializer();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2912,6 +2943,7 @@ public class JavaParser extends Parser {
                 match(SEMI);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -2963,6 +2995,7 @@ public class JavaParser extends Parser {
                 interfaceMethodDeclaration();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3028,6 +3061,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3091,6 +3125,7 @@ public class JavaParser extends Parser {
 
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3152,6 +3187,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3241,6 +3277,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3331,6 +3368,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3375,6 +3413,7 @@ public class JavaParser extends Parser {
                 match(Identifier);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3482,6 +3521,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3575,6 +3615,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3623,6 +3664,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3692,6 +3734,7 @@ public class JavaParser extends Parser {
                 match(GT);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3779,6 +3822,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3844,6 +3888,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3901,6 +3946,7 @@ public class JavaParser extends Parser {
                 match(RPAREN);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -3998,6 +4044,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4071,6 +4118,7 @@ public class JavaParser extends Parser {
                 variableDeclaratorId();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4146,6 +4194,7 @@ public class JavaParser extends Parser {
                 variableDeclaratorId();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4190,6 +4239,7 @@ public class JavaParser extends Parser {
                 block();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4234,6 +4284,7 @@ public class JavaParser extends Parser {
                 block();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4301,6 +4352,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4369,6 +4421,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4450,6 +4503,7 @@ public class JavaParser extends Parser {
 
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4494,6 +4548,7 @@ public class JavaParser extends Parser {
                 qualifiedName();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4559,6 +4614,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4611,6 +4667,7 @@ public class JavaParser extends Parser {
                 elementValue();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4711,6 +4768,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4801,6 +4859,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4855,6 +4914,7 @@ public class JavaParser extends Parser {
                 annotationTypeBody();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -4920,6 +4980,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5027,6 +5088,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5175,6 +5237,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5236,6 +5299,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5299,6 +5363,7 @@ public class JavaParser extends Parser {
 
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5343,6 +5408,7 @@ public class JavaParser extends Parser {
                 variableDeclarators();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5389,6 +5455,7 @@ public class JavaParser extends Parser {
                 elementValue();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5454,6 +5521,7 @@ public class JavaParser extends Parser {
                 match(RBRACE);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5537,6 +5605,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5584,6 +5653,7 @@ public class JavaParser extends Parser {
                 match(SEMI);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -5657,6 +5727,7 @@ public class JavaParser extends Parser {
                 variableDeclarators();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6123,6 +6194,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6208,6 +6280,7 @@ public class JavaParser extends Parser {
                 block();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6273,6 +6346,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6319,6 +6393,7 @@ public class JavaParser extends Parser {
                 block();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6378,6 +6453,7 @@ public class JavaParser extends Parser {
                 match(RPAREN);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6445,6 +6521,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6526,6 +6603,7 @@ public class JavaParser extends Parser {
                 expression(0);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6610,6 +6688,7 @@ public class JavaParser extends Parser {
                 while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ABSTRACT) | (1L << ASSERT) | (1L << BOOLEAN) | (1L << BREAK) | (1L << BYTE) | (1L << CHAR) | (1L << CLASS) | (1L << CONTINUE) | (1L << DO) | (1L << DOUBLE) | (1L << ENUM) | (1L << FINAL) | (1L << FLOAT) | (1L << FOR) | (1L << IF) | (1L << INT) | (1L << INTERFACE) | (1L << LONG) | (1L << NEW) | (1L << PRIVATE) | (1L << PROTECTED) | (1L << PUBLIC) | (1L << RETURN) | (1L << SHORT) | (1L << STATIC) | (1L << STRICTFP) | (1L << SUPER) | (1L << SWITCH) | (1L << SYNCHRONIZED) | (1L << THIS) | (1L << THROW) | (1L << TRY) | (1L << VOID) | (1L << WHILE) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << BooleanLiteral) | (1L << CharacterLiteral) | (1L << StringLiteral) | (1L << NullLiteral) | (1L << LPAREN) | (1L << LBRACE) | (1L << SEMI))) != 0) || ((((_la - 68)) & ~0x3f) == 0 && ((1L << (_la - 68)) & ((1L << (LT - 68)) | (1L << (BANG - 68)) | (1L << (TILDE - 68)) | (1L << (INC - 68)) | (1L << (DEC - 68)) | (1L << (ADD - 68)) | (1L << (SUB - 68)) | (1L << (Identifier - 68)) | (1L << (AT - 68)) | (1L << (COMMENT - 68)) | (1L << (LINE_COMMENT - 68)))) != 0));
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6700,6 +6779,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6802,6 +6882,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6863,6 +6944,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6944,6 +7026,7 @@ public class JavaParser extends Parser {
                 expression(0);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -6988,6 +7071,7 @@ public class JavaParser extends Parser {
                 expressionList();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7036,6 +7120,7 @@ public class JavaParser extends Parser {
                 match(RPAREN);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7101,6 +7186,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7145,6 +7231,7 @@ public class JavaParser extends Parser {
                 expression(0);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7189,6 +7276,7 @@ public class JavaParser extends Parser {
                 expression(0);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7702,6 +7790,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7856,6 +7945,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -7955,6 +8045,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8074,6 +8165,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8139,6 +8231,7 @@ public class JavaParser extends Parser {
                 classCreatorRest();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8293,6 +8386,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8350,6 +8444,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8400,6 +8495,7 @@ public class JavaParser extends Parser {
                 explicitGenericInvocationSuffix();
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8448,6 +8544,7 @@ public class JavaParser extends Parser {
                 match(GT);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8507,6 +8604,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8567,6 +8665,7 @@ public class JavaParser extends Parser {
                 break;
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8641,6 +8740,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8712,6 +8812,7 @@ public class JavaParser extends Parser {
                     throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8769,6 +8870,7 @@ public class JavaParser extends Parser {
                 match(RPAREN);
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);
@@ -8825,6 +8927,7 @@ public class JavaParser extends Parser {
                 }
             }
         } catch (RecognitionException re) {
+            AnalyzePlagiatSystem.syntaxError(re);
             _localctx.exception = re;
             _errHandler.reportError(this, re);
             _errHandler.recover(this, re);

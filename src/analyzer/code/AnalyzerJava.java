@@ -35,6 +35,7 @@ public class AnalyzerJava extends Analyzer {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
+        listener.setGraf(graf);
         return listener;
     }
 
@@ -44,6 +45,7 @@ public class AnalyzerJava extends Analyzer {
     @Override
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
+        graf = new ArrayList<>();
         ListenerParser listener = createChainListeners();
         JavaParser javaParser = (JavaParser) parser;
         javaParser.attach(listener);

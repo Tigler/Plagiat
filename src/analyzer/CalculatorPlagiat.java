@@ -3,6 +3,7 @@ package analyzer;
 import analyzer.code.*;
 import dynamic.DynamicAnalyzer;
 import enums.EnumNameOperators;
+import graf.Edge;
 import graf.Node;
 
 import java.io.BufferedReader;
@@ -186,47 +187,59 @@ public class CalculatorPlagiat {
 
         double sumAllPercents = 0;
 
+        int countOper = 0;
         double percentFirst = percentOneOp(assigFirst, countOperatorsFirst);
         double percentSecond = percentOneOp(assigSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(ifFirst, countOperatorsFirst);
         percentSecond = percentOneOp(ifSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(switchFirst, countOperatorsFirst);
         percentSecond = percentOneOp(switchSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(dowhileFirst, countOperatorsFirst);
         percentSecond = percentOneOp(dowhileSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
+
 
         percentFirst = percentOneOp(whileFirst, countOperatorsFirst);
         percentSecond = percentOneOp(whileFirst, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(forFirst, countOperatorsFirst);
         percentSecond = percentOneOp(forSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(gotoFirst, countOperatorsFirst);
         percentSecond = percentOneOp(gotoSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(breakFirst, countOperatorsFirst);
         percentSecond = percentOneOp(breakSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(continueFirst, countOperatorsFirst);
         percentSecond = percentOneOp(continueSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
         percentFirst = percentOneOp(returnFirst, countOperatorsFirst);
         percentSecond = percentOneOp(returnSecond, countOperatorsSecond);
         sumAllPercents += percentCoin(percentFirst, percentSecond);
+        countOper++;
 
-        resultFreq = (int) (sumAllPercents / 10);
+        resultFreq = (int) (sumAllPercents / countOper);
         return true;
     }
 
@@ -351,7 +364,7 @@ public class CalculatorPlagiat {
 
         int countEdgesSecond = 0;
         int countNodesSecond = 0;
-        for (ResultAnalyzeFile res : listFirstResultAnalyzeFiles) {
+        for (ResultAnalyzeFile res : listSecondResultAnalyzeFiles) {
             for (ArrayList<Node> listNodes : res.getGraf()) {
                 for (Node node : listNodes) {
                     countEdgesSecond += node.getEdges().size();
@@ -412,56 +425,56 @@ public class CalculatorPlagiat {
         ArrayList<String> resultPars2 = parsingValgrindResult(DynamicAnalyzer.DYNAMIC_RESULT_PATH_C2);
         if (resultPars1.size() == 13 && resultPars2.size() == 13) {
             int result = 0;
-            if (Integer.parseInt(resultPars1.get(0)) + 50 > Integer.parseInt(resultPars2.get(0)) &&
-                    Integer.parseInt(resultPars1.get(0)) - 50 < Integer.parseInt(resultPars2.get(0))) {
+            if (Integer.parseInt(resultPars1.get(0)) + 10 > Integer.parseInt(resultPars2.get(0)) &&
+                    Integer.parseInt(resultPars1.get(0)) - 10 < Integer.parseInt(resultPars2.get(0))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(1)) + 20 > Integer.parseInt(resultPars2.get(1)) &&
-                    Integer.parseInt(resultPars1.get(1)) - 20 < Integer.parseInt(resultPars2.get(1))) {
+            if (Integer.parseInt(resultPars1.get(1)) + 10 > Integer.parseInt(resultPars2.get(1)) &&
+                    Integer.parseInt(resultPars1.get(1)) - 10 < Integer.parseInt(resultPars2.get(1))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(2)) + 20 > Integer.parseInt(resultPars2.get(2)) &&
-                    Integer.parseInt(resultPars1.get(2)) - 20 < Integer.parseInt(resultPars2.get(2))) {
+            if (Integer.parseInt(resultPars1.get(2)) + 10 > Integer.parseInt(resultPars2.get(2)) &&
+                    Integer.parseInt(resultPars1.get(2)) - 10 < Integer.parseInt(resultPars2.get(2))) {
                 result++;
             }
             if (Double.parseDouble(resultPars1.get(3)) + 0.1 > Double.parseDouble(resultPars2.get(3)) &&
                     Double.parseDouble(resultPars1.get(3)) - 0.1 < Double.parseDouble(resultPars2.get(3))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(4)) + 0.2 > Double.parseDouble(resultPars2.get(4)) &&
-                    Double.parseDouble(resultPars1.get(4)) - 0.2 < Double.parseDouble(resultPars2.get(4))) {
+            if (Double.parseDouble(resultPars1.get(4)) + 0.1 > Double.parseDouble(resultPars2.get(4)) &&
+                    Double.parseDouble(resultPars1.get(4)) - 0.1 < Double.parseDouble(resultPars2.get(4))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(5)) + 50 > Integer.parseInt(resultPars2.get(5)) &&
-                    Integer.parseInt(resultPars1.get(5)) - 50 < Integer.parseInt(resultPars2.get(5))) {
+            if (Integer.parseInt(resultPars1.get(5)) + 10 > Integer.parseInt(resultPars2.get(5)) &&
+                    Integer.parseInt(resultPars1.get(5)) - 10 < Integer.parseInt(resultPars2.get(5))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(6)) + 20 > Integer.parseInt(resultPars2.get(6)) &&
-                    Integer.parseInt(resultPars1.get(6)) - 20 < Integer.parseInt(resultPars2.get(6))) {
+            if (Integer.parseInt(resultPars1.get(6)) + 10 > Integer.parseInt(resultPars2.get(6)) &&
+                    Integer.parseInt(resultPars1.get(6)) - 10 < Integer.parseInt(resultPars2.get(6))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(7)) + 20 > Integer.parseInt(resultPars2.get(7)) &&
-                    Integer.parseInt(resultPars1.get(7)) - 20 < Integer.parseInt(resultPars2.get(7))) {
+            if (Integer.parseInt(resultPars1.get(7)) + 10 > Integer.parseInt(resultPars2.get(7)) &&
+                    Integer.parseInt(resultPars1.get(7)) - 10 < Integer.parseInt(resultPars2.get(7))) {
                 result++;
             }
             if (Double.parseDouble(resultPars1.get(8)) + 0.1 > Double.parseDouble(resultPars2.get(8)) &&
                     Double.parseDouble(resultPars1.get(8)) - 0.1 < Double.parseDouble(resultPars2.get(8))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(9)) + 0.1 > Double.parseDouble(resultPars2.get(9)) &&
-                    Double.parseDouble(resultPars1.get(9)) - 0.1 < Double.parseDouble(resultPars2.get(9))) {
+            if (Double.parseDouble(resultPars1.get(9)) > Double.parseDouble(resultPars2.get(9)) &&
+                    Double.parseDouble(resultPars1.get(9)) < Double.parseDouble(resultPars2.get(9))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(10)) + 20 > Integer.parseInt(resultPars2.get(10)) &&
-                    Integer.parseInt(resultPars1.get(10)) - 20 < Integer.parseInt(resultPars2.get(10))) {
+            if (Integer.parseInt(resultPars1.get(10)) + 10 > Integer.parseInt(resultPars2.get(10)) &&
+                    Integer.parseInt(resultPars1.get(10)) - 10 < Integer.parseInt(resultPars2.get(10))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(11)) + 20 > Integer.parseInt(resultPars2.get(11)) &&
-                    Integer.parseInt(resultPars1.get(11)) - 20 < Integer.parseInt(resultPars2.get(11))) {
+            if (Integer.parseInt(resultPars1.get(11)) + 10 > Integer.parseInt(resultPars2.get(11)) &&
+                    Integer.parseInt(resultPars1.get(11)) - 10 < Integer.parseInt(resultPars2.get(11))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(12)) + 0.1 > Double.parseDouble(resultPars2.get(12)) &&
-                    Double.parseDouble(resultPars1.get(12)) - 0.1 < Double.parseDouble(resultPars2.get(12))) {
+            if (Double.parseDouble(resultPars1.get(12)) > Double.parseDouble(resultPars2.get(12)) &&
+                    Double.parseDouble(resultPars1.get(12)) < Double.parseDouble(resultPars2.get(12))) {
                 result++;
             }
 
@@ -559,6 +572,39 @@ public class CalculatorPlagiat {
                 }
 
             }
+        }
+    }
+
+    public void compareTwoListsGrafs(ArrayList<ArrayList<Node>> grafsFirst, ArrayList<ArrayList<Node>> grafsSecond) {
+        for (ArrayList<Node> listNodesF : grafsFirst) {
+            for (ArrayList<Node> listNodesS : grafsSecond) {
+                compareTwoGrafs(listNodesF, listNodesS);
+            }
+        }
+    }
+
+    private void compareTwoGrafs(ArrayList<Node> grafFirst, ArrayList<Node> grafSecond) {
+        //todo алгоритм
+        ArrayList<Node> resListNodesFirst = new ArrayList<>();
+        ArrayList<Node> resListNodesSecond = new ArrayList<>();
+        for (Node nodeF : grafFirst) {
+            int maxEdges = 0;
+            for (Node nodeS : grafSecond) {
+                int countEdges = 0;
+                if (nodeF.getCode() == nodeS.getCode()) {
+                    for (Edge edgeF : nodeF.getEdges()) {
+                        for (Edge edgeS : nodeF.getEdges()) {
+                            if (edgeF.getEnd().getCode() == edgeS.getEnd().getCode()) {
+                                countEdges++;
+                            }
+                        }
+                    }
+                }
+                if (countEdges > maxEdges) {
+                    maxEdges = countEdges;
+                }
+            }
+
         }
     }
 
