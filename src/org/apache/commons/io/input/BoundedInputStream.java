@@ -16,10 +16,10 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * This is a stream that will only supply bytes up to a certain length - if its

@@ -16,14 +16,14 @@
  */
 package org.apache.commons.io;
 
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.util.Collection;
-
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 
 /**
  * Abstract class that walks through a directory hierarchy and provides

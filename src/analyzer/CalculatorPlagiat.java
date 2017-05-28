@@ -24,6 +24,7 @@ public class CalculatorPlagiat {
     int resultSeqOperators;
     int resultDynamic;
     int resultMacCabe;
+    int resultComapreGrafs;
 
 
     public CalculatorPlagiat() {
@@ -248,26 +249,18 @@ public class CalculatorPlagiat {
         for (ProjectDB proj : projectsDB) {
             calcFreq(analyzer.getListResultAnalyzeFiles(), 1, proj.getListResultAnalyzeFile(), 3);
             resultSeqOperators = compareSeq(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
-            if ((resultFreq + resultSeqOperators) / 2 >= levelPlagiat) {
+            resultMacCabe = compareMacCabeFiles(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
+            resultComapreGrafs = compareGrafs(analyzer.getListResultAnalyzeFiles(), proj.getListResultAnalyzeFile());
+            if ((resultFreq + resultSeqOperators + resultMacCabe + resultComapreGrafs) / 4 >= levelPlagiat) {
                 resultsCompareWithDB.add(new ResultCompareWithDB(proj.getAuthor(), proj.getName(), proj.getDesc(),
-                        String.valueOf(resultSeqOperators), String.valueOf(resultFreq), String.valueOf((resultFreq + resultSeqOperators) / 2)));
+                        String.valueOf(resultSeqOperators), String.valueOf(resultFreq), String.valueOf(resultMacCabe),
+                        String.valueOf(resultComapreGrafs),
+                        String.valueOf((resultFreq + resultSeqOperators + resultMacCabe + resultComapreGrafs) / 4)));
             }
         }
         return resultsCompareWithDB;
     }
 
-
-    public ArrayList<MyMap> getFreqFirst() {
-        return freqFirst;
-    }
-
-    public ArrayList<MyMap> getFreqSecond() {
-        return freqSecond;
-    }
-
-    public int getResultFreq() {
-        return resultFreq;
-    }
 
     private double percentOneOp(int countOp, int countAllOp) {
         if (countAllOp == 0) {
@@ -333,8 +326,10 @@ public class CalculatorPlagiat {
         int countIter = 0;
         for (int k = 0; k < listResFirst.size(); k++) {
             for (int i = 0; i < listResFirst.get(k).getListsOperators().size(); i++) {
-                percentSeqOper += (lenSeqs.get(i + k).intValue() * 100 / listResFirst.get(k).getListsOperators().get(i).size());
-                countIter++;
+                if (listResFirst.get(k).getListsOperators().get(i).size() > 0) {
+                    percentSeqOper += (lenSeqs.get(i + k).intValue() * 100 / listResFirst.get(k).getListsOperators().get(i).size());
+                    countIter++;
+                }
             }
         }
 
@@ -345,36 +340,54 @@ public class CalculatorPlagiat {
     public void calcForTwoProj(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         calcFreq(firstAnalyzer.getListResultAnalyzeFiles(), 1, secondAnalyzer.getListResultAnalyzeFiles(), 2);
         resultSeqOperators = compareSeq(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
-        resultMacCabe = calcMacCabeMetric(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
+        resultMacCabe = compareMacCabeFiles(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
+        resultComapreGrafs = compareGrafs(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
     }
 
-    private int calcMacCabeMetric(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles, ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
-        int countEdgesFirst = 0;
-        int countNodesFirst = 0;
+    private int compareMacCabeFiles(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles,
+                                    ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
+        int sumRes = 0;
+        int countComp = 0;
+        int max = 0;
         for (ResultAnalyzeFile res : listFirstResultAnalyzeFiles) {
-            for (ArrayList<Node> listNodes : res.getGraf()) {
-                for (Node node : listNodes) {
-                    countEdgesFirst += node.getEdges().size();
+            for (ArrayList<Node> graf1 : res.getGraf()) {
+                max = 0;
+                for (ResultAnalyzeFile res1 : listSecondResultAnalyzeFiles) {
+                    for (ArrayList<Node> graf2 : res1.getGraf()) {
+                        int resCalc = calcMacCabeMetric(graf1, graf2);
+                        if (max < resCalc) {
+                            max = resCalc;
+                        }
+                    }
                 }
-                countNodesFirst += listNodes.size();
+                sumRes += max;
+                sumRes /= ++countComp;
             }
         }
+        return sumRes;
+    }
+
+
+    private int calcMacCabeMetric(ArrayList<Node> graf1, ArrayList<Node> graf2) {
+        int countEdgesFirst = 0;
+        int countNodesFirst = 0;
+        for (Node node : graf1) {
+            countEdgesFirst += node.getEdges().size();
+        }
+        countNodesFirst = graf1.size();
 
         int macCabeFirst = countEdgesFirst - countNodesFirst;
 
         int countEdgesSecond = 0;
         int countNodesSecond = 0;
-        for (ResultAnalyzeFile res : listSecondResultAnalyzeFiles) {
-            for (ArrayList<Node> listNodes : res.getGraf()) {
-                for (Node node : listNodes) {
-                    countEdgesSecond += node.getEdges().size();
-                }
-                countNodesSecond += listNodes.size();
-            }
+        for (Node node : graf2) {
+            countEdgesSecond += node.getEdges().size();
         }
+        countNodesSecond = graf2.size();
 
-        int result = 0;
         int macCabeSecond = countEdgesSecond - countNodesSecond;
+        int result = 0;
+
         if (macCabeFirst > macCabeSecond) {
             result = macCabeSecond * 100 / macCabeFirst;
         } else if (macCabeFirst < macCabeSecond) {
@@ -385,7 +398,7 @@ public class CalculatorPlagiat {
         return result;
     }
 
-    public static int[] getLCS(int[] x, int[] y) {
+    private static int[] getLCS(int[] x, int[] y) {
         int m = x.length;
         int n = y.length;
         int[][] len = new int[m + 1][n + 1];
@@ -414,9 +427,6 @@ public class CalculatorPlagiat {
         return res;
     }
 
-    public int getResultSeqOperators() {
-        return resultSeqOperators;
-    }
 
     public void calcDynamic(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         boolean dynExecFirst = firstAnalyzer.dynamicAnalyzeFirst();
@@ -575,37 +585,115 @@ public class CalculatorPlagiat {
         }
     }
 
-    public void compareTwoListsGrafs(ArrayList<ArrayList<Node>> grafsFirst, ArrayList<ArrayList<Node>> grafsSecond) {
-        for (ArrayList<Node> listNodesF : grafsFirst) {
-            for (ArrayList<Node> listNodesS : grafsSecond) {
-                compareTwoGrafs(listNodesF, listNodesS);
+    private int compareGrafs(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles, ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
+        int compareResult = 0;
+        int countCopare = 0;
+        for (ResultAnalyzeFile resFirst : listFirstResultAnalyzeFiles) {
+            for (ResultAnalyzeFile resSecond : listSecondResultAnalyzeFiles) {
+                compareResult += compareTwoListsGrafs(resFirst.getGraf(), resSecond.getGraf()) / ++countCopare;
             }
         }
+        return compareResult;
     }
 
-    private void compareTwoGrafs(ArrayList<Node> grafFirst, ArrayList<Node> grafSecond) {
-        //todo алгоритм
-        ArrayList<Node> resListNodesFirst = new ArrayList<>();
-        ArrayList<Node> resListNodesSecond = new ArrayList<>();
+    private int compareTwoListsGrafs(ArrayList<ArrayList<Node>> grafsFirst, ArrayList<ArrayList<Node>> grafsSecond) {
+        int percentCompare = 0;
+        int countCopmare = 0;
+        for (ArrayList<Node> listNodesF : grafsFirst) {
+            int max = 0;
+            for (ArrayList<Node> listNodesS : grafsSecond) {
+                ArrayList<ArrayList<Node>> retList = compareTwoGrafs(listNodesF, listNodesS);
+                int percentFirst = retList.get(0).size() * 100 / listNodesF.size();
+                int percentSecond = retList.get(1).size() * 100 / listNodesS.size();
+                int minPercent = 0;
+                if (percentFirst > percentSecond) {
+                    minPercent = percentSecond;
+                } else {
+                    minPercent = percentFirst;
+                }
+                if (max < minPercent) {
+                    max = minPercent;
+                }
+            }
+            percentCompare += max;
+            percentCompare /= ++countCopmare;
+        }
+        return percentCompare;
+    }
+
+    private ArrayList<ArrayList<Node>> compareTwoGrafs(ArrayList<Node> grafFirst, ArrayList<Node> grafSecond) {
+        ArrayList<Node> resListNodesFirstReturn = null;
+        ArrayList<Node> resListNodesSecondReturn = null;
         for (Node nodeF : grafFirst) {
-            int maxEdges = 0;
+            ArrayList<Node> resListNodesFirst = new ArrayList<>();
+            ArrayList<Node> resListNodesSecond = new ArrayList<>();
             for (Node nodeS : grafSecond) {
-                int countEdges = 0;
-                if (nodeF.getCode() == nodeS.getCode()) {
-                    for (Edge edgeF : nodeF.getEdges()) {
-                        for (Edge edgeS : nodeF.getEdges()) {
-                            if (edgeF.getEnd().getCode() == edgeS.getEnd().getCode()) {
-                                countEdges++;
+                if (nodeF.getCode() == nodeS.getCode() && !nodeF.isVisit() && !nodeS.isVisit()) {
+                    resListNodesFirst.add(nodeF.clone());
+                    resListNodesSecond.add(nodeS.clone());
+                    for (int i = 0; i < resListNodesFirst.size(); i++) {
+                        for (int j = 0; j < resListNodesSecond.size(); j++) {
+                            if (resListNodesFirst.get(i).getCode() == resListNodesSecond.get(j).getCode()) {
+                                resListNodesFirst.get(i).setVisit(true);
+                                resListNodesSecond.get(j).setVisit(true);
+                                for (Edge eF : resListNodesFirst.get(i).getEdges()) {
+                                    for (Edge eS : resListNodesSecond.get(j).getEdges()) {
+                                        if (eF.getEnd().getCode() == eS.getEnd().getCode() && !eF.getEnd().isVisit()
+                                                && !eS.getEnd().isVisit()) {
+                                            resListNodesFirst.add(eF.getEnd().clone());
+                                            resListNodesSecond.add(eS.getEnd().clone());
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
-                if (countEdges > maxEdges) {
-                    maxEdges = countEdges;
+                int maxRet = 0;
+                if (resListNodesFirstReturn != null) {
+                    if (resListNodesFirstReturn.size() > resListNodesSecondReturn.size()) {
+                        maxRet = resListNodesSecondReturn.size();
+                    } else {
+                        maxRet = resListNodesFirstReturn.size();
+                    }
+                    if (resListNodesFirst.size() > resListNodesSecond.size()) {
+                        if (maxRet < resListNodesSecond.size()) {
+                            resListNodesFirstReturn = resListNodesFirst;
+                            resListNodesSecondReturn = resListNodesSecond;
+                        }
+                    } else {
+                        if (maxRet < resListNodesFirst.size()) {
+                            resListNodesFirstReturn = resListNodesFirst;
+                            resListNodesSecondReturn = resListNodesSecond;
+                        }
+                    }
+                } else {
+                    resListNodesFirstReturn = resListNodesFirst;
+                    resListNodesSecondReturn = resListNodesSecond;
                 }
             }
 
         }
+        ArrayList<ArrayList<Node>> retList = new ArrayList<>();
+        retList.add(resListNodesFirstReturn);
+        retList.add(resListNodesSecondReturn);
+        return retList;
+    }
+
+    public ArrayList<MyMap> getFreqFirst() {
+        return freqFirst;
+    }
+
+    public ArrayList<MyMap> getFreqSecond() {
+        return freqSecond;
+    }
+
+    public int getResultSeqOperators() {
+        return resultSeqOperators;
+    }
+
+    public int getResultFreq() {
+        return resultFreq;
     }
 
     public int getResultDynamic() {
@@ -614,5 +702,9 @@ public class CalculatorPlagiat {
 
     public int getResultMacCabe() {
         return resultMacCabe;
+    }
+
+    public int getResultComapreGrafs() {
+        return resultComapreGrafs;
     }
 }

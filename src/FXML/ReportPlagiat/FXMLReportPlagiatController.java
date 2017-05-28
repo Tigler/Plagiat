@@ -51,6 +51,7 @@ public class FXMLReportPlagiatController implements Initializable {
     int resultSeqOperators;
     int resultDynamic;
     int resultMacCabe;
+    int resultComapreGrafs;
     ObservableList<String> items;
 
     /**
@@ -114,6 +115,7 @@ public class FXMLReportPlagiatController implements Initializable {
                             adminTeamView = (AnchorPane) loader.load();
                             FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
                             fxmlCoinMetricsController.setMetricsResult(resultMacCabe);
+                            fxmlCoinMetricsController.setResultCompareGrafs(resultComapreGrafs);
                             break;
                         case 3:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml"));
@@ -150,5 +152,9 @@ public class FXMLReportPlagiatController implements Initializable {
     public void setMacCabeMetric(int resultMacCabe) {
         this.resultMacCabe = resultMacCabe;
 
+    }
+
+    public void setResultCompareGrafs(int resultComapreGrafs) {
+        this.resultComapreGrafs = resultComapreGrafs;
     }
 }

@@ -16,14 +16,14 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
+import org.apache.commons.io.EndianUtils;
 
 import java.io.DataInput;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.EndianUtils;
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * DataInput for systems relying on little endian data formats.

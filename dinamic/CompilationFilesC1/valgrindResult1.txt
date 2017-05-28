@@ -1,23 +1,23 @@
-==12694== Cachegrind, a cache and branch-prediction profiler
-==12694== Copyright (C) 2002-2015, and GNU GPL'd, by Nicholas Nethercote et al.
-==12694== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
-==12694== Command: ./dinamic/CompilationFilesC1/CProgramm1
-==12694== Parent PID: 12629
-==12694== 
---12694-- warning: L3 cache found, using its data for the LL simulation.
-==12694== 
-==12694== I   refs:      100,642
-==12694== I1  misses:        752
-==12694== LLi misses:        744
-==12694== I1  miss rate:    0.75%
-==12694== LLi miss rate:    0.74%
-==12694== 
-==12694== D   refs:       37,360  (26,105 rd   + 11,255 wr)
-==12694== D1  misses:      1,728  ( 1,228 rd   +    500 wr)
-==12694== LLd misses:      1,537  ( 1,060 rd   +    477 wr)
-==12694== D1  miss rate:     4.6% (   4.7%     +    4.4%  )
-==12694== LLd miss rate:     4.1% (   4.1%     +    4.2%  )
-==12694== 
-==12694== LL refs:         2,480  ( 1,980 rd   +    500 wr)
-==12694== LL misses:       2,281  ( 1,804 rd   +    477 wr)
-==12694== LL miss rate:      1.7% (   1.4%     +    4.2%  )
+==18479== Cachegrind, a cache and branch-prediction profiler
+==18479== Copyright (C) 2002-2015, and GNU GPL'd, by Nicholas Nethercote et al.
+==18479== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==18479== Command: ./dinamic/CompilationFilesC1/CProgramm1
+==18479== Parent PID: 18415
+==18479== 
+--18479-- warning: L3 cache found, using its data for the LL simulation.
+==18479== 
+==18479== I   refs:      100,642
+==18479== I1  misses:        752
+==18479== LLi misses:        744
+==18479== I1  miss rate:    0.75%
+==18479== LLi miss rate:    0.74%
+==18479== 
+==18479== D   refs:       37,360  (26,105 rd   + 11,255 wr)
+==18479== D1  misses:      1,728  ( 1,228 rd   +    500 wr)
+==18479== LLd misses:      1,537  ( 1,060 rd   +    477 wr)
+==18479== D1  miss rate:     4.6% (   4.7%     +    4.4%  )
+==18479== LLd miss rate:     4.1% (   4.1%     +    4.2%  )
+==18479== 
+==18479== LL refs:         2,480  ( 1,980 rd   +    500 wr)
+==18479== LL misses:       2,281  ( 1,804 rd   +    477 wr)
+==18479== LL miss rate:      1.7% (   1.4%     +    4.2%  )

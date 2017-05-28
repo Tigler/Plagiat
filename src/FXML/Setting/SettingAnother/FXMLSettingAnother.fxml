@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane id="AnchorPane" prefHeight="270.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8"
@@ -9,7 +10,9 @@
     <children>
         <CheckBox fx:id="checkBoxWriteDB" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
                   text="Заносить в БД анализируемые проекты"/>
-        <Spinner fx:id="spinnerValDB" layoutX="17.0" layoutY="49.0" prefHeight="25.0" prefWidth="110.0">
+        <Label fx:id="labelValDB" layoutX="14.0" layoutY="49.0" mnemonicParsing="false"
+               text="Выводить из БД с процентом более "/>
+        <Spinner fx:id="spinnerValDB" layoutX="260.0" layoutY="44.0" prefHeight="25.0" prefWidth="110.0">
             <editable>true</editable>
         </Spinner>
     </children>

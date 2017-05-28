@@ -16,17 +16,13 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.charset.Charset;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+
+import java.io.*;
+import java.nio.charset.Charset;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * Simple implementation of the unix "tail -f" functionality.

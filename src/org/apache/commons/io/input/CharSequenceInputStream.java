@@ -17,17 +17,13 @@
 
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetEncoder;
-import java.nio.charset.CoderResult;
-import java.nio.charset.CodingErrorAction;
+import java.nio.charset.*;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * {@link InputStream} implementation that can read from String, StringBuffer,

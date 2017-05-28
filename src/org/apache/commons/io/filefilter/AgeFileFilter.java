@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.filefilter;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * Filters files based on a cutoff time, can filter either newer

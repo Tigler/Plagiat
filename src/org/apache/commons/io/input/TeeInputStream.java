@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * InputStream proxy that transparently writes a copy of all bytes read

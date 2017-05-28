@@ -16,12 +16,12 @@
  */
 package org.apache.commons.io.comparator;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOCase;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.Comparator;
-
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOCase;
 
 /**
  * Compare the file name <b>extensions</b> for order

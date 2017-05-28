@@ -16,18 +16,11 @@
  */
 package org.apache.commons.io.output;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.StringWriter;
-import java.io.Writer;
+import org.apache.commons.io.input.XmlStreamReader;
+
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.io.input.XmlStreamReader;
 
 /**
  * Character stream that handles all the necessary Voodo to figure out the

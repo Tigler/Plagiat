@@ -16,18 +16,12 @@
  */
 package org.apache.commons.io.filefilter;
 
+import org.apache.commons.io.IOCase;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.commons.io.IOCase;
+import java.util.*;
 
 /**
  * Useful utilities for working with file filters. It provides access to all

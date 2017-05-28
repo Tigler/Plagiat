@@ -64,14 +64,16 @@ public class FXMLReportDBController implements Initializable {
         initData();
         // устанавливаем тип и значение которое должно хранится в колонке
         TableColumn author = new TableColumn("Автор");
-        TableColumn name = new TableColumn("Навание проекта");
+        TableColumn name = new TableColumn("Название проекта");
         TableColumn desc = new TableColumn("Описание");
-        TableColumn seq = new TableColumn("Послед");
-        TableColumn freq = new TableColumn("Частоты");
-        TableColumn allRes = new TableColumn("Общий результат");
-        tableViewResult.getColumns().addAll(author, name, desc, seq, freq, allRes);
+        TableColumn seq = new TableColumn("Пос-ти");
+        TableColumn freq = new TableColumn("Час-ты");
+        TableColumn macCabe = new TableColumn("М-а МК");
+        TableColumn compGrafs = new TableColumn("М-д Слайсов");
+        TableColumn allRes = new TableColumn("Общее");
+        tableViewResult.getColumns().addAll(author, name, desc, seq, freq, macCabe, compGrafs, allRes);
         desc.setCellFactory(col -> {
-            Button editButton = new Button("Edit");
+            Button editButton = new Button("Открыть");
             TableCell<ResultCompareWithDB, ResultCompareWithDB> cell = new TableCell<ResultCompareWithDB, ResultCompareWithDB>() {
                 @Override
                 public void updateItem(ResultCompareWithDB person, boolean empty) {
@@ -87,7 +89,9 @@ public class FXMLReportDBController implements Initializable {
             editButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    JOptionPane.showMessageDialog(null, tableViewResult.getItems().get(cell.getTableRow().getIndex()).getDesc());
+                    JOptionPane.showMessageDialog(null, tableViewResult.getItems().get(cell.getTableRow().getIndex()).getDesc(),
+                            "Описание " + tableViewResult.getItems().get(cell.getTableRow().getIndex()).getName()
+                                    + "(" + tableViewResult.getItems().get(cell.getTableRow().getIndex()).getAuthor() + ")", JOptionPane.INFORMATION_MESSAGE);
                 }
             });
 
@@ -98,48 +102,10 @@ public class FXMLReportDBController implements Initializable {
         // desc.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("desc"));
         seq.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("seq"));
         freq.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("freq"));
+        macCabe.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("macCabe"));
+        compGrafs.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("compGrafs"));
         allRes.setCellValueFactory(new PropertyValueFactory<ResultCompareWithDB, String>("allRes"));
         tableViewResult.setItems(resultData);
     }
 
-
-    //Define the button cell
-    private class ButtonCell extends TableCell<String, Boolean> {
-        final Button cellButton = new Button("Action");
-        int i;
-
-        ButtonCell() {
-
-            cellButton.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent t) {
-
-                }
-            });
-        }
-
-        ButtonCell(int i) {
-            this.i = i;
-            cellButton.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent t) {
-                    if (i < 2) {
-                        tableViewResult.getSelectionModel().select(i);
-                        JOptionPane.showMessageDialog(null, tableViewResult.getSelectionModel().getSelectedItem().getDesc());
-                    }
-                }
-            });
-        }
-
-        //Display button if the row is not empty
-        @Override
-        protected void updateItem(Boolean t, boolean empty) {
-            super.updateItem(t, empty);
-            if (!empty) {
-                setGraphic(cellButton);
-            }
-        }
-    }
 }

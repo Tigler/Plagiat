@@ -16,7 +16,7 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
+import org.apache.commons.io.ByteOrderMark;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.commons.io.ByteOrderMark;
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * This class is used to wrap a stream that includes an encoded {@link ByteOrderMark} as its first bytes.

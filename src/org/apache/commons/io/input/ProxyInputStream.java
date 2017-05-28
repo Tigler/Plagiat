@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * A Proxy stream which acts as expected, that is it passes the method

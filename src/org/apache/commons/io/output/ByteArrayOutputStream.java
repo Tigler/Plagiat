@@ -16,20 +16,15 @@
  */
 package org.apache.commons.io.output;
 
-import static org.apache.commons.io.IOUtils.EOF;
+import org.apache.commons.io.input.ClosedInputStream;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.SequenceInputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.io.input.ClosedInputStream;
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * This class implements an output stream in which the data is

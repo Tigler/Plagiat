@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.comparator;
 
+import org.apache.commons.io.IOCase;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.Comparator;
-
-import org.apache.commons.io.IOCase;
 
 /**
  * Compare the <b>path</b> of two files for order (see {@link File#getPath()}).

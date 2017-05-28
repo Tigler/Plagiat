@@ -54,16 +54,21 @@ public class EventSequenceOperators extends ListenerParser {
                     Node n = new Node(event.getCode());
                     listNodeFunc.add(n);
                     Node s = null;
-                    while (stack.peek().getCode() != EventParser.FUNC_START) {
+                    if (stack.size() > 0) {
+                        while (stack.peek().getCode() != EventParser.FUNC_START) {
+                            s = stack.pop();
+                        }
+
                         s = stack.pop();
+                        s.addNode(n);
                     }
-                    s = stack.pop();
-                    s.addNode(n);
                     graf.add(listNodeFunc);
                     break;
                 }
                 case EventParser.ASSIGMENT: {
-                    listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
+                    if (listOperatorsTemp != null) {
+                        listOperatorsTemp.add(new Operator(Operator.ASSIGMENT, "=", event.getStr(), event.getPath()));
+                    }
                     break;
                 }
                 case EventParser.IF_START: {

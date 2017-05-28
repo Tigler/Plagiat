@@ -36,11 +36,17 @@ public class ConnectorDB {
     public static final String selectSource = "select id,Name,Expension,Text from Source where id_project=?";
     public static final String insertNewSource = "insert into Source (Name, Expension,Text, id_project) values (?, ?,?,?)";
 
-    public static final String selectBlock = "select id from Block where id_source=?";
-    public static final String insertNewBlock = "insert into Block (id_source) values (?)";
+    public static final String selectBlock = "select id,macCabe,graf from Block where id_source=?";
+    public static final String insertNewBlock = "insert into Block (id_source,macCabe,graf) values (?,?,?)";
 
     public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_block=? order by idx ASC";
     public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_block) values (?, ?, ?,?)";
+
+    public static final String selectNode = "select id,keyNode from Node where id_block=?";
+    public static final String insertNewNode = "insert into Node (keyNode, id_block) values (?, ?)";
+
+    public static final String selectEdge = "select id from Edge where endNode=?";
+    public static final String insertNewEdge = "insert into Edge (endNode) values (?)";
 
     /**
      * Инициализирует соединение с БД

@@ -16,17 +16,12 @@
  */
 package org.apache.commons.io.output;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.charset.Charset;
-
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+
+import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * FileWriter that will create and honor lock files to allow simple

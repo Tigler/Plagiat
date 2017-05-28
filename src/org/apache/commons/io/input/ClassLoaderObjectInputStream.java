@@ -16,11 +16,7 @@
  */
 package org.apache.commons.io.input;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectStreamClass;
-import java.io.StreamCorruptedException;
+import java.io.*;
 import java.lang.reflect.Proxy;
 
 /**

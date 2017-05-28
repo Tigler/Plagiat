@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.comparator;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.Comparator;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * Compare the <b>length/size</b> of two files for order (see

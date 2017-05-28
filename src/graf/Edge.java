@@ -1,9 +1,11 @@
 package graf;
 
+import java.io.Serializable;
+
 /**
  * Created by tigler on 13.05.17.
  */
-public class Edge {
+public class Edge implements Serializable {
     Node start;
     Node end;
 

@@ -11,6 +11,7 @@ package enums;
  */
 public enum ResultTextReportEnum {
     macCabe("Показатели метрики МакКейба совпали на "),
+    compareGrafs("Совпадение графов методом Слайсов: "),
     freqOperators("Схожесть по частотам операторов: "),
     seqOperators("Совпадение последовательностей операторов: "),
     dynamic("Динамический анализ: ");

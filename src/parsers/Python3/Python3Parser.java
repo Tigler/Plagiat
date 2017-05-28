@@ -263,8 +263,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -380,8 +380,8 @@ public class Python3Parser extends Parser {
 			match(EOF);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -441,8 +441,8 @@ public class Python3Parser extends Parser {
 			match(EOF);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -511,8 +511,8 @@ public class Python3Parser extends Parser {
 			match(NEWLINE);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -566,8 +566,8 @@ public class Python3Parser extends Parser {
 			} while ( _la==AT );
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -629,8 +629,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -697,8 +697,8 @@ public class Python3Parser extends Parser {
 			suite();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -749,8 +749,8 @@ public class Python3Parser extends Parser {
 			match(CLOSE_PAREN);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1005,8 +1005,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1058,8 +1058,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1314,8 +1314,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1351,8 +1351,8 @@ public class Python3Parser extends Parser {
 			match(NAME);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1448,8 +1448,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1523,8 +1523,8 @@ public class Python3Parser extends Parser {
 			match(NEWLINE);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1666,8 +1666,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1843,8 +1843,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1949,8 +1949,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -1994,8 +1994,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2036,8 +2036,8 @@ public class Python3Parser extends Parser {
 			exprlist();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2073,8 +2073,8 @@ public class Python3Parser extends Parser {
 			match(PASS);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2160,8 +2160,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2197,8 +2197,8 @@ public class Python3Parser extends Parser {
 			match(BREAK);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2234,8 +2234,8 @@ public class Python3Parser extends Parser {
 			match(CONTINUE);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2285,8 +2285,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2324,8 +2324,8 @@ public class Python3Parser extends Parser {
 			yield_expr();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2391,8 +2391,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2448,8 +2448,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2490,8 +2490,8 @@ public class Python3Parser extends Parser {
 			dotted_as_names();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2623,8 +2623,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2677,8 +2677,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2731,8 +2731,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2803,8 +2803,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2862,8 +2862,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2919,8 +2919,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -2979,8 +2979,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3039,8 +3039,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3097,8 +3097,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3214,8 +3214,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3313,8 +3313,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3381,8 +3381,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3457,8 +3457,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3579,8 +3579,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3648,8 +3648,8 @@ public class Python3Parser extends Parser {
 			suite();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3704,8 +3704,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3769,8 +3769,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3884,8 +3884,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -3986,8 +3986,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4063,8 +4063,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4121,8 +4121,8 @@ public class Python3Parser extends Parser {
 			test();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4179,8 +4179,8 @@ public class Python3Parser extends Parser {
 			test_nocond();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4242,8 +4242,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4305,8 +4305,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4384,8 +4384,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4449,8 +4449,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4568,8 +4568,8 @@ public class Python3Parser extends Parser {
 				break;
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4618,8 +4618,8 @@ public class Python3Parser extends Parser {
 			expr();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4677,8 +4677,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4736,8 +4736,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4795,8 +4795,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4870,8 +4870,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -4945,8 +4945,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5044,8 +5044,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5136,8 +5136,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5211,8 +5211,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5426,8 +5426,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5519,8 +5519,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5603,8 +5603,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5675,8 +5675,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5764,8 +5764,8 @@ public class Python3Parser extends Parser {
 				break;
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5814,8 +5814,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5886,8 +5886,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -5958,8 +5958,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6116,8 +6116,8 @@ public class Python3Parser extends Parser {
 				break;
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6189,8 +6189,8 @@ public class Python3Parser extends Parser {
 			suite();
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6323,8 +6323,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6396,8 +6396,8 @@ public class Python3Parser extends Parser {
 				break;
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6453,8 +6453,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6517,8 +6517,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6573,8 +6573,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6624,8 +6624,8 @@ public class Python3Parser extends Parser {
 
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6705,8 +6705,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6752,8 +6752,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6818,8 +6818,8 @@ public class Python3Parser extends Parser {
 				throw new NoViableAltException(this);
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}
@@ -6867,8 +6867,8 @@ public class Python3Parser extends Parser {
 			}
 			}
 		} catch (RecognitionException re) {
-			AnalyzePlagiatSystem.syntaxError(re);
-			_localctx.exception = re;
+            AnalyzePlagiatSystem.syntaxError(re, _localctx.getStart().getLine(), path);
+            _localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
 		}

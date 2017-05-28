@@ -16,10 +16,10 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.Reader;
 import java.io.Serializable;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * {@link Reader} implementation that can read from String, StringBuffer,

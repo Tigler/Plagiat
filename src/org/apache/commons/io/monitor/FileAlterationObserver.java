@@ -16,6 +16,10 @@
  */
 package org.apache.commons.io.monitor;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.comparator.NameFileComparator;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.Serializable;
@@ -23,10 +27,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOCase;
-import org.apache.commons.io.comparator.NameFileComparator;
 
 /**
  * FileAlterationObserver represents the state of files below a root directory,

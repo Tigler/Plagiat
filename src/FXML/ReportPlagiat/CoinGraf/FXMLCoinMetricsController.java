@@ -21,7 +21,9 @@ import java.util.ResourceBundle;
 public class FXMLCoinMetricsController implements Initializable {
 
     @FXML
-    Label labelResult;
+    Label labelResultMacCabe;
+    @FXML
+    Label labelResultCompGrafs;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -30,8 +32,11 @@ public class FXMLCoinMetricsController implements Initializable {
 
 
     public void setMetricsResult(int resultMacCabe) {
-        labelResult.setText(ResultTextReportEnum.macCabe.toString() + resultMacCabe + "%");
+        labelResultMacCabe.setText(ResultTextReportEnum.macCabe.toString() + resultMacCabe + "%");
     }
 
 
+    public void setResultCompareGrafs(int resultComapreGrafs) {
+        labelResultCompGrafs.setText(ResultTextReportEnum.compareGrafs.toString() + resultComapreGrafs + "%");
+    }
 }

@@ -16,10 +16,10 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * A decorating input stream that counts the number of bytes that have passed

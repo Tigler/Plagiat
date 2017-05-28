@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * A functional, light weight {@link InputStream} that emulates

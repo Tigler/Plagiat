@@ -16,12 +16,12 @@
  */
 package org.apache.commons.io.output;
 
+import org.apache.commons.io.TaggedIOException;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.UUID;
-
-import org.apache.commons.io.TaggedIOException;
 
 /**
  * An output stream decorator that tags potential exceptions so that the

@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javax.swing.text.TableView;
 
 /**
  *
@@ -24,7 +23,7 @@ public class AnalyzerCode extends Application {
         Scene scene = new Scene(root);      
         stage.setScene(scene);
         stage.setTitle("Проверка плагиата кода");
-        ConnectorDB.getConnection();
+        //ConnectorDB.getConnection();
         stage.show();
     }
 

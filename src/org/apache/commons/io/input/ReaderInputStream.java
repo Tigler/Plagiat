@@ -16,8 +16,6 @@
  */
 package org.apache.commons.io.input;
 
-import static org.apache.commons.io.IOUtils.EOF;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -27,6 +25,8 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.CoderResult;
 import java.nio.charset.CodingErrorAction;
+
+import static org.apache.commons.io.IOUtils.EOF;
 
 /**
  * {@link InputStream} implementation that reads a character stream from a {@link Reader}

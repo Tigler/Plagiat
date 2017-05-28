@@ -8,6 +8,7 @@ package analyzer.code;
 import FXML.ReportPlagiat.FXMLReportPlagiatController;
 import FXML.Setting.FXMLSettingController;
 import analyzer.CalculatorPlagiat;
+import graf.Node;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -19,6 +20,7 @@ import org.antlr.v4.runtime.RecognitionException;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +30,7 @@ import java.util.logging.Level;
 
 /**
  * основной класс программы - фасад
+ *
  * @author tigler
  */
 public class AnalyzePlagiatSystem {
@@ -53,7 +56,7 @@ public class AnalyzePlagiatSystem {
     }
 
     /**
-     * инициализирует первый анализатор
+     * инициализирует второй анализатор
      *
      * @param codeLang - код языка програмирования
      */
@@ -72,6 +75,7 @@ public class AnalyzePlagiatSystem {
 
     /**
      * выполняет статический анализ файла вторым анализатором
+     *
      * @param path - путь до анализируемого файла
      */
     public void parsingSecond(String path) {
@@ -144,6 +148,7 @@ public class AnalyzePlagiatSystem {
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
             fxmlReportPlagiatController.setMacCabeMetric(calculatorPlagiat.getResultMacCabe());
+            fxmlReportPlagiatController.setResultCompareGrafs(calculatorPlagiat.getResultComapreGrafs());
             fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
                     secondAnalyzer.getListResultAnalyzeFiles());
@@ -171,6 +176,7 @@ public class AnalyzePlagiatSystem {
             fxmlReportPlagiatController.setFrequences(calculatorPlagiat.getFreqFirst(), calculatorPlagiat.getFreqSecond(),
                     calculatorPlagiat.getResultFreq());
             fxmlReportPlagiatController.setMacCabeMetric(calculatorPlagiat.getResultMacCabe());
+            fxmlReportPlagiatController.setResultCompareGrafs(calculatorPlagiat.getResultComapreGrafs());
             fxmlReportPlagiatController.setResultSeqOperators(calculatorPlagiat.getResultSeqOperators());
             fxmlReportPlagiatController.setResultDynamic(calculatorPlagiat.getResultDynamic());
             fxmlReportPlagiatController.setListsMetrics(firstAnalyzer.getListResultAnalyzeFiles(),
@@ -188,10 +194,12 @@ public class AnalyzePlagiatSystem {
 
     /**
      * записывает данные проекта и результаты анализа в БД
+     *
      * @param analyzer анализатор содержащий проект и результат анализа
      */
     public void writeDBProj(Analyzer analyzer) {
         try {
+            ConnectorDB.getConnection();
             PreparedStatement preparedStatement = ConnectorDB.prepeareStmtRetKey(ConnectorDB.insertNewProject);
             preparedStatement.setString(1, analyzer.getProjectProgramm().getAuthor());
             preparedStatement.setString(2, analyzer.getProjectProgramm().getDesc());
@@ -211,8 +219,30 @@ public class AnalyzePlagiatSystem {
                 int idSrc = ConnectorDB.getinsertId();
 
                 for (int j = 0; j < analyzer.getListResultAnalyzeFiles().get(i).getListsOperators().size(); j++) {
+
+                    FileOutputStream fos = null;
+                    try {
+                        fos = new FileOutputStream("temp.out");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+                        oos.writeObject(analyzer.getListResultAnalyzeFiles().get(i).getGraf().get(j));
+                        oos.flush();
+                        oos.close();
+                    } catch (Exception e) {
+
+                    }
+                    InputStream is = null;
+                    try {
+                        is = new FileInputStream("temp.out");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     preparedStatement = ConnectorDB.prepeareStmtRetKey(ConnectorDB.insertNewBlock);
                     preparedStatement.setInt(1, idSrc);
+                    preparedStatement.setInt(2, analyzer.getListResultAnalyzeFiles().get(i).getMacCabeValue(j));
+                    preparedStatement.setBlob(3, is);
                     ConnectorDB.executeUpdate();
                     int idBlock = ConnectorDB.getinsertId();
 
@@ -227,6 +257,7 @@ public class AnalyzePlagiatSystem {
                         preparedStatement.setInt(4, idBlock);
                         ConnectorDB.executeUpdate();
                     }
+
                 }
             }
         } catch (SQLException e) {
@@ -235,7 +266,8 @@ public class AnalyzePlagiatSystem {
     }
 
     /**
-     * получает список с информацией о проекте и данных для анализа из БД
+     * получает список с информацией о проекте и данных для анализа из бд
+     *
      * @return список с информацией о проекте и данных для анализа из БД
      */
     public ArrayList<ProjectDB> readResultAnalyzeDB() {
@@ -253,7 +285,29 @@ public class AnalyzePlagiatSystem {
                     preparedStatement.setInt(1, resultSet1.getInt(1));
                     ResultSet resultSet2 = ConnectorDB.executeQuery();
                     ArrayList<ArrayList<Operator>> listsOperators = new ArrayList<>();
+                    ArrayList<ArrayList<Node>> graf = new ArrayList<>();
+                    ArrayList<Integer> macCabeValues = new ArrayList<>();
                     while (resultSet2.next()) {
+                        Blob blob = resultSet2.getBlob(3);
+                        byte[] array = blob.getBytes(1, (int) blob.length());
+                        File file = null;
+                        try {
+                            file = File.createTempFile("temp", ".out", new File("."));
+                            FileOutputStream out1 = null;
+                            out1 = new FileOutputStream(file);
+                            out1.write(array);
+                            out1.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        ArrayList<Node> podgraf = new ArrayList<>();
+
+                        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("temp.out"))) {
+                            podgraf = (ArrayList<Node>) ois.readObject();
+                        } catch (Exception ex) {
+
+                            System.out.println(ex.getMessage());
+                        }
                         preparedStatement = ConnectorDB.prepeareStmt(ConnectorDB.selectOperator);
                         preparedStatement.setInt(1, resultSet2.getInt(1));
                         ResultSet resultSet3 = ConnectorDB.executeQuery();
@@ -265,9 +319,11 @@ public class AnalyzePlagiatSystem {
                             listOperator.add(operator);
                         }
                         listsOperators.add(listOperator);
+                        graf.add(podgraf);
+                        macCabeValues.add(resultSet2.getInt(2));
                     }
                     String nameFile = resultSet1.getString(2);
-                    resultsAnalyzeFile.add(new ResultAnalyzeFile(nameFile, null, listsOperators, null));
+                    resultsAnalyzeFile.add(new ResultAnalyzeFile(nameFile, null, listsOperators, graf, macCabeValues));
                 }
                 int idProj = resultSet.getInt(1);
                 String author = resultSet.getString(2);
@@ -283,7 +339,6 @@ public class AnalyzePlagiatSystem {
     }
 
     /**
-     *
      * @param analyzer
      * @param numAn
      * @param projectsDB
@@ -344,11 +399,11 @@ public class AnalyzePlagiatSystem {
         return text;
     }
 
-    public static void syntaxError(RecognitionException re) {
+    public static void syntaxError(RecognitionException re, int line, String path) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Синтакическая ошибка");
         alert.setHeaderText("Синтакическая ошибка");
-        alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(re.toString())));
+        alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(re.toString() + "\n" + path + "\n" + "Строка: " + line + "")));
         alert.showAndWait();
     }
 }

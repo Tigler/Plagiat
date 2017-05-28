@@ -16,11 +16,11 @@
  */
 package org.apache.commons.io.filefilter;
 
+import org.apache.commons.io.IOCase;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-
-import org.apache.commons.io.IOCase;
 
 /**
  * Filters files based on the suffix (what the filename ends with).
