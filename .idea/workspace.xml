@@ -7,250 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grammars/CSharpPreprocessorParser.g4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grammars/Java8.g4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/AboutProgramm/FXMLAboutProgrammController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/AboutProgramm/FXMLAboutprogramm.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/Loadind/LoadingController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/Loadind/loadingView.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Totals/FXMLTotals.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Totals/FXMLTotalsController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/analyzer/code/AnalyzerPython3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/dynamic/UtiliteForLinuxJava.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/dynamic/UtiliteForMac.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/dynamic/UtiliteForWindowsC.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/dynamic/UtiliteForWindowsJava.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/enums/EnumMarkLevelNest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/enums/EnumMarkMiddleLenIdent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/languageProg/LanguageProg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/metrics/Variable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/Java.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaBaseListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaLexer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationConstantRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationMethodOrConstantRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationMethodRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationNameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationTypeBodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationTypeDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationTypeElementDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$AnnotationTypeElementRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArgumentsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArrayCreatorRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ArrayInitializerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$BlockContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$BlockStatementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CatchClauseContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CatchTypeContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassBodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassBodyDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassCreatorRestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassOrInterfaceModifierContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ClassOrInterfaceTypeContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CommentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CompilationUnitContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstantDeclaratorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstantExpressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstructorBodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ConstructorDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatedNameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$CreatorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$DefaultValueContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ElementValueArrayInitializerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ElementValueContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ElementValuePairContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ElementValuePairsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnhancedForControlContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnumBodyDeclarationsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnumConstantContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnumConstantNameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnumConstantsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$EnumDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExplicitGenericInvocationSuffixContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ExpressionListContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$FieldDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$FinallyBlockContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForControlContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForInitContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ForUpdateContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$FormalParameterContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$FormalParameterListContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$FormalParametersContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$GenericConstructorDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$GenericInterfaceMethodDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$GenericMethodDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ImportDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InnerCreatorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InterfaceBodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InterfaceBodyDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InterfaceDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InterfaceMemberDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$InterfaceMethodDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$LastFormalParameterContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$LiteralContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$LocalVariableDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$LocalVariableDeclarationStatementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$MemberDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$MethodBodyContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$MethodDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ModifierContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$NonWildcardTypeArgumentsOrDiamondContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$PackageDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ParExpressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$PrimaryContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$PrimitiveTypeContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$QualifiedNameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$QualifiedNameListContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ResourceContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ResourceSpecificationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$ResourcesContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$StatementContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$StatementExpressionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$SuperSuffixContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$SwitchBlockStatementGroupContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$SwitchLabelContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeArgumentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeArgumentsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeArgumentsOrDiamondContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeBoundContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeDeclarationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeListContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeParameterContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeParametersContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$TypeTypeContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$VariableDeclaratorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$VariableDeclaratorIdContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$VariableDeclaratorsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$VariableInitializerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser$VariableModifierContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Java/JavaParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3BaseListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Lexer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Lexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Listener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$And_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$And_testContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ArglistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ArgumentContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Arith_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Assert_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$AtomContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$AugassignContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Break_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ClassdefContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Comp_forContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Comp_ifContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Comp_iterContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Comp_opContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ComparisonContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Compound_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Continue_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$DecoratedContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$DecoratorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$DecoratorsContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Del_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$DictorsetmakerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Dotted_as_nameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Dotted_as_namesContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Dotted_nameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Eval_inputContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Except_clauseContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ExprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Expr_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ExprlistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$FactorContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$File_inputContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Flow_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$For_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$FuncdefContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Global_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$If_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Import_as_nameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Import_as_namesContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Import_fromContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Import_nameContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Import_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$IntegerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$LambdefContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Lambdef_nocondContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Nonlocal_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Not_testContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$NumberContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Or_testContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$ParametersContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Pass_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$PowerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Raise_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Return_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Shift_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Simple_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Single_inputContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$SliceopContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Small_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Star_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$StmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$StrContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$SubscriptContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$SubscriptlistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$SuiteContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TermContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TestContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Test_nocondContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TestlistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Testlist_compContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Testlist_star_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TfpdefContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TrailerContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Try_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$TypedargslistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$VarargslistContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$VfpdefContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$While_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$With_itemContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$With_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Xor_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Yield_argContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Yield_exprContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser$Yield_stmtContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/parsers/Python3/Python3Parser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/sample/Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/sample/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Plagiat/sample/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerPython3.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/dynamic/UtiliteForLinuxJava.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/dynamic/UtiliteForMac.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/dynamic/UtiliteForWindowsC.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/dynamic/UtiliteForWindowsJava.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/enums/EnumMarkLevelNest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/enums/EnumMarkMiddleLenIdent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/languageProg/LanguageProg.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/metrics/Variable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/Java.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Java/JavaParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3BaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3Lexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3Lexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3Listener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parsers/Python3/Python3Parser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/sample.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinamic/CompilationFilesC1/0.o" afterPath="$PROJECT_DIR$/dinamic/CompilationFilesC1/0.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinamic/CompilationFilesC1/CProgramm1" afterPath="$PROJECT_DIR$/dinamic/CompilationFilesC1/CProgramm1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$1.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$10.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$11.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindowController$11.class" />
@@ -313,40 +69,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/org/apache/commons/io/output/XmlStreamWriter.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/org/apache/commons/io/output/XmlStreamWriter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/org/apache/commons/io/serialization/ValidatingObjectInputStream.class" afterPath="$PROJECT_DIR$/out/production/Plagiat/org/apache/commons/io/serialization/ValidatingObjectInputStream.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configSystem.cfg" afterPath="$PROJECT_DIR$/configSystem.cfg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinamic/CompilationFilesC1/valgrindResult1.txt" afterPath="$PROJECT_DIR$/dinamic/CompilationFilesC1/valgrindResult1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinamic/CompilationFilesC2/valgrindResult2.txt" afterPath="$PROJECT_DIR$/dinamic/CompilationFilesC2/valgrindResult2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grammars/Java.g4" afterPath="$PROJECT_DIR$/grammars/Java.g4" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindow.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/MainWindow/FXMLMainWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/FXMLReportPlagiat.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/FXMLReportPlagiat.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" afterPath="$PROJECT_DIR$/out/production/Plagiat/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindow.fxml" afterPath="$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindowController.java" afterPath="$PROJECT_DIR$/src/FXML/MainWindow/FXMLMainWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Dynamic/FXMLDynamicResultController.java" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/Dynamic/FXMLDynamicResultController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiat.fxml" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiat.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiatController.java" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/FXMLReportPlagiatController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" afterPath="$PROJECT_DIR$/src/FXML/ReportPlagiat/ReportDB/FXMLReportDB.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java" afterPath="$PROJECT_DIR$/src/analyzer/CalculatorPlagiat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzePlagiatSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" afterPath="$PROJECT_DIR$/src/analyzer/code/Analyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCSharp.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCSharp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCode.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCpp.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerCpp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/AnalyzerJava.java" afterPath="$PROJECT_DIR$/src/analyzer/code/AnalyzerJava.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" afterPath="$PROJECT_DIR$/src/analyzer/code/ConnectorDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/Operator.java" afterPath="$PROJECT_DIR$/src/analyzer/code/Operator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java" afterPath="$PROJECT_DIR$/src/analyzer/code/ResultAnalyzeFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamic/DynamicAnalyzer.java" afterPath="$PROJECT_DIR$/src/dynamic/DynamicAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamic/Utilite.java" afterPath="$PROJECT_DIR$/src/dynamic/Utilite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamic/UtiliteForLinuxC.java" afterPath="$PROJECT_DIR$/src/dynamic/UtiliteForLinuxC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/enums/ResultTextReportEnum.java" afterPath="$PROJECT_DIR$/src/enums/ResultTextReportEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" afterPath="$PROJECT_DIR$/src/events/EventSequenceOperators.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/events/ListenerParser.java" afterPath="$PROJECT_DIR$/src/events/ListenerParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graf/Edge.java" afterPath="$PROJECT_DIR$/src/graf/Edge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graf/Node.java" afterPath="$PROJECT_DIR$/src/graf/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/apache/commons/io/Charsets.java" afterPath="$PROJECT_DIR$/src/org/apache/commons/io/Charsets.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/apache/commons/io/serialization/package.html" afterPath="$PROJECT_DIR$/src/org/apache/commons/io/serialization/package.html" />
     </list>
@@ -456,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1272,7 +998,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495957257762</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Готово">
+      <created>1496738536919</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1496738536919</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1399,7 +1132,8 @@
     <MESSAGE value="построил граф теперь надо применить алгоритмы" />
     <MESSAGE value="реализую алгоритм на графе" />
     <MESSAGE value="вроде закончил, осталось навести немного красоты" />
-    <option name="LAST_COMMIT_MESSAGE" value="вроде закончил, осталось навести немного красоты" />
+    <MESSAGE value="Готово" />
+    <option name="LAST_COMMIT_MESSAGE" value="Готово" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1618,6 +1352,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="15" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1647,6 +1382,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-285">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1668,6 +1404,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-435">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1696,6 +1433,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1769,7 +1507,7 @@
     <entry file="file://$PROJECT_DIR$/src/analyzer/code/Analyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding />
         </state>
       </provider>
