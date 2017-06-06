@@ -42,11 +42,6 @@ public class ConnectorDB {
     public static final String selectOperator = "select id,operator,keyOper,idx from Operator where id_block=? order by idx ASC";
     public static final String insertNewOperator = "insert into Operator (operator,keyOper,idx, id_block) values (?, ?, ?,?)";
 
-    public static final String selectNode = "select id,keyNode from Node where id_block=?";
-    public static final String insertNewNode = "insert into Node (keyNode, id_block) values (?, ?)";
-
-    public static final String selectEdge = "select id from Edge where endNode=?";
-    public static final String insertNewEdge = "insert into Edge (endNode) values (?)";
 
     /**
      * Инициализирует соединение с БД
@@ -112,7 +107,7 @@ public class ConnectorDB {
     }
 
     /**
-     * Execute SQL query
+     * Выполнить SQL запрос
      *
      * @return ResultSet
      * @throws SQLException - ошибка запроса

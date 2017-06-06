@@ -13,7 +13,7 @@
             <bottom>
                 <Pane prefHeight="40.0" prefWidth="674.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="buttonExit" layoutX="568.0" layoutY="8.0" mnemonicParsing="false"
+                        <Button fx:id="buttonExit" layoutX="583.0" layoutY="8.0" mnemonicParsing="false"
                                 text="Закрыть"/>
                     </children>
                 </Pane>

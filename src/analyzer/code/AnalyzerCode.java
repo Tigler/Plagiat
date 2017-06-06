@@ -23,6 +23,7 @@ public class AnalyzerCode extends Application {
         Scene scene = new Scene(root);      
         stage.setScene(scene);
         stage.setTitle("Проверка плагиата кода");
+        stage.setResizable(false);
         //ConnectorDB.getConnection();
         stage.show();
     }

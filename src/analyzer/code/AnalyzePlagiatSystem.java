@@ -35,9 +35,9 @@ import java.util.logging.Level;
  */
 public class AnalyzePlagiatSystem {
 
-    private Analyzer firstAnalyzer;
-    private Analyzer secondAnalyzer;
-    private CalculatorPlagiat calculatorPlagiat;
+    private Analyzer firstAnalyzer; //Анализатор левой панели
+    private Analyzer secondAnalyzer; //Анализатор правой панели
+    private CalculatorPlagiat calculatorPlagiat; //"Информационный эксперт"
 
 
     public AnalyzePlagiatSystem() {
@@ -112,9 +112,6 @@ public class AnalyzePlagiatSystem {
             case LanguagePrograming.LANG_CSHARP:
                 analyzer = new AnalyzerCSharp();
                 break;
-            case LanguagePrograming.LANG_PYTHON3:
-                analyzer = new AnalyzerPython3();
-                break;
             default:
         }
         return analyzer;
@@ -132,7 +129,6 @@ public class AnalyzePlagiatSystem {
         listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_CPP, "C++"));
         listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_CSHARP, "C#"));
         listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_JAVA, "Java"));
-        listLanguages.add(new LanguagePrograming(LanguagePrograming.LANG_PYTHON3, "Python3"));
         return listLanguages;
     }
 
@@ -156,6 +152,7 @@ public class AnalyzePlagiatSystem {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Отчет о совпадениях");
+            stage.setResizable(false);
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -185,6 +182,7 @@ public class AnalyzePlagiatSystem {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Отчет о совпадениях");
+            stage.setResizable(false);
             stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -260,6 +258,11 @@ public class AnalyzePlagiatSystem {
 
                 }
             }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setResizable(false);
+            alert.setTitle("Запись в базу данных");
+            alert.setHeaderText("Проект успешно занесен в базу данных");
+            alert.showAndWait();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -292,7 +295,7 @@ public class AnalyzePlagiatSystem {
                         byte[] array = blob.getBytes(1, (int) blob.length());
                         File file = null;
                         try {
-                            file = File.createTempFile("temp", ".out", new File("."));
+                            file = new File("temp.out");
                             FileOutputStream out1 = null;
                             out1 = new FileOutputStream(file);
                             out1.write(array);
@@ -339,10 +342,11 @@ public class AnalyzePlagiatSystem {
     }
 
     /**
-     * @param analyzer
-     * @param numAn
-     * @param projectsDB
-     * @return
+     * сравнить с базой данных
+     * @param analyzer - анализатор для сравнения
+     * @param numAn - номер анализатора
+     * @param projectsDB - список проектов базы данных
+     * @return список результатов сравнения
      */
     public ArrayList<ResultCompareWithDB> compareWithDB(Analyzer analyzer, int numAn, ArrayList<ProjectDB> projectsDB) {
         Properties props = new Properties();
@@ -384,6 +388,7 @@ public class AnalyzePlagiatSystem {
             String line;
             while ((line = reader.readLine()) != null) {
                 text += line;
+                text += "\n";
             }
         } catch (IOException e) {
             // log error
@@ -399,6 +404,11 @@ public class AnalyzePlagiatSystem {
         return text;
     }
 
+    /**
+     * @param re   - исключение возникшее в парсере
+     * @param line - номер строки в файле в котором воникла ошибка
+     * @param path - путь до файла при анализе которого возникла ошибка
+     */
     public static void syntaxError(RecognitionException re, int line, String path) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Синтакическая ошибка");

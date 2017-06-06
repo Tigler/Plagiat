@@ -8,9 +8,15 @@ import java.util.ArrayList;
 /**
  * Created by tigler on 01.05.17.
  */
-public class UtiliteForLinuxC extends Utilite {
+public class UtiliteForLinuxC implements Utilite {
 
-
+    /**
+     * Проводит компилирование исходников, сборку и анализ утилитой
+     *
+     * @param listPathFiles список путей до исходников проекта
+     * @param numAnalyzer   - номер анализатора
+     * @return флаг успешности
+     */
     @Override
     public boolean executeProgramm(ArrayList<String> listPathFiles, int numAnalyzer) {
         String nameProgram = null;
@@ -40,6 +46,7 @@ public class UtiliteForLinuxC extends Utilite {
             proc = rt.exec("rm -rf dinamic/CompilationFilesC2/" + "*");
             for (int i = 0; i < listPathFiles.size(); i++) {
                 proc = rt.exec("gcc -c " + listPathFiles.get(i) + " -o " + dirCompilC + i + ".o");
+                Thread.sleep(100);
             }
             String listCompil = " ";
             for (int i = 0; i < listPathFiles.size(); i++) {

@@ -39,7 +39,7 @@ public class AnalyzerC extends Analyzer {
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
         graf = new ArrayList<>();
-        ListenerParser listener = createChainListeners();
+        ListenerParser listener = createListeners();
         CParser cParser = (CParser) parser;
         cParser.attach(listener);
         parser.setTokenStream(loadProject(path));
@@ -51,6 +51,9 @@ public class AnalyzerC extends Analyzer {
         printGraf();
     }
 
+    /**
+     * отладочный метод - печать графа
+     */
     private void printGraf() {
         for (ArrayList<Node> list : graf) {
             for (Node n : list) {
@@ -92,12 +95,30 @@ public class AnalyzerC extends Analyzer {
                     case EventParser.DEFAULT_END:
                         res = "default_end ";
                         break;
+                    case EventParser.FUNC_START:
+                        res = "func_start ";
+                        break;
+                    case EventParser.FUNC_END:
+                        res = "func_end ";
+                        break;
+                    case EventParser.FOR_START:
+                        res = "for_start ";
+                        break;
+                    case EventParser.FOR_END:
+                        res = "for_end ";
+                        break;
                 }
                 System.out.print(res);
                 //System.out.println(n.getCode());
                 for (Edge e : n.getEdges()) {
                     String res1 = null;
                     switch (e.getEnd().getCode()) {
+                        case EventParser.FUNC_START:
+                            res1 = "func_start ";
+                            break;
+                        case EventParser.FUNC_END:
+                            res1 = "func_end ";
+                            break;
                         case EventParser.IF_START:
                             res1 = "if_start ";
                             break;
@@ -134,6 +155,12 @@ public class AnalyzerC extends Analyzer {
                         case EventParser.DEFAULT_END:
                             res1 = "default_end ";
                             break;
+                        case EventParser.FOR_START:
+                            res1 = "for_start ";
+                            break;
+                        case EventParser.FOR_END:
+                            res1 = "for_end ";
+                            break;
                     }
                     System.out.print(res1);
                 }
@@ -164,8 +191,12 @@ public class AnalyzerC extends Analyzer {
     }
 
 
-
-    private ListenerParser createChainListeners() {
+    /**
+     * создает слушателя
+     *
+     * @return слушателя
+     */
+    private ListenerParser createListeners() {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
@@ -173,7 +204,14 @@ public class AnalyzerC extends Analyzer {
         return listener;
     }
 
-    private TokenStream loadProject(String path) {
+    /**
+     * Преобразует исходник в специальный вид -tokenStream
+     *
+     * @param path- путь до файла
+     * @return
+     */
+    @Override
+    public TokenStream loadProject(String path) {
         Reader reader = null;
         try {
             reader = new BufferedReader(new ReaderUTF8(new FileInputStream(path)));

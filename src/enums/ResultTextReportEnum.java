@@ -14,7 +14,8 @@ public enum ResultTextReportEnum {
     compareGrafs("Совпадение графов методом Слайсов: "),
     freqOperators("Схожесть по частотам операторов: "),
     seqOperators("Совпадение последовательностей операторов: "),
-    dynamic("Динамический анализ: ");
+    dynamic("Динамический анализ: "),
+    total("Общий результат схожести: ");
 
     private final String name;
 

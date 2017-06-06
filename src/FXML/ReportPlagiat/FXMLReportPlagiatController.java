@@ -9,6 +9,7 @@ import FXML.ReportPlagiat.CoinGraf.FXMLCoinMetricsController;
 import FXML.ReportPlagiat.CoinSeq.FXMLCoinSeqController;
 import FXML.ReportPlagiat.Dynamic.FXMLDynamicResultController;
 import FXML.ReportPlagiat.Frequences.FXMLFrequencesController;
+import FXML.ReportPlagiat.Totals.FXMLTotalsController;
 import analyzer.code.MyMap;
 import analyzer.code.ResultAnalyzeFile;
 import javafx.collections.FXCollections;
@@ -73,8 +74,10 @@ public class FXMLReportPlagiatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         items = FXCollections.observableArrayList(
-                "Последовательности операторов", "Частоты", "Метрики графа");
+                "Общий результат", "Последовательности операторов", "Частоты", "Метрики графа");
         listView.setItems(items);
+        listView.getSelectionModel().select(0);
+
         buttonExit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -85,11 +88,17 @@ public class FXMLReportPlagiatController implements Initializable {
         listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //System.out.println("clicked on " + listView.getSelectionModel().getSelectedItem());
-                FXMLLoader loader = null;
-                AnchorPane adminTeamView = null;
-                try {
-                    switch (listView.getSelectionModel().getSelectedIndex()) {
+                eventOnListView();
+            }
+        });
+    }
+
+    private void eventOnListView() {
+        //System.out.println("clicked on " + listView.getSelectionModel().getSelectedItem());
+        FXMLLoader loader = null;
+        AnchorPane adminTeamView = null;
+        try {
+            switch (listView.getSelectionModel().getSelectedIndex()) {
                         /*case 0:
                             loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinMetrics/FXMLCoinMetrics.fxml"));
                             adminTeamView = (AnchorPane) loader.load();
@@ -97,64 +106,69 @@ public class FXMLReportPlagiatController implements Initializable {
                             fxmlCoinMetricsController.setListsMetrics(resultsAnalyzeFilesFirst,
                                     resultsAnalyzeFilesSecond);
                             break;*/
-                        case 0:
-                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
-                            adminTeamView = (AnchorPane) loader.load();
-                            FXMLCoinSeqController fxmlCoinSeqController = loader.getController();
-                            fxmlCoinSeqController.setResultSeqOperators(resultSeqOperators);
-                            break;
+                case 1:
+                    loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinSeq/FXMLCoinSeq.fxml"));
+                    adminTeamView = (AnchorPane) loader.load();
+                    FXMLCoinSeqController fxmlCoinSeqController = loader.getController();
+                    fxmlCoinSeqController.setResultSeqOperators(resultSeqOperators);
+                    break;
 
-                        case 1:
-                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Frequences/FXMLFrequences.fxml"));
-                            adminTeamView = (AnchorPane) loader.load();
-                            FXMLFrequencesController fxmlFrequencesController = loader.getController();
-                            fxmlFrequencesController.setFrequences(freqFirst, freqsecond, resultFreq);
-                            break;
-                        case 2:
-                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinGraf/FXMLCoinMetrics.fxml"));
-                            adminTeamView = (AnchorPane) loader.load();
-                            FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
-                            fxmlCoinMetricsController.setMetricsResult(resultMacCabe);
-                            fxmlCoinMetricsController.setResultCompareGrafs(resultComapreGrafs);
-                            break;
-                        case 3:
-                            loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml"));
-                            adminTeamView = (AnchorPane) loader.load();
-                            FXMLDynamicResultController fxmlDynamicResultController = loader.getController();
-                            fxmlDynamicResultController.setResult(resultDynamic);
-                            break;
-                        default:
-                            break;
-                    }
-
-
-                    //FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
-                    //fxmlReportPlagiatController.setFrequences(freqFirst, freqsecond);
-                    borderPane.setCenter(adminTeamView);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
+                case 2:
+                    loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Frequences/FXMLFrequences.fxml"));
+                    adminTeamView = (AnchorPane) loader.load();
+                    FXMLFrequencesController fxmlFrequencesController = loader.getController();
+                    fxmlFrequencesController.setFrequences(freqFirst, freqsecond, resultFreq);
+                    break;
+                case 3:
+                    loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/CoinGraf/FXMLCoinMetrics.fxml"));
+                    adminTeamView = (AnchorPane) loader.load();
+                    FXMLCoinMetricsController fxmlCoinMetricsController = loader.getController();
+                    fxmlCoinMetricsController.setMetricsResult(resultMacCabe);
+                    fxmlCoinMetricsController.setResultCompareGrafs(resultComapreGrafs);
+                    break;
+                case 4:
+                    loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Dynamic/FXMLDynamicResult.fxml"));
+                    adminTeamView = (AnchorPane) loader.load();
+                    FXMLDynamicResultController fxmlDynamicResultController = loader.getController();
+                    fxmlDynamicResultController.setResult(resultDynamic);
+                    break;
+                case 0:
+                    loader = new FXMLLoader(getClass().getResource("/FXML/ReportPlagiat/Totals/FXMLTotals.fxml"));
+                    adminTeamView = (AnchorPane) loader.load();
+                    FXMLTotalsController fxmlTotalsController = loader.getController();
+                    fxmlTotalsController.setResults(resultSeqOperators, resultFreq, resultMacCabe, resultComapreGrafs);
+                    break;
+                default:
+                    break;
             }
-        });
+
+
+            //FXMLReportPlagiatController fxmlReportPlagiatController = loader.getController();
+            //fxmlReportPlagiatController.setFrequences(freqFirst, freqsecond);
+            borderPane.setCenter(adminTeamView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setResultSeqOperators(int resultSeqOperators) {
         this.resultSeqOperators = resultSeqOperators;
+        eventOnListView();
     }
 
     public void setResultDynamic(int resultDynamic) {
         this.resultDynamic = resultDynamic;
         items.add("Динамический анализ");
+        eventOnListView();
     }
 
     public void setMacCabeMetric(int resultMacCabe) {
         this.resultMacCabe = resultMacCabe;
-
+        eventOnListView();
     }
 
     public void setResultCompareGrafs(int resultComapreGrafs) {
         this.resultComapreGrafs = resultComapreGrafs;
+        eventOnListView();
     }
 }

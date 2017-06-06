@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ReportPlagiat.Totals.FXMLTotalsController">
+    <children>
+        <Label fx:id="labelResult" layoutX="25.0" layoutY="14.0" text="Result">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <BarChart fx:id="barChartTotals" layoutX="5.0" layoutY="35.0" legendSide="TOP" prefHeight="293.0"
+                  prefWidth="427.0" titleSide="BOTTOM">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis prefHeight="236.0" prefWidth="32.0" side="LEFT" upperBound="90.0"/>
+            </yAxis>
+        </BarChart>
+    </children>
+</AnchorPane>

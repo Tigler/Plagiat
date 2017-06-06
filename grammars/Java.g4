@@ -106,11 +106,11 @@ typeBound
 
 enumDeclaration
     :   ENUM Identifier ('implements' typeList)?
-        '{' enumConstants? ','? enumBodyDeclarations? '}'
+        '{' enumConstants?  ','? enumBodyDeclarations? '}'
     ;
 
 enumConstants
-    :   enumConstant (',' enumConstant)*
+    :   comment? enumConstant (',' comment? enumConstant)*
     ;
 
 enumConstant
@@ -189,6 +189,7 @@ fieldDeclaration
 interfaceBodyDeclaration
     :   modifier* interfaceMemberDeclaration
     |   ';'
+    | comment
     ;
 
 interfaceMemberDeclaration
@@ -319,7 +320,7 @@ literal
 // ANNOTATIONS
 
 annotation
-    :   '@' annotationName ( '(' ( elementValuePairs | elementValue )? ')' )?
+    :   '@' annotationName ( '(' ( elementValuePairs | elementValue )? ')' )? comment*
     ;
 
 annotationName : qualifiedName ;
@@ -449,7 +450,7 @@ resource
  *  To handle empty cases at the end, we add switchLabel* to statement.
  */
 switchBlockStatementGroup
-    :   switchLabel+ blockStatement+
+    :  comment* switchLabel+ comment* blockStatement+ comment*
     ;
 
 switchLabel
@@ -479,7 +480,7 @@ forUpdate
 // EXPRESSIONS
 
 parExpression
-    :   '(' expression ')'
+    :   '(' comment* expression comment*')'
     ;
 
 expressionList
@@ -518,7 +519,7 @@ expression
     |   expression '^' expression
     |   expression '|' expression
     |   expression '&&' expression
-    |   expression '||' expression
+    |   expression '||' comment* expression
     |   expression '?' expression ':' expression
     |   <assoc=right> expression
         (   '='

@@ -1,7 +1,5 @@
 package graf;
 
-import analyzer.code.Operator;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -10,53 +8,50 @@ import java.util.ArrayList;
  */
 public class Node implements Serializable {
 
-    private int code;
-    ArrayList<Operator> listOperators;
-    ArrayList<Edge> edges;
-    private boolean visit;
+    private int code; //Код узла
+    private ArrayList<Edge> edges; //Список ребер
+    private boolean visit; //Флаг посещения
 
     public Node(int code) {
         this.code = code;
-        listOperators = new ArrayList<>();
         edges = new ArrayList<>();
     }
 
-    public Node(int code, ArrayList<Edge> edges) {
-        this.code = code;
-        listOperators = new ArrayList<>();
-        this.edges = edges;
-    }
-
+    /**
+     * Получить флаг посещения
+     *
+     * @return флаг посещения
+     */
     public boolean isVisit() {
         return visit;
     }
 
+    /**
+     * Задать флаг посещения
+     * @param visit флаг посещения
+     */
     public void setVisit(boolean visit) {
         this.visit = visit;
     }
 
-    public int getCode() { return code; }
+    /**
+     * Получить код узла
+     * @return код узла
+     */
+    public int getCode() { return code;
+    }
 
-    /*public ArrayList<Operator> getListOperators() {
-        return listOperators;
-    }*/
-
-    /*public void setOperator(Operator operator) {
-        this.listOperators.add(operator);
-    }*/
-
+    /**
+     * Получить список ребер
+     * @return список ребер
+     */
     public ArrayList<Edge> getEdges() {
         return edges;
     }
 
-   /* public void setEdge(Edge edge) {
-        this.edges.add(edge);
-    }*/
-
+    /**
+     * Добавить смежный узел
+     * @param node смежный узел
+     */
     public void addNode(Node node) { edges.add(new Edge(this, node)); }
-
-    public Node clone() {
-        return new Node(this.code, this.edges);
-
-    }
 }

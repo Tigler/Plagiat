@@ -17,21 +17,31 @@ import java.util.ArrayList;
  * Created by tigler on 01.05.17.
  */
 public class CalculatorPlagiat {
-    private ArrayList<MyMap> freqFirst;
-    private ArrayList<MyMap> freqSecond;
-    private ArrayList<MyMap> freqDB;
-    int resultFreq;
-    int resultSeqOperators;
-    int resultDynamic;
-    int resultMacCabe;
-    int resultComapreGrafs;
+    private ArrayList<MyMap> freqFirst; //Частоты первого проекта
+    private ArrayList<MyMap> freqSecond; //Частоты второго проекта
+    private ArrayList<MyMap> freqDB; //Частоты проекта базы данных
+    private int resultFreq; //Результат сравнения частот
+    private int resultSeqOperators; //Результат сравнения последовательностей операторов
+    private int resultDynamic; //Результат сравнения результатов динамического анализа
+    private int resultMacCabe; //Результат сравнения метрик макКейба
+    private int resultComapreGrafs; //Результат сравнения графов
 
 
     public CalculatorPlagiat() {
 
     }
 
-    private boolean calcFreq(ArrayList<ResultAnalyzeFile> listResFirst, int numAnF, ArrayList<ResultAnalyzeFile> listResSecond, int numAnS) {
+    /**
+     * Сравнивает частоты операторов двух проектов
+     *
+     * @param listResFirst  список результатов анализа первого проекта
+     * @param numAnF        - номер первого анализатора
+     * @param listResSecond список результатов анализа первого проекта
+     * @param numAnS        - номер первого анализатора
+     * @return
+     */
+    private boolean calcFreq(ArrayList<ResultAnalyzeFile> listResFirst, int numAnF,
+                             ArrayList<ResultAnalyzeFile> listResSecond, int numAnS) {
         if (numAnF == numAnS) {
             return false;
         }
@@ -244,7 +254,17 @@ public class CalculatorPlagiat {
         return true;
     }
 
-    public ArrayList<ResultCompareWithDB> compareProjectDB(Analyzer analyzer, int numAn, ArrayList<ProjectDB> projectsDB, int levelPlagiat) {
+    /**
+     * Сравнивает проект с базой данных
+     *
+     * @param analyzer     анализатор
+     * @param numAn        номер анализатора
+     * @param projectsDB   проекты базы данных
+     * @param levelPlagiat - процент выше которого включить в результат
+     * @return список результатов сравнения с базой банных
+     */
+    public ArrayList<ResultCompareWithDB> compareProjectDB(Analyzer analyzer, int numAn,
+                                                           ArrayList<ProjectDB> projectsDB, int levelPlagiat) {
         ArrayList<ResultCompareWithDB> resultsCompareWithDB = new ArrayList<>();
         for (ProjectDB proj : projectsDB) {
             calcFreq(analyzer.getListResultAnalyzeFiles(), 1, proj.getListResultAnalyzeFile(), 3);
@@ -309,34 +329,65 @@ public class CalculatorPlagiat {
             }
         }
 
-        ArrayList<Integer> lenSeqs = new ArrayList<>();
-
-        for (int i = 0; i < firAr.size(); i++) {
-            int max = 0;
-            for (int j = 0; j < secAr.size(); j++) {
-                int[] seq = getLCS(firAr.get(i), secAr.get(j));
-                if (seq.length > max) {
-                    max = seq.length;
-                }
-            }
-            lenSeqs.add(max);
-        }
-
         int percentSeqOper = 0;
         int countIter = 0;
-        for (int k = 0; k < listResFirst.size(); k++) {
-            for (int i = 0; i < listResFirst.get(k).getListsOperators().size(); i++) {
-                if (listResFirst.get(k).getListsOperators().get(i).size() > 0) {
-                    percentSeqOper += (lenSeqs.get(i + k).intValue() * 100 / listResFirst.get(k).getListsOperators().get(i).size());
-                    countIter++;
+        for (int i = 0; i < firAr.size(); i++) {
+            int max = 0;
+            int idxSec = -1;
+            int num = 0;
+            for (int j = 0; j < secAr.size(); j++) {
+                int[] seq = getLCS(firAr.get(i), secAr.get(j));
+                if (max <= seq.length) {
+                    max = seq.length;
+                    idxSec = j;
+                    if (firAr.get(i).length == max) {
+                        num = 1;
+                        break;
+                    }
+                    if (secAr.get(j).length == max) {
+                        num = 2;
+                        break;
+                    }
                 }
             }
+            int maxSeq = 0;
+            if (idxSec != -1) {
+                if (num == 0) {
+                    if (firAr.get(i).length > secAr.get(idxSec).length) {
+                        maxSeq = firAr.get(i).length;
+                    } else {
+                        maxSeq = secAr.get(idxSec).length;
+                    }
+                } else {
+                    if (num == 1) {
+                        maxSeq = firAr.get(i).length;
+                    } else {
+                        maxSeq = secAr.get(idxSec).length;
+                    }
+                }
+
+                percentSeqOper += (max * 100 / maxSeq);
+                countIter++;
+
+            }
+
         }
 
-        percentSeqOper = percentSeqOper / countIter;
+
+        if (countIter == 0) {
+            return 0;
+        } else {
+            percentSeqOper = percentSeqOper / countIter;
+        }
         return percentSeqOper;
     }
 
+    /**
+     * Сраванивает 2 проекта
+     *
+     * @param firstAnalyzer  -первый анализатора
+     * @param secondAnalyzer - второй анализатор
+     */
     public void calcForTwoProj(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         calcFreq(firstAnalyzer.getListResultAnalyzeFiles(), 1, secondAnalyzer.getListResultAnalyzeFiles(), 2);
         resultSeqOperators = compareSeq(firstAnalyzer.getListResultAnalyzeFiles(), secondAnalyzer.getListResultAnalyzeFiles());
@@ -352,52 +403,69 @@ public class CalculatorPlagiat {
         for (ResultAnalyzeFile res : listFirstResultAnalyzeFiles) {
             for (ArrayList<Node> graf1 : res.getGraf()) {
                 max = 0;
+                int result = 0;
                 for (ResultAnalyzeFile res1 : listSecondResultAnalyzeFiles) {
                     for (ArrayList<Node> graf2 : res1.getGraf()) {
-                        int resCalc = calcMacCabeMetric(graf1, graf2);
-                        if (max < resCalc) {
-                            max = resCalc;
+
+
+                        int countEdgesFirst = 0;
+                        int countNodesFirst = 0;
+                        for (Node node : graf1) {
+                            countEdgesFirst += node.getEdges().size();
+                        }
+                        countNodesFirst = graf1.size();
+
+                        int macCabeFirst = countEdgesFirst - countNodesFirst + 1;
+
+                        int countEdgesSecond = 0;
+                        int countNodesSecond = 0;
+                        for (Node node : graf2) {
+                            countEdgesSecond += node.getEdges().size();
+                        }
+                        countNodesSecond = graf2.size();
+
+                        int macCabeSecond = countEdgesSecond - countNodesSecond + 1;
+
+                        if (macCabeFirst > macCabeSecond) {
+                            result = macCabeSecond * 100 / macCabeFirst;
+                        } else if (macCabeFirst < macCabeSecond) {
+                            result = macCabeFirst * 100 / macCabeSecond;
+                        } else {
+                            result = 100;
+                        }
+                        //int resCalc = calcMacCabeMetric(graf1, graf2);
+                        if (max < result) {
+                            max = result;
                         }
                     }
                 }
                 sumRes += max;
-                sumRes /= ++countComp;
+                ++countComp;
             }
         }
+        if (countComp == 0) {
+            return 0;
+        }
+        sumRes /= countComp;
         return sumRes;
     }
 
 
     private int calcMacCabeMetric(ArrayList<Node> graf1, ArrayList<Node> graf2) {
-        int countEdgesFirst = 0;
-        int countNodesFirst = 0;
-        for (Node node : graf1) {
-            countEdgesFirst += node.getEdges().size();
-        }
-        countNodesFirst = graf1.size();
 
-        int macCabeFirst = countEdgesFirst - countNodesFirst;
-
-        int countEdgesSecond = 0;
-        int countNodesSecond = 0;
-        for (Node node : graf2) {
-            countEdgesSecond += node.getEdges().size();
-        }
-        countNodesSecond = graf2.size();
-
-        int macCabeSecond = countEdgesSecond - countNodesSecond;
         int result = 0;
 
-        if (macCabeFirst > macCabeSecond) {
-            result = macCabeSecond * 100 / macCabeFirst;
-        } else if (macCabeFirst < macCabeSecond) {
-            result = macCabeFirst * 100 / macCabeSecond;
-        } else {
-            result = 100;
-        }
+
         return result;
     }
 
+    /**
+     * Найти наибольшую общую подпоследовательность
+     *
+     * @param x массив первой подпоследовательности
+     * @param y массив второй подпоследовательности
+     * @return массив результирующей подпоследовательности
+     */
     private static int[] getLCS(int[] x, int[] y) {
         int m = x.length;
         int n = y.length;
@@ -428,15 +496,26 @@ public class CalculatorPlagiat {
     }
 
 
+    /**
+     * Выполняет динамический анализ и сравнивает результаты
+     *
+     * @param firstAnalyzer  первый анализатор
+     * @param secondAnalyzer второй анализатор
+     */
     public void calcDynamic(Analyzer firstAnalyzer, Analyzer secondAnalyzer) {
         boolean dynExecFirst = firstAnalyzer.dynamicAnalyzeFirst();
         boolean dynExecSecond = secondAnalyzer.dynamicAnalyzeSecond();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ArrayList<String> resultPars1 = parsingValgrindResult(DynamicAnalyzer.DYNAMIC_RESULT_PATH_C1);
         ArrayList<String> resultPars2 = parsingValgrindResult(DynamicAnalyzer.DYNAMIC_RESULT_PATH_C2);
         if (resultPars1.size() == 13 && resultPars2.size() == 13) {
             int result = 0;
-            if (Integer.parseInt(resultPars1.get(0)) + 10 > Integer.parseInt(resultPars2.get(0)) &&
-                    Integer.parseInt(resultPars1.get(0)) - 10 < Integer.parseInt(resultPars2.get(0))) {
+            if (Integer.parseInt(resultPars1.get(0)) + 5000 > Integer.parseInt(resultPars2.get(0)) &&
+                    Integer.parseInt(resultPars1.get(0)) - 5000 < Integer.parseInt(resultPars2.get(0))) {
                 result++;
             }
             if (Integer.parseInt(resultPars1.get(1)) + 10 > Integer.parseInt(resultPars2.get(1)) &&
@@ -447,16 +526,16 @@ public class CalculatorPlagiat {
                     Integer.parseInt(resultPars1.get(2)) - 10 < Integer.parseInt(resultPars2.get(2))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(3)) + 0.1 > Double.parseDouble(resultPars2.get(3)) &&
-                    Double.parseDouble(resultPars1.get(3)) - 0.1 < Double.parseDouble(resultPars2.get(3))) {
+            if (Double.parseDouble(resultPars1.get(3)) + 0.2 > Double.parseDouble(resultPars2.get(3)) &&
+                    Double.parseDouble(resultPars1.get(3)) - 0.2 < Double.parseDouble(resultPars2.get(3))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(4)) + 0.1 > Double.parseDouble(resultPars2.get(4)) &&
-                    Double.parseDouble(resultPars1.get(4)) - 0.1 < Double.parseDouble(resultPars2.get(4))) {
+            if (Double.parseDouble(resultPars1.get(4)) + 0.2 > Double.parseDouble(resultPars2.get(4)) &&
+                    Double.parseDouble(resultPars1.get(4)) - 0.2 < Double.parseDouble(resultPars2.get(4))) {
                 result++;
             }
-            if (Integer.parseInt(resultPars1.get(5)) + 10 > Integer.parseInt(resultPars2.get(5)) &&
-                    Integer.parseInt(resultPars1.get(5)) - 10 < Integer.parseInt(resultPars2.get(5))) {
+            if (Integer.parseInt(resultPars1.get(5)) + 5000 > Integer.parseInt(resultPars2.get(5)) &&
+                    Integer.parseInt(resultPars1.get(5)) - 5000 < Integer.parseInt(resultPars2.get(5))) {
                 result++;
             }
             if (Integer.parseInt(resultPars1.get(6)) + 10 > Integer.parseInt(resultPars2.get(6)) &&
@@ -467,12 +546,12 @@ public class CalculatorPlagiat {
                     Integer.parseInt(resultPars1.get(7)) - 10 < Integer.parseInt(resultPars2.get(7))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(8)) + 0.1 > Double.parseDouble(resultPars2.get(8)) &&
-                    Double.parseDouble(resultPars1.get(8)) - 0.1 < Double.parseDouble(resultPars2.get(8))) {
+            if (Double.parseDouble(resultPars1.get(8)) + 0.2 > Double.parseDouble(resultPars2.get(8)) &&
+                    Double.parseDouble(resultPars1.get(8)) - 0.2 < Double.parseDouble(resultPars2.get(8))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(9)) > Double.parseDouble(resultPars2.get(9)) &&
-                    Double.parseDouble(resultPars1.get(9)) < Double.parseDouble(resultPars2.get(9))) {
+            if (Double.parseDouble(resultPars1.get(9)) + 0.2 > Double.parseDouble(resultPars2.get(9)) &&
+                    Double.parseDouble(resultPars1.get(9)) - 0.2 < Double.parseDouble(resultPars2.get(9))) {
                 result++;
             }
             if (Integer.parseInt(resultPars1.get(10)) + 10 > Integer.parseInt(resultPars2.get(10)) &&
@@ -483,8 +562,8 @@ public class CalculatorPlagiat {
                     Integer.parseInt(resultPars1.get(11)) - 10 < Integer.parseInt(resultPars2.get(11))) {
                 result++;
             }
-            if (Double.parseDouble(resultPars1.get(12)) > Double.parseDouble(resultPars2.get(12)) &&
-                    Double.parseDouble(resultPars1.get(12)) < Double.parseDouble(resultPars2.get(12))) {
+            if (Double.parseDouble(resultPars1.get(12)) + 0.2 > Double.parseDouble(resultPars2.get(12)) &&
+                    Double.parseDouble(resultPars1.get(12)) - 0.2 < Double.parseDouble(resultPars2.get(12))) {
                 result++;
             }
 
@@ -493,8 +572,13 @@ public class CalculatorPlagiat {
 
     }
 
+    /**
+     * Анализирует результат утилиты динамического анализа
+     *
+     * @param path путь до файла
+     * @return Список значений профилирования
+     */
     public ArrayList<String> parsingValgrindResult(String path) {
-
         ArrayList<String> result = new ArrayList<>();
         BufferedReader reader = null;
         String text = "";
@@ -585,41 +669,76 @@ public class CalculatorPlagiat {
         }
     }
 
-    private int compareGrafs(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles, ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
+    /**
+     * Сраванивает графы методом Слайсов
+     */
+    private int compareGrafs(ArrayList<ResultAnalyzeFile> listFirstResultAnalyzeFiles,
+                             ArrayList<ResultAnalyzeFile> listSecondResultAnalyzeFiles) {
         int compareResult = 0;
         int countCopare = 0;
+
+
         for (ResultAnalyzeFile resFirst : listFirstResultAnalyzeFiles) {
-            for (ResultAnalyzeFile resSecond : listSecondResultAnalyzeFiles) {
-                compareResult += compareTwoListsGrafs(resFirst.getGraf(), resSecond.getGraf()) / ++countCopare;
+            for (ArrayList<Node> nodeArrayList : resFirst.getGraf()) {
+                int max = 0;
+                for (ResultAnalyzeFile resSecond : listSecondResultAnalyzeFiles) {
+                    for (ArrayList<Node> nodeArrayList1 : resSecond.getGraf()) {
+
+                        for (ResultAnalyzeFile resFirst1 : listFirstResultAnalyzeFiles) {
+                            for (ArrayList<Node> nodeArrayList2 : resFirst1.getGraf()) {
+                                for (Node node : nodeArrayList2) {
+                                    node.setVisit(false);
+                                }
+                            }
+                        }
+
+                        for (ResultAnalyzeFile resS : listSecondResultAnalyzeFiles) {
+                            for (ArrayList<Node> nodeArrayList2 : resS.getGraf()) {
+                                for (Node node : nodeArrayList2) {
+                                    node.setVisit(false);
+                                }
+                            }
+                        }
+
+                        ArrayList<ArrayList<Node>> retList = compareTwoGrafs(nodeArrayList, nodeArrayList1);
+                        int percentFirst = retList.get(0).size() * 100 / nodeArrayList.size();
+                        int percentSecond = retList.get(1).size() * 100 / nodeArrayList1.size();
+                        int minPercent = 0;
+                        if (percentFirst > percentSecond) {
+                            minPercent = percentSecond;
+                        } else {
+                            minPercent = percentFirst;
+                        }
+                        if (max < minPercent) {
+                            max = minPercent;
+                        }
+                    }
+
+                }
+                compareResult += max;
+                countCopare++;
             }
+
+
+            //compareResult = compareTwoListsGrafs(resFirst.getGraf(), resSecond.getGraf());
+            //if (max < compareResult) {
+            //    max = compareResult;
+            //}
+            // }
+            // compareResult += max;
+            // compareResult /= ++countCopare;
         }
+        if (countCopare == 0) {
+            return 0;
+        }
+        compareResult /= countCopare;
         return compareResult;
     }
 
-    private int compareTwoListsGrafs(ArrayList<ArrayList<Node>> grafsFirst, ArrayList<ArrayList<Node>> grafsSecond) {
-        int percentCompare = 0;
-        int countCopmare = 0;
-        for (ArrayList<Node> listNodesF : grafsFirst) {
-            int max = 0;
-            for (ArrayList<Node> listNodesS : grafsSecond) {
-                ArrayList<ArrayList<Node>> retList = compareTwoGrafs(listNodesF, listNodesS);
-                int percentFirst = retList.get(0).size() * 100 / listNodesF.size();
-                int percentSecond = retList.get(1).size() * 100 / listNodesS.size();
-                int minPercent = 0;
-                if (percentFirst > percentSecond) {
-                    minPercent = percentSecond;
-                } else {
-                    minPercent = percentFirst;
-                }
-                if (max < minPercent) {
-                    max = minPercent;
-                }
-            }
-            percentCompare += max;
-            percentCompare /= ++countCopmare;
-        }
-        return percentCompare;
-    }
+    //private int compareTwoListsGrafs(ArrayList<ArrayList<Node>> grafsFirst, ArrayList<ArrayList<Node>> grafsSecond) {
+
+    //   return percentCompare;
+    // }
 
     private ArrayList<ArrayList<Node>> compareTwoGrafs(ArrayList<Node> grafFirst, ArrayList<Node> grafSecond) {
         ArrayList<Node> resListNodesFirstReturn = null;
@@ -629,19 +748,20 @@ public class CalculatorPlagiat {
             ArrayList<Node> resListNodesSecond = new ArrayList<>();
             for (Node nodeS : grafSecond) {
                 if (nodeF.getCode() == nodeS.getCode() && !nodeF.isVisit() && !nodeS.isVisit()) {
-                    resListNodesFirst.add(nodeF.clone());
-                    resListNodesSecond.add(nodeS.clone());
+                    resListNodesFirst.add(nodeF);
+                    resListNodesSecond.add(nodeS);
                     for (int i = 0; i < resListNodesFirst.size(); i++) {
                         for (int j = 0; j < resListNodesSecond.size(); j++) {
-                            if (resListNodesFirst.get(i).getCode() == resListNodesSecond.get(j).getCode()) {
+                            if (resListNodesFirst.get(i).getCode() == resListNodesSecond.get(j).getCode()
+                                    && !resListNodesFirst.get(i).isVisit() && !resListNodesSecond.get(j).isVisit()) {
                                 resListNodesFirst.get(i).setVisit(true);
                                 resListNodesSecond.get(j).setVisit(true);
                                 for (Edge eF : resListNodesFirst.get(i).getEdges()) {
                                     for (Edge eS : resListNodesSecond.get(j).getEdges()) {
                                         if (eF.getEnd().getCode() == eS.getEnd().getCode() && !eF.getEnd().isVisit()
                                                 && !eS.getEnd().isVisit()) {
-                                            resListNodesFirst.add(eF.getEnd().clone());
-                                            resListNodesSecond.add(eS.getEnd().clone());
+                                            resListNodesFirst.add(eF.getEnd());
+                                            resListNodesSecond.add(eS.getEnd());
                                         }
                                     }
                                 }
@@ -680,30 +800,65 @@ public class CalculatorPlagiat {
         return retList;
     }
 
+    /**
+     * Получить список частот первого проекта
+     *
+     * @return список частот первого проекта
+     */
     public ArrayList<MyMap> getFreqFirst() {
         return freqFirst;
     }
 
+    /**
+     * Получить список частот второго проекта
+     *
+     * @return список частот второго проекта
+     */
     public ArrayList<MyMap> getFreqSecond() {
         return freqSecond;
     }
 
+    /**
+     * Получить результат сравнивания последовательностей операторов
+     *
+     * @return результат сравнивания последовательностей операторов
+     */
     public int getResultSeqOperators() {
         return resultSeqOperators;
     }
 
+    /**
+     * Получить результат сравнивания частот
+     *
+     * @return результат сравнивания частот
+     */
     public int getResultFreq() {
         return resultFreq;
     }
 
+    /**
+     * Получить результат сравнивания динамического анализа
+     *
+     * @return результат сравнивания динамического анализа
+     */
     public int getResultDynamic() {
         return resultDynamic;
     }
 
+    /**
+     * Получить результат сравнивания метрик МакКейба
+     *
+     * @return результат сравнивания метрик МакКейба
+     */
     public int getResultMacCabe() {
         return resultMacCabe;
     }
 
+    /**
+     * Получить результат сравнивания графов методом слайсов
+     *
+     * @return результат сравнивания графов методом слайсов
+     */
     public int getResultComapreGrafs() {
         return resultComapreGrafs;
     }

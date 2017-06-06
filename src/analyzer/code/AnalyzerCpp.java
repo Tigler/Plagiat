@@ -1,8 +1,11 @@
 package analyzer.code;
 
 import dynamic.DynamicAnalyzer;
+import events.EventParser;
 import events.EventSequenceOperators;
 import events.ListenerParser;
+import graf.Edge;
+import graf.Node;
 import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
@@ -35,7 +38,7 @@ public class AnalyzerCpp extends Analyzer {
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
         graf = new ArrayList<>();
-        ListenerParser listener = createChainListeners();
+        ListenerParser listener = createListeners();
         CPP14Parser cpp14Parser = (CPP14Parser) parser;
         cpp14Parser.attach(listener);
         parser.setTokenStream(loadProject(path));
@@ -44,6 +47,7 @@ public class AnalyzerCpp extends Analyzer {
         cpp14Parser.translationunit();
         String[] paths = path.split("/");
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
+        printGraf();
     }
 
     /**
@@ -66,7 +70,12 @@ public class AnalyzerCpp extends Analyzer {
     }
 
 
-    private ListenerParser createChainListeners() {
+    /**
+     * создает слушателя
+     *
+     * @return слушателя
+     */
+    private ListenerParser createListeners() {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
@@ -74,7 +83,14 @@ public class AnalyzerCpp extends Analyzer {
         return listener;
     }
 
-    private TokenStream loadProject(String path) {
+    /**
+     * Преобразует исходник в специальный вид -tokenStream
+     *
+     * @param path- путь до файла
+     * @return
+     */
+    @Override
+    public TokenStream loadProject(String path) {
         Reader reader = null;
         try {
             reader = new BufferedReader(new ReaderUTF8(new FileInputStream(path)));
@@ -83,5 +99,111 @@ public class AnalyzerCpp extends Analyzer {
         }
         TokenStream tokenStream = new CommonTokenStream(new CPP14Lexer(new UnbufferedCharStream(reader)));
         return tokenStream;
+    }
+
+    /**
+     * отладочный метод - печать графа
+     */
+    private void printGraf() {
+        for (ArrayList<Node> list : graf) {
+            for (Node n : list) {
+                String res = null;
+                switch (n.getCode()) {
+                    case EventParser.IF_START:
+                        res = "if_start ";
+                        break;
+                    case EventParser.IF_END:
+                        res = "if_end ";
+                        break;
+                    case EventParser.ELSE_START:
+                        res = "else_start ";
+                        break;
+                    case EventParser.ELSE_END:
+                        res = "else_end ";
+                        break;
+                    case EventParser.WHILE_START:
+                        res = "while_start ";
+                        break;
+                    case EventParser.WHILE_END:
+                        res = "while_end ";
+                        break;
+                    case EventParser.SWITCH_END:
+                        res = "switch_end ";
+                        break;
+                    case EventParser.SWITCH_START:
+                        res = "switch_Start ";
+                        break;
+                    case EventParser.CASE_START:
+                        res = "case_start ";
+                        break;
+                    case EventParser.DEFAULT_START:
+                        res = "default_start ";
+                        break;
+                    case EventParser.CASE_END:
+                        res = "case_end ";
+                        break;
+                    case EventParser.DEFAULT_END:
+                        res = "default_end ";
+                        break;
+                    case EventParser.FUNC_START:
+                        res = "func_start ";
+                        break;
+                    case EventParser.FUNC_END:
+                        res = "func_end ";
+                        break;
+                }
+                System.out.print(res);
+                //System.out.println(n.getCode());
+                for (Edge e : n.getEdges()) {
+                    String res1 = null;
+                    switch (e.getEnd().getCode()) {
+                        case EventParser.FUNC_START:
+                            res1 = "func_start ";
+                            break;
+                        case EventParser.FUNC_END:
+                            res1 = "func_end ";
+                            break;
+                        case EventParser.IF_START:
+                            res1 = "if_start ";
+                            break;
+                        case EventParser.IF_END:
+                            res1 = "if_end ";
+                            break;
+                        case EventParser.ELSE_START:
+                            res1 = "else_start ";
+                            break;
+                        case EventParser.ELSE_END:
+                            res1 = "else_end ";
+                            break;
+                        case EventParser.WHILE_START:
+                            res1 = "while_start ";
+                            break;
+                        case EventParser.WHILE_END:
+                            res1 = "while_end ";
+                            break;
+                        case EventParser.SWITCH_END:
+                            res1 = "switch_end ";
+                            break;
+                        case EventParser.SWITCH_START:
+                            res1 = "switch_Start ";
+                            break;
+                        case EventParser.CASE_START:
+                            res1 = "case_start ";
+                            break;
+                        case EventParser.DEFAULT_START:
+                            res1 = "default_start ";
+                            break;
+                        case EventParser.CASE_END:
+                            res1 = "case_end ";
+                            break;
+                        case EventParser.DEFAULT_END:
+                            res1 = "default_end ";
+                            break;
+                    }
+                    System.out.print(res1);
+                }
+                System.out.println();
+            }
+        }
     }
 }

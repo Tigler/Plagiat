@@ -7,8 +7,8 @@ import jdk.internal.util.xml.impl.ReaderUTF8;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.UnbufferedCharStream;
-import parsers.Java.JavaLexer;
-import parsers.Java.JavaParser;
+import parsers.Java8.Java8Lexer;
+import parsers.Java8.Java8Parser;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -26,12 +26,15 @@ public class AnalyzerJava extends Analyzer {
         resultsAnalyzeFiles = new ArrayList<>();
         dynAn = new DynamicAnalyzer();
         dynAn.initUtilite(LanguagePrograming.LANG_JAVA);
-        parser = new JavaParser(null);
-
-
+        parser = new Java8Parser(null);
     }
 
-    private ListenerParser createChainListeners() {
+    /**
+     * создает слушателя
+     *
+     * @return слушателя
+     */
+    private ListenerParser createListeners() {
         ListenerParser listener = null;
         listener = new EventSequenceOperators(listener);
         listener.setListOperators(this.listsOperators);
@@ -46,13 +49,13 @@ public class AnalyzerJava extends Analyzer {
     public void parsing(String path) {
         listsOperators = new ArrayList<>();
         graf = new ArrayList<>();
-        ListenerParser listener = createChainListeners();
-        JavaParser javaParser = (JavaParser) parser;
-        javaParser.attach(listener);
+        ListenerParser listener = createListeners();
+        Java8Parser java8Parser = (Java8Parser) parser;
+        java8Parser.attach(listener);
         parser.setTokenStream(loadProject(path));
 
-        javaParser.setPath(path);
-        javaParser.compilationUnit();
+        java8Parser.setPath(path);
+        java8Parser.compilationUnit();
         String[] paths = path.split("/");
         resultsAnalyzeFiles.add(new ResultAnalyzeFile(paths[paths.length - 1], path, listsOperators, graf));
     }
@@ -77,14 +80,21 @@ public class AnalyzerJava extends Analyzer {
     }
 
 
-    private TokenStream loadProject(String path) {
+    /**
+     * Преобразует исходник в специальный вид -tokenStream
+     *
+     * @param path- путь до файла
+     * @return
+     */
+    @Override
+    public TokenStream loadProject(String path) {
         Reader reader = null;
         try {
             reader = new BufferedReader(new ReaderUTF8(new FileInputStream(path)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        TokenStream tokenStream = new CommonTokenStream(new JavaLexer(new UnbufferedCharStream(reader)));
+        TokenStream tokenStream = new CommonTokenStream(new Java8Lexer(new UnbufferedCharStream(reader)));
         return tokenStream;
     }
 

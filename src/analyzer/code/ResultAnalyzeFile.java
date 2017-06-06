@@ -5,14 +5,15 @@ import graf.Node;
 import java.util.ArrayList;
 
 /**
+ * результат анализа файлов - исходник в необходимых представлениях
  * Created by tigler on 06.05.17.
  */
 public class ResultAnalyzeFile {
-    private String nameFile;
-    private String path;
-    private ArrayList<ArrayList<Operator>> listsOperators;
-    private ArrayList<ArrayList<Node>> graf;
-    private ArrayList<Integer> macCabeValues;
+    private String nameFile; //название файла
+    private String path; //путь до файла
+    private ArrayList<ArrayList<Operator>> listsOperators; //списки операторов одного исходника
+    private ArrayList<ArrayList<Node>> graf; //графы методов одного исходника
+    private ArrayList<Integer> macCabeValues; //список значений метрики маккейба
 
     public ResultAnalyzeFile(String nameFile, String path, ArrayList<ArrayList<Operator>> listsOperators,
                              ArrayList<ArrayList<Node>> graf) {

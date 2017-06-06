@@ -5,28 +5,39 @@
  */
 package dynamic;
 
+import analyzer.code.LanguagePrograming;
+
 import java.util.ArrayList;
 
 /**
+ * Динамический анализатор, предназначен для проведения динамическго анализа проекта
  * @author tigler
  */
 public class DynamicAnalyzer {
+    // Путь до файла с результатом профилирования первой программы
     public final static String DYNAMIC_RESULT_PATH_C1 = "dinamic/CompilationFilesC1/valgrindResult1.txt";
+    // Путь до файла с результатом профилирования второй программы
     public final static String DYNAMIC_RESULT_PATH_C2 = "dinamic/CompilationFilesC2/valgrindResult2.txt";
+    //Утилита для динамического анализа
     private Utilite utilite;
 
-    public boolean initUtilite(int r) {
+    /**
+     * Инициализация утилиты
+     *
+     * @param lp - код языка программирования
+     * @return флаг успешности инициализция
+     */
+    public boolean initUtilite(int lp) {
         int os = getOS();
-        switch (os) {
-            case 1:
-                utilite = new UtiliteForLinuxC();
-                break;
-            case 2:
-               // utilite = new UtiliteForWindows();
-                break;
-            case 3:
-                //utilite = new UtiliteForMac();
-                break;
+        switch (lp) {
+            case LanguagePrograming.LANG_C:
+                switch (os) {
+                    case 1:
+                        utilite = new UtiliteForLinuxC();
+                        break;
+                    default:
+                        utilite = null;
+                }break;
             default:
                 utilite = null;
         }
@@ -37,16 +48,19 @@ public class DynamicAnalyzer {
         }
     }
 
+    /**
+     * Провести динамический анализ
+     * @param listPathFiles - список путей до файлов проекта
+     * @param numAnalyzer - номер анализатора
+     * @return флаг успешности динамического анализа
+     */
     public boolean analyze(ArrayList<String> listPathFiles, int numAnalyzer) {
         return utilite.executeProgramm(listPathFiles, numAnalyzer);
     }
 
-    public Utilite getUtilite() {
-        return utilite;
-    }
 
     /**
-     * получить ОС на которой запущена данная программа
+     * Получить ОС на которой запущена данная программа
      *
      * @return 0 - не удалось определить или не одна из следующих, 1 - linux, 2 - windows, 3 - mac
      */
